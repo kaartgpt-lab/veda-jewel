@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make To Order — VEDA Jewel Atelier</title>
+  <meta name="description" content="Commission your heirloom at the VEDA Atelier. A luxury bespoke jewellery experience — from your story to sketch, design to craftsmanship, and final heirloom.">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css?v=1.3">
+  <style>
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2xl);
+    }
+    .journey-card {
+      text-align: center;
+      padding: var(--space-xl);
+      position: relative;
+    }
+    .journey-card .journey-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--gold-aged);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: var(--space-sm);
+    }
+    .journey-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      margin-bottom: var(--space-sm);
+    }
+    .journey-card p {
+      font-size: 0.95rem;
+      margin: 0 auto;
+    }
+    .sketch-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    .sketch-gallery .gallery-item {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .journey-grid { grid-template-columns: 1fr; }
+      .sketch-gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation (same as homepage) -->
+  <nav class="navbar" id="main-nav">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo"><img src="assets/icons/logo-full.png" alt="VEDA Jewel" style="height: 50px; width: auto;"></a>
+      <div class="navbar-links">
+        <a href="category.html">Jewellery</a>
+        <a href="collection.html">Collections</a>
+        <a href="make-to-order.html" class="active">Make To Order</a>
+        <a href="old-gold-exchange.html">Old Gold</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="navbar-utility">
+        <button aria-label="Search" class="hide-mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button>
+        <a href="#" aria-label="Wishlist" class="hide-mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg></a>
+        <a href="#" aria-label="Cart" class="hide-mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6V20C3 20.53 3.21 21.04 3.59 21.41C3.96 21.79 4.47 22 5 22H19C19.53 22 20.04 21.79 20.41 21.41C20.79 21.04 21 20.53 21 20V6L18 2H6Z"/><path d="M3 6H21"/><path d="M16 10C16 11.06 15.58 12.08 14.83 12.83C14.08 13.58 13.06 14 12 14C10.94 14 9.92 13.58 9.17 12.83C8.42 12.08 8 11.06 8 10"/></svg></a>
+        <div class="navbar-hamburger" id="hamburger-toggle"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a><a href="category.html">Jewellery</a><a href="collection.html">Collections</a>
+    <a href="make-to-order.html">Make To Order</a><a href="old-gold-exchange.html">Old Gold Exchange</a>
+    <a href="vsvp.html">VSVP</a>
+    <a href="about.html">Our Story</a><a href="products.html">Shop</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero hero-page">
+    <div class="hero-bg">
+      <img src="assets/images/artisan-crafting.png" alt="VEDA Atelier — Bespoke Jewellery" style="width:100%;height:100%;object-fit:cover;">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <span class="label" style="color: var(--gold-light);">— The Atelier —</span>
+      <h1>Your Vision. Our Craft.<br>Your Heirloom.</h1>
+      <p class="subtitle">At the VEDA Atelier, every piece begins with your story and ends with an heirloom that transcends generations.</p>
+    </div>
+  </section>
+
+  <!-- What Is Make To Order -->
+  <section class="bg-cream pattern-diamond">
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="split-layout" style="min-height:auto;gap:var(--space-3xl);align-items:center;">
+        <div class="reveal" style="padding:0;">
+          <span class="label-gold">— Bespoke —</span>
+          <h2 style="margin:var(--space-lg) 0;">What Is<br>Make To Order?</h2>
+          <p style="margin-bottom:var(--space-lg);">
+            Make To Order is not a service. It is an art. At VEDA, we believe that the most meaningful jewellery is the jewellery that carries your story — your memories, your milestones, your legacy.
+          </p>
+          <p style="margin-bottom:var(--space-lg);">
+            Our master designers and artisans work with you through an intimate creative process to bring your vision to life. Every curve, every stone, every detail is intentional. The result is not a product. It is a piece of art that belongs only to you.
+          </p>
+          <div class="quote-block">
+            <p class="quote-text">You are not ordering jewellery. You are commissioning a piece of art.</p>
+          </div>
+        </div>
+        <div class="reveal-right" style="padding:0;">
+          <div class="arch-frame" style="aspect-ratio:3/4;overflow:hidden;">
+            <img src="assets/images/jewellery-sketch.png" alt="Jewellery Design Sketch" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Journey Timeline -->
+  <section class="bg-beige">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label-gold">— The Journey —</span>
+        <h2>From Your Story<br>to Your Heirloom</h2>
+        <hr class="gold-line-long">
+        <p>Six sacred steps in the creation of your bespoke piece.</p>
+      </div>
+
+      <div class="journey-grid stagger-children">
+        <div class="journey-card">
+          <div class="journey-number">01</div>
+          <h4>Your Story</h4>
+          <p>We begin with a conversation. Your memories, your inspirations, the moment this piece will commemorate.</p>
+        </div>
+        <div class="journey-card">
+          <div class="journey-number">02</div>
+          <h4>Inspiration</h4>
+          <p>Our designers draw from your narrative, Indian heritage, and VEDA's design philosophy to create a vision.</p>
+        </div>
+        <div class="journey-card">
+          <div class="journey-number">03</div>
+          <h4>Sketch</h4>
+          <p>Hand-drawn sketches bring your piece to life on paper. Every detail is refined through dialogue with you.</p>
+        </div>
+        <div class="journey-card">
+          <div class="journey-number">04</div>
+          <h4>Design</h4>
+          <p>Precision CAD renders are created, allowing you to see your piece from every angle before crafting begins.</p>
+        </div>
+        <div class="journey-card">
+          <div class="journey-number">05</div>
+          <h4>Craftsmanship</h4>
+          <p>Master artisans bring the design to life — hand-setting each stone, hand-finishing each surface.</p>
+        </div>
+        <div class="journey-card">
+          <div class="journey-number">06</div>
+          <h4>Your Heirloom</h4>
+          <p>The final piece is presented to you — certified, storied, and forever yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Designer Consultation -->
+  <section class="bg-deep">
+    <div class="container">
+      <div class="split-layout" style="min-height:auto;gap:var(--space-3xl);align-items:center;">
+        <div class="reveal-left" style="padding:0;">
+          <div style="aspect-ratio:4/5;overflow:hidden;">
+            <img src="assets/images/artisan-crafting.png" alt="VEDA Design Team" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+        <div class="reveal-right" style="padding:0;">
+          <span class="label" style="color:var(--gold-light);">— The Team —</span>
+          <h2 style="color:var(--text-light);margin:var(--space-lg) 0;">Meet Our<br>Master Designers</h2>
+          <p style="color:rgba(250,247,242,0.7);margin-bottom:var(--space-lg);">
+            Our design team brings decades of combined experience in heritage Indian jewellery design. Each designer carries forward a lineage of craftsmanship while embracing contemporary sensibility.
+          </p>
+          <p style="color:rgba(250,247,242,0.7);margin-bottom:var(--space-xl);">
+            From the first consultation to the final reveal, a dedicated designer guides your journey — ensuring that every detail reflects your vision and VEDA's uncompromising standards.
+          </p>
+          <a href="https://wa.me/919187204025" class="btn btn-gold">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sketch Gallery -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label-gold">— The Artistry —</span>
+        <h2>From Sketch to Stone</h2>
+        <hr class="gold-line-long">
+        <p>Every masterpiece begins with a line. Explore the artistry behind our bespoke creations.</p>
+      </div>
+      <div class="sketch-gallery reveal">
+        <div class="gallery-item"><img src="assets/images/jewellery-sketch.png" alt="Design Sketch"></div>
+        <div class="gallery-item"><img src="assets/images/artisan-crafting.png" alt="Artisan at work"></div>
+        <div class="gallery-item"><img src="assets/images/hero-necklace.png" alt="Finished piece"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Creations -->
+  <section class="bg-beige">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label-gold">— Bespoke Gallery —</span>
+        <h2>Past Creations</h2>
+        <hr class="gold-line-long">
+        <p>A selection of bespoke pieces created for our clients — each one unique, each one a story.</p>
+      </div>
+      <div class="grid grid-3 reveal" style="gap:var(--space-lg);">
+        <div class="card-editorial" style="aspect-ratio:1;">
+          <img src="assets/images/bridal-set.png" alt="Bespoke Bridal Set">
+          <div class="card-overlay">
+            <h3>The Rajkumari Set</h3>
+            <p>Commissioned for a royal wedding</p>
+          </div>
+        </div>
+        <div class="card-editorial" style="aspect-ratio:1;">
+          <img src="assets/images/hero-necklace.png" alt="Bespoke Heritage Necklace">
+          <div class="card-overlay">
+            <h3>The Devika Haar</h3>
+            <p>A legacy necklace in 22K gold</p>
+          </div>
+        </div>
+        <div class="card-editorial" style="aspect-ratio:1;">
+          <img src="assets/images/diamond-ring.png" alt="Bespoke Engagement Ring">
+          <div class="card-overlay">
+            <h3>The Anuradha Ring</h3>
+            <p>A proposal piece with heritage filigree</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label-gold">— Client Voices —</span>
+        <h2>Stories from the Atelier</h2>
+        <hr class="gold-line-long">
+      </div>
+      <div class="testimonial-carousel reveal">
+        <div class="testimonial-slides">
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <p class="testimonial-quote"><span class="quote-mark">"</span>Working with VEDA to create my wedding necklace was transformative. They took my grandmother's stories and wove them into gold. I wear my family's legacy now.</p>
+              <p class="testimonial-author">Meera Iyer</p>
+              <p class="testimonial-role">Bengaluru</p>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <p class="testimonial-quote"><span class="quote-mark">"</span>The process was meditative. Every sketch review, every stone selection — it felt like we were creating something sacred together. The final piece moved me to tears.</p>
+              <p class="testimonial-author">Deepa Nair</p>
+              <p class="testimonial-role">Mumbai</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-dots"><span class="testimonial-dot active"></span><span class="testimonial-dot"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Book Consultation CTA -->
+  <section class="bg-maroon">
+    <div class="container text-center">
+      <div style="max-width:700px;margin:0 auto;">
+        <span class="label reveal" style="color:var(--gold-light);">— Begin Your Journey —</span>
+        <h2 class="reveal" style="color:var(--text-light);margin:var(--space-lg) 0;">Ready to Create<br>Your Heirloom?</h2>
+        <p class="reveal" style="color:rgba(250,247,242,0.7);margin-bottom:var(--space-2xl);">
+          Every bespoke journey begins with a conversation. Book a private consultation with our design team — in-store or virtually.
+        </p>
+        <div class="reveal" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="https://wa.me/919187204025" class="btn btn-gold">Book Consultation</a>
+          <a href="tel:+919187204025" class="btn btn-secondary">Call +91 91872 04025</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><a href="index.html" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/icons/logo-peacock.png" alt="VEDA" style="height:50px;width:auto;filter:brightness(0) invert(0.7) sepia(1) saturate(2) hue-rotate(10deg);"><span style="font-family:var(--font-display);font-size:1.8rem;letter-spacing:0.12em;color:var(--gold-aged);">VEDA</span></a></div>
+          <p class="footer-tagline">Where wisdom becomes adornment.</p>
+          <div class="footer-social"><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg></a><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a></div>
+        </div>
+        <div class="footer-column"><h5>Jewellery</h5><ul><li><a href="category.html">Necklaces</a></li><li><a href="category.html">Earrings</a></li><li><a href="category.html">Rings</a></li><li><a href="category.html">Bangles</a></li></ul></div>
+        <div class="footer-column"><h5>Services</h5><ul><li><a href="make-to-order.html">Make To Order</a></li><li><a href="old-gold-exchange.html">Old Gold Exchange</a></li><li><a href="vsvp.html">VSVP Plan</a></li>
+            <li><a href="#">Store Appointment</a></li></ul></div>
+        <div class="footer-column"><h5>The House</h5><ul><li><a href="about.html">Our Story</a></li><li><a href="#">Craftsmanship</a></li><li><a href="#">Careers</a></li></ul></div>
+        <div class="footer-newsletter"><h5>Stay Connected</h5><p>Receive invitations to private viewings and collection launches.</p><form class="footer-newsletter-form" onsubmit="event.preventDefault();"><input type="email" placeholder="Your email address"><button type="submit">Join</button></form></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 VEDA Jewel. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+    </div>
+  </footer>
+
+  <div class="sticky-ctas">
+    <a href="https://wa.me/919187204025" class="sticky-cta sticky-cta-whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padma Heritage Haar — VEDA Jewel</title>
+  <meta name="description" content="The Padma Heritage Haar — a heritage necklace in 22K gold with diamonds and rubies, inspired by the sacred lotus. Handcrafted at the VEDA Atelier.">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css?v=1.3">
+  <style>
+    .pdp-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-3xl); align-items: start; padding-top: 120px; }
+    .pdp-gallery { position: sticky; top: 100px; }
+    .pdp-main-image { aspect-ratio: 1; overflow: hidden; background: var(--bg-cream); margin-bottom: var(--space-md); cursor: zoom-in; }
+    .pdp-main-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-slow) var(--ease-luxury); }
+    .pdp-main-image:hover img { transform: scale(1.1); }
+    .pdp-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); }
+    .pdp-thumb { aspect-ratio: 1; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color var(--duration-fast); background: var(--bg-cream); }
+    .pdp-thumb:hover, .pdp-thumb.active { border-color: var(--gold-aged); }
+    .pdp-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .pdp-info { padding-top: var(--space-lg); }
+    .pdp-price { font-family: var(--font-display); font-size: 2rem; color: var(--text-primary); margin-bottom: var(--space-lg); font-weight: 400; }
+    .pdp-meta { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); padding: var(--space-lg) 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); margin-bottom: var(--space-lg); }
+    .pdp-meta-item .meta-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 2px; }
+    .pdp-meta-item .meta-value { font-family: var(--font-display); font-size: 1rem; color: var(--text-primary); }
+    .pdp-actions { display: flex; gap: var(--space-md); margin-bottom: var(--space-xl); }
+    .pdp-actions .btn { flex: 1; justify-content: center; }
+    .pdp-accordion { border-top: 1px solid var(--border-light); }
+    .pdp-accordion-item { border-bottom: 1px solid var(--border-light); }
+    .pdp-accordion-header { display: flex; justify-content: space-between; align-items: center; padding: var(--space-lg) 0; cursor: pointer; font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary); }
+    .pdp-accordion-header::after { content: '+'; font-size: 1.2rem; color: var(--text-tertiary); transition: transform var(--duration-fast); }
+    .pdp-accordion-item.open .pdp-accordion-header::after { content: '−'; }
+    .pdp-accordion-body { max-height: 0; overflow: hidden; transition: max-height var(--duration-fast) var(--ease-luxury); }
+    .pdp-accordion-item.open .pdp-accordion-body { max-height: 500px; }
+    .pdp-accordion-body-inner { padding-bottom: var(--space-lg); }
+    @media (max-width: 992px) { .pdp-layout { grid-template-columns: 1fr; padding-top: 100px; } .pdp-gallery { position: static; } }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="main-nav"><div class="navbar-inner"><a href="index.html" class="navbar-logo"><img src="assets/icons/logo-full.png" alt="VEDA Jewel" style="height: 50px; width: auto;"></a><div class="navbar-links"><a href="category.html">Jewellery</a><a href="collection.html">Collections</a><a href="make-to-order.html">Make To Order</a><a href="old-gold-exchange.html">Old Gold</a><a href="vsvp.html">VSVP</a><a href="about.html">About</a></div><div class="navbar-utility"><button aria-label="Search" class="hide-mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button><a href="#" aria-label="Wishlist" class="hide-mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg></a><a href="#" aria-label="Cart" class="hide-mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6V20C3 20.53 3.21 21.04 3.59 21.41C3.96 21.79 4.47 22 5 22H19C19.53 22 20.04 21.79 20.41 21.41C20.79 21.04 21 20.53 21 20V6L18 2H6Z"/><path d="M3 6H21"/><path d="M16 10C16 11.06 15.58 12.08 14.83 12.83C14.08 13.58 13.06 14 12 14C10.94 14 9.92 13.58 9.17 12.83C8.42 12.08 8 11.06 8 10"/></svg></a><div class="navbar-hamburger" id="hamburger-toggle"><span></span><span></span><span></span></div></div></div></nav>
+  <div class="mobile-menu" id="mobile-menu"><a href="index.html">Home</a><a href="category.html">Jewellery</a><a href="collection.html">Collections</a><a href="make-to-order.html">Make To Order</a><a href="old-gold-exchange.html">Old Gold</a><a href="vsvp.html">VSVP</a>
+    <a href="about.html">Our Story</a></div>
+
+  <!-- Product Detail -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="breadcrumbs" style="padding-top:100px;"><a href="index.html">Home</a><span class="separator">/</span><a href="category.html">Necklaces</a><span class="separator">/</span><a href="collection.html">Padma Collection</a><span class="separator">/</span><span>Padma Heritage Haar</span></div>
+      
+      <div class="pdp-layout">
+        <!-- Gallery -->
+        <div class="pdp-gallery">
+          <div class="pdp-main-image" id="pdp-main-image">
+            <img src="assets/images/hero-necklace.png" alt="Padma Heritage Haar" id="main-product-img">
+          </div>
+          <div class="pdp-thumbs">
+            <div class="pdp-thumb active" onclick="changeImage(this, 'assets/images/hero-necklace.png')"><img src="assets/images/hero-necklace.png" alt="Front view"></div>
+            <div class="pdp-thumb" onclick="changeImage(this, 'assets/images/artisan-crafting.png')"><img src="assets/images/artisan-crafting.png" alt="Craftsmanship detail"></div>
+            <div class="pdp-thumb" onclick="changeImage(this, 'assets/images/editorial-model.png')"><img src="assets/images/editorial-model.png" alt="Styled"></div>
+            <div class="pdp-thumb" onclick="changeImage(this, 'assets/images/gold-bangles.png')"><img src="assets/images/gold-bangles.png" alt="Close up"></div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="pdp-info">
+          <span class="label-gold" style="margin-bottom:var(--space-sm);display:block;">Padma Collection</span>
+          <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:var(--space-sm);">Padma Heritage Haar</h1>
+          <p class="subtitle" style="font-size:1.1rem;margin-bottom:var(--space-lg);">A heritage necklace inspired by the sacred lotus, crafted in 22K gold with diamonds and rubies.</p>
+          
+          <div class="pdp-price">₹ 2,85,000</div>
+          <p class="body-sm" style="color:var(--text-tertiary);margin-top:-var(--space-sm);margin-bottom:var(--space-lg);">Inclusive of all taxes. EMI available.</p>
+
+          <div class="pdp-meta">
+            <div class="pdp-meta-item"><div class="meta-label">Metal</div><div class="meta-value">22K Yellow Gold</div></div>
+            <div class="pdp-meta-item"><div class="meta-label">Weight</div><div class="meta-value">38.5 grams</div></div>
+            <div class="pdp-meta-item"><div class="meta-label">Diamonds</div><div class="meta-value">2.4 ct, VVS1</div></div>
+            <div class="pdp-meta-item"><div class="meta-label">Gemstones</div><div class="meta-value">Natural Rubies</div></div>
+          </div>
+
+          <div class="pdp-actions">
+            <a href="https://wa.me/919187204025?text=I'm%20interested%20in%20the%20Padma%20Heritage%20Haar" class="btn btn-primary">Enquire on WhatsApp</a>
+            <button class="btn btn-secondary" style="flex:0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg>
+            </button>
+          </div>
+
+          <div style="display:flex;gap:var(--space-md);margin-bottom:var(--space-xl);flex-wrap:wrap;">
+            <a href="#" class="btn-whisper" style="font-size:0.75rem;">Book Store Appointment</a>
+            <a href="#" class="btn-whisper" style="font-size:0.75rem;">Schedule Virtual Viewing</a>
+          </div>
+
+          <!-- Accordion Details -->
+          <div class="pdp-accordion">
+            <div class="pdp-accordion-item open">
+              <div class="pdp-accordion-header" onclick="toggleAccordion(this)">The Story</div>
+              <div class="pdp-accordion-body"><div class="pdp-accordion-body-inner">
+                <p>The Padma Heritage Haar is a celebration of the lotus motif that has adorned Indian royalty for millennia. Each petal is individually hand-formed in 22K gold, with natural rubies nestled at the center and brilliant-cut diamonds creating a halo of light.</p>
+                <p style="margin-top:var(--space-sm);">This piece took our master artisans over 320 hours to complete — from the first sketch to the final polish. It is designed to become a family heirloom, carrying your story forward for generations.</p>
+              </div></div>
+            </div>
+            <div class="pdp-accordion-item">
+              <div class="pdp-accordion-header" onclick="toggleAccordion(this)">Metal & Stone Details</div>
+              <div class="pdp-accordion-body"><div class="pdp-accordion-body-inner">
+                <p><strong>Metal:</strong> 22K (916) BIS Hallmarked Yellow Gold</p>
+                <p><strong>Gold Weight:</strong> 38.5 grams</p>
+                <p><strong>Diamonds:</strong> 48 round brilliant-cut, 2.4 ct total, VVS1 clarity, E-F colour</p>
+                <p><strong>Rubies:</strong> 6 natural Burmese rubies, 1.8 ct total</p>
+                <p><strong>Pearls:</strong> 12 South Sea micro-pearls</p>
+                <p><strong>Certification:</strong> BIS Hallmark, IGI Diamond Certificate</p>
+              </div></div>
+            </div>
+            <div class="pdp-accordion-item">
+              <div class="pdp-accordion-header" onclick="toggleAccordion(this)">Craftsmanship</div>
+              <div class="pdp-accordion-body"><div class="pdp-accordion-body-inner">
+                <p>Hand-crafted at the VEDA Atelier by master goldsmith Ramesh Kumar and his team. Techniques used include lost-wax casting, hand-granulation, bezel setting, and rhodium-free finishing.</p>
+                <p style="margin-top:var(--space-sm);">Each lotus petal is individually formed and textured to create a lifelike, three-dimensional effect. The piece undergoes 14 quality checks before receiving the VEDA hallmark.</p>
+              </div></div>
+            </div>
+            <div class="pdp-accordion-item">
+              <div class="pdp-accordion-header" onclick="toggleAccordion(this)">Styling Suggestions</div>
+              <div class="pdp-accordion-body"><div class="pdp-accordion-body-inner">
+                <p>The Padma Heritage Haar pairs beautifully with:</p>
+                <ul style="list-style:disc;padding-left:var(--space-lg);margin-top:var(--space-sm);">
+                  <li>Silk sarees in deep jewel tones</li>
+                  <li>Banarasi or Kanjeevaram weaves</li>
+                  <li>Classic Indo-Western gowns</li>
+                  <li>Padma Jhumki earrings (matching set available)</li>
+                </ul>
+              </div></div>
+            </div>
+            <div class="pdp-accordion-item">
+              <div class="pdp-accordion-header" onclick="toggleAccordion(this)">Delivery & Care</div>
+              <div class="pdp-accordion-body"><div class="pdp-accordion-body-inner">
+                <p><strong>Delivery:</strong> Complimentary insured shipping across India. International shipping available.</p>
+                <p><strong>Packaging:</strong> Presented in a handcrafted VEDA heritage box with certificate of authenticity.</p>
+                <p><strong>Care:</strong> Lifetime cleaning and polishing service. Store in the provided case when not wearing.</p>
+                <p><strong>Returns:</strong> 7-day return policy with full refund.</p>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="bg-beige">
+    <div class="container">
+      <div class="section-header reveal"><span class="label-gold">— You May Also Love —</span><h2>Complete the Look</h2><hr class="gold-line-long"></div>
+      <div class="grid grid-4 reveal" style="gap:var(--space-xl);">
+        <a href="product-detail.html" class="card-product"><div class="card-product-image"><img src="assets/images/gold-earrings.png" alt="Padma Jhumki"></div><div class="card-product-category">Earrings</div><h5>Padma Jhumki</h5><div class="card-product-price">₹ 78,000</div></a>
+        <a href="product-detail.html" class="card-product"><div class="card-product-image"><img src="assets/images/gold-bangles.png" alt="Padma Kangan Set"></div><div class="card-product-category">Bangles</div><h5>Padma Kangan Set</h5><div class="card-product-price">₹ 1,45,000</div></a>
+        <a href="product-detail.html" class="card-product"><div class="card-product-image"><img src="assets/images/diamond-ring.png" alt="Padma Solitaire Ring"></div><div class="card-product-category">Ring</div><h5>Padma Solitaire Ring</h5><div class="card-product-price">₹ 1,25,000</div></a>
+        <a href="product-detail.html" class="card-product"><div class="card-product-image"><img src="assets/images/mangalsutra.png" alt="Chandrika Mangalsutra"></div><div class="card-product-category">Mangalsutra</div><h5>Chandrika Mangalsutra</h5><div class="card-product-price">₹ 1,45,000</div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="footer-logo"><a href="index.html" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/icons/logo-peacock.png" alt="VEDA" style="height:50px;width:auto;filter:brightness(0) invert(0.7) sepia(1) saturate(2) hue-rotate(10deg);"><span style="font-family:var(--font-display);font-size:1.8rem;letter-spacing:0.12em;color:var(--gold-aged);">VEDA</span></a></div><p class="footer-tagline">Where wisdom becomes adornment.</p></div><div class="footer-column"><h5>Jewellery</h5><ul><li><a href="category.html">Necklaces</a></li><li><a href="category.html">Earrings</a></li><li><a href="category.html">Rings</a></li></ul></div><div class="footer-column"><h5>Services</h5><ul><li><a href="make-to-order.html">Make To Order</a></li><li><a href="old-gold-exchange.html">Old Gold Exchange</a></li></ul></div><div class="footer-column"><h5>The House</h5><ul><li><a href="about.html">Our Story</a></li></ul></div><div class="footer-newsletter"><h5>Stay Connected</h5><p>Exclusive VEDA updates.</p><form class="footer-newsletter-form" onsubmit="event.preventDefault();"><input type="email" placeholder="Your email"><button type="submit">Join</button></form></div></div><div class="footer-bottom"><p>&copy; 2025 VEDA Jewel.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div></div></footer>
+  <div class="sticky-ctas"><a href="https://wa.me/919187204025" class="sticky-cta sticky-cta-whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a></div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Image gallery
+    function changeImage(thumb, src) {
+      document.getElementById('main-product-img').src = src;
+      document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    }
+    // Accordion
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const wasOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.pdp-accordion-item').forEach(i => i.classList.remove('open'));
+      // Toggle clicked
+      if (!wasOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>
