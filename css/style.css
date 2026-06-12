@@ -3468,17 +3468,7 @@ section:hover.bg-pattern-jaali-dark::before {
    ═══════════════════════════════════════════════════════════ */
 
 /* Section Gradient Glows & Transitions */
-#make-to-order {
-  background: radial-gradient(circle at 80% 50%, rgba(92, 64, 51, 0.25) 0%, rgba(44, 24, 16, 1) 85%), var(--bg-deep);
-  position: relative;
-}
-
-#old-gold {
-  background: linear-gradient(to bottom, rgba(44, 24, 16, 0.75) 0%, transparent 18%), 
-              radial-gradient(circle at 20% 50%, rgba(153, 38, 59, 0.22) 0%, rgba(92, 26, 27, 1) 85%), 
-              var(--bg-maroon);
-  position: relative;
-}
+/* (Gradient overrides removed — backgrounds now set via HTML classes) */
 
 /* Luxury Wireframe Borders */
 .luxury-inner-frame {
@@ -3769,7 +3759,7 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Background Colors & Text Colors */
 .bg-cream-warm {
-  background-color: var(--bg-cream);
+  background-color: #ffffff;
   color: var(--text-primary);
 }
 .bg-cream-warm .occasion-label {
@@ -3888,5 +3878,74 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 .footer-brand .footer-logo span {
   color: var(--text-light) !important;
+}
+
+/* ═══ Gold Section Background (for Old Gold Exchange & Customer Stories) ═══ */
+.bg-gold-section {
+  background-color: var(--gold-aged);
+  color: var(--text-primary);
+}
+.bg-gold-section h1, .bg-gold-section h2, .bg-gold-section h3, .bg-gold-section h4 {
+  color: var(--text-primary);
+}
+.bg-gold-section p {
+  color: rgba(51, 11, 20, 0.75);
+}
+.bg-gold-section .label, .bg-gold-section .label-gold {
+  color: var(--maroon);
+}
+
+/* ═══ White Background Utility ═══ */
+.bg-white {
+  background-color: #ffffff;
+  color: var(--text-primary);
+}
+
+/* ═══ Founder Story on Maroon — text overrides ═══ */
+.founder-story-maroon .founder-story-content .label-gold {
+  color: var(--gold-light);
+}
+.founder-story-maroon .founder-story-content h2.display-serif {
+  color: var(--text-light);
+}
+.founder-story-maroon .founder-story-body p {
+  color: rgba(250, 247, 242, 0.75);
+}
+.founder-story-maroon .founder-quote-block {
+  border-left-color: var(--gold-aged);
+}
+.founder-story-maroon .founder-quote-text {
+  color: var(--gold-light);
+}
+.founder-story-maroon .link-editorial {
+  color: var(--gold-aged);
+  border-bottom-color: var(--gold-aged);
+}
+.founder-story-maroon .link-editorial:hover {
+  color: var(--text-light);
+  border-bottom-color: var(--text-light);
+}
+
+/* ═══ Customer Stories on Gold — text overrides ═══ */
+.customer-stories-gold .featured-quote-text {
+  color: var(--bg-deep);
+}
+.customer-stories-gold .featured-quote-author {
+  color: rgba(51, 11, 20, 0.7);
+}
+.customer-stories-gold .story-column-card {
+  border-top-color: rgba(51, 11, 20, 0.2);
+}
+.customer-stories-gold .story-column-tag {
+  color: rgba(51, 11, 20, 0.5);
+}
+.customer-stories-gold .story-column-quote {
+  color: rgba(51, 11, 20, 0.75);
+}
+.customer-stories-gold .story-column-author {
+  color: var(--bg-deep);
+}
+.customer-stories-gold .story-column-meta {
+  color: rgba(51, 11, 20, 0.5);
 }
 
