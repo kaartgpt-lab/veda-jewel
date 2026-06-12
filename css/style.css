@@ -2305,7 +2305,7 @@ section {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23B8963E' stroke-width='0.5' opacity='0.04'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z' fill='none' stroke='%23B8963E' stroke-width='0.3' opacity='0.02'/%3E%3Ccircle cx='40' cy='40' r='1.2' fill='%23B8963E' opacity='0.08'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23B8963E' stroke-width='0.5' opacity='0.22'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z' fill='none' stroke='%23B8963E' stroke-width='0.3' opacity='0.12'/%3E%3Ccircle cx='40' cy='40' r='1.2' fill='%23B8963E' opacity='0.25'/%3E%3C/svg%3E");
   background-size: 80px 80px;
   pointer-events: none;
   z-index: 0;
@@ -3638,7 +3638,7 @@ section:hover.bg-pattern-jaali-dark::before {
   line-height: 1.5;
   color: var(--text-secondary);
   margin-bottom: var(--space-sm);
-  min-height: 40px;
+  min-height: 55px;
 }
 
 .card-explore-link {
@@ -3698,3 +3698,194 @@ section:hover.bg-pattern-jaali-dark::before {
     border-radius: 130px 130px 4px 4px;
   }
 }
+
+/* Burgundy Gradient Background for Hero */
+.hero-burgundy-gradient {
+  background: radial-gradient(circle at 75% 35%, #5E2628 0%, #301011 70%, #1A0708 100%);
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-behind);
+}
+
+/* Right-aligned arch & peacock artwork positioning */
+.hero-vector-artwork {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  height: 90%;
+  width: 45%;
+  max-width: 500px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hero-svg-peacock {
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(0 0 15px rgba(184, 150, 62, 0.15));
+  animation: slideInFromRight 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@media (max-width: 768px) {
+  .hero-burgundy-gradient {
+    background: radial-gradient(circle at center, #5E2628 0%, #301011 85%, #1A0708 100%);
+  }
+  .hero-vector-artwork {
+    width: 80%;
+    right: 10%;
+    opacity: 0.15;
+    height: 70%;
+  }
+}
+
+/* Occasion Segments Section */
+.occasion-segments-section {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.occasion-panels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  min-height: 480px;
+}
+
+.occasion-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-3xl) var(--space-2xl);
+  position: relative;
+  transition: all var(--duration-med) var(--ease-luxury);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.occasion-panel-content {
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  z-index: 2;
+  position: relative;
+}
+
+/* Background Colors & Text Colors */
+.bg-cream-warm {
+  background-color: #F6EDE2;
+  color: var(--text-primary);
+}
+.bg-cream-warm .occasion-label {
+  color: var(--text-tertiary);
+}
+.bg-cream-warm .occasion-cta {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
+}
+
+.bg-brown-warm {
+  background-color: #8C6A5C;
+  color: var(--text-light);
+}
+.bg-brown-warm .occasion-label {
+  color: rgba(250, 247, 242, 0.6);
+}
+.bg-brown-warm .occasion-cta {
+  color: var(--text-light);
+  border-bottom-color: var(--text-light);
+}
+
+.bg-maroon-deep {
+  background-color: #4A171D;
+  color: var(--text-light);
+}
+.bg-maroon-deep .occasion-label {
+  color: rgba(250, 247, 242, 0.6);
+}
+.bg-maroon-deep .occasion-cta {
+  color: var(--text-light);
+  border-bottom-color: var(--text-light);
+}
+
+/* Typography & Links */
+.occasion-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.occasion-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.15;
+}
+
+.occasion-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  min-height: 48px;
+}
+
+.occasion-price-range {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.occasion-cta {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  align-self: flex-start;
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid transparent;
+  transition: all var(--duration-fast) ease;
+}
+
+.occasion-panel:hover .occasion-cta {
+  border-bottom-color: currentColor;
+  transform: translateX(4px);
+}
+
+.occasion-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 24, 16, 0.05);
+  opacity: 0;
+  transition: opacity var(--duration-med) ease;
+  z-index: 1;
+}
+
+.occasion-panel:hover::before {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .occasion-panels-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .occasion-panel {
+    padding: var(--space-2xl) var(--space-xl);
+  }
+  .occasion-desc {
+    min-height: auto;
+  }
+}
+
