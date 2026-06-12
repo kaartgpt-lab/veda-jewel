@@ -3373,6 +3373,100 @@ section:hover.bg-pattern-jaali-dark::before {
   }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   DECORATIVE BACKGROUND ELEMENTS & INTER-SECTION COLOR TRANSITIONS
+   ═══════════════════════════════════════════════════════════ */
+
+/* Section Gradient Glows & Transitions */
+#make-to-order {
+  background: radial-gradient(circle at 80% 50%, rgba(92, 64, 51, 0.25) 0%, rgba(44, 24, 16, 1) 85%), var(--bg-deep);
+  position: relative;
+}
+
+#old-gold {
+  background: linear-gradient(to bottom, rgba(44, 24, 16, 0.75) 0%, transparent 18%), 
+              radial-gradient(circle at 20% 50%, rgba(153, 38, 59, 0.22) 0%, rgba(92, 26, 27, 1) 85%), 
+              var(--bg-maroon);
+  position: relative;
+}
+
+/* Luxury Wireframe Borders */
+.luxury-inner-frame {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.luxury-inner-frame::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid rgba(201, 169, 110, 0.03);
+}
+
+.luxury-inner-frame .corner-detail {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid rgba(201, 169, 110, 0.25);
+  pointer-events: none;
+}
+.luxury-inner-frame .corner-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.luxury-inner-frame .corner-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.luxury-inner-frame .corner-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+.luxury-inner-frame .corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+/* SVG Motif Overlay */
+.bg-decorative-motif {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
+  transition: all var(--duration-slow) var(--ease-luxury);
+}
+
+.bg-decorative-motif svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.peacock-motif {
+  right: 5%;
+  width: 450px;
+  height: 450px;
+}
+
+.lotus-motif {
+  left: 5%;
+  width: 420px;
+  height: 420px;
+}
+
+@media (max-width: 991px) {
+  .luxury-inner-frame {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+  .peacock-motif, .lotus-motif {
+    width: 300px;
+    height: 300px;
+    opacity: 0.03;
+  }
+}
+
 
 
 
