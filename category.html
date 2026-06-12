@@ -25,11 +25,29 @@
   <nav class="navbar" id="main-nav">
     <div class="navbar-inner">
       <a href="index.html" class="navbar-logo"><img src="assets/icons/logo-full.png" alt="VEDA Jewel" style="height: 50px; width: auto;"></a>
-      <div class="navbar-links"><a href="category.html" class="active">Jewellery</a><a href="collection.html">Collections</a><a href="make-to-order.html">Make To Order</a><a href="old-gold-exchange.html">Old Gold</a><a href="vsvp.html">VSVP</a><a href="about.html">About</a></div>
+      <div class="navbar-links">
+        <div class="navbar-dropdown-wrapper">
+          <a href="category.html" class="navbar-dropdown-toggle active">Categories <span class="chevron-arrow">&#9662;</span></a>
+          <div class="navbar-dropdown-menu">
+            <a href="category.html?category=necklaces">Gold Necklaces</a>
+            <a href="category.html?category=pendants">Gold Pendants</a>
+            <a href="category.html?category=mangalsutra">Gold Mangalsutras</a>
+            <a href="category.html?category=earrings">Gold Earrings</a>
+            <a href="category.html?category=rings">Gold Rings</a>
+            <a href="category.html?category=bracelets">Gold Bracelets</a>
+            <a href="category.html?category=nosepin">Gold Nosepins</a>
+          </div>
+        </div>
+        <a href="collection.html">Collections</a>
+        <a href="make-to-order.html">Make To Order</a>
+        <a href="old-gold-exchange.html">Old Gold</a>
+        <a href="vsvp.html">VSVP</a>
+        <a href="about.html">About</a>
+      </div>
       <div class="navbar-utility"><button aria-label="Search" class="hide-mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button><a href="#" aria-label="Wishlist" class="hide-mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg></a><a href="#" aria-label="Cart" class="hide-mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6V20C3 20.53 3.21 21.04 3.59 21.41C3.96 21.79 4.47 22 5 22H19C19.53 22 20.04 21.79 20.41 21.41C20.79 21.04 21 20.53 21 20V6L18 2H6Z"/><path d="M3 6H21"/><path d="M16 10C16 11.06 15.58 12.08 14.83 12.83C14.08 13.58 13.06 14 12 14C10.94 14 9.92 13.58 9.17 12.83C8.42 12.08 8 11.06 8 10"/></svg></a><div class="navbar-hamburger" id="hamburger-toggle"><span></span><span></span><span></span></div></div>
     </div>
   </nav>
-  <div class="mobile-menu" id="mobile-menu"><a href="index.html">Home</a><a href="category.html">Jewellery</a><a href="collection.html">Collections</a><a href="make-to-order.html">Make To Order</a><a href="old-gold-exchange.html">Old Gold Exchange</a><a href="vsvp.html">VSVP</a>
+  <div class="mobile-menu" id="mobile-menu"><a href="index.html">Home</a><a href="category.html">Categories</a><a href="collection.html">Collections</a><a href="make-to-order.html">Make To Order</a><a href="old-gold-exchange.html">Old Gold Exchange</a><a href="vsvp.html">VSVP</a>
     <a href="about.html">Our Story</a></div>
 
   <!-- Hero -->
@@ -40,8 +58,8 @@
     </div>
     <div class="hero-content" style="padding-top:100px;">
       <span class="label" style="color:var(--gold-light);">— Jewellery —</span>
-      <h1>Necklaces</h1>
-      <p class="subtitle">Adorned with heritage. Crafted with intention. Worn with meaning.</p>
+      <h1 id="category-title">Necklaces</h1>
+      <p class="subtitle" id="category-subtitle">Adorned with heritage. Crafted with intention. Worn with meaning.</p>
     </div>
   </section>
 
@@ -49,13 +67,13 @@
   <section class="bg-cream section-sm" style="padding-bottom:0;">
     <div class="container">
       <div class="category-nav">
-        <a href="category.html" class="active">Necklaces</a>
-        <a href="category.html">Earrings</a>
-        <a href="category.html">Rings</a>
-        <a href="category.html">Bracelets</a>
-        <a href="category.html">Bangles</a>
-        <a href="category.html">Mangalsutras</a>
-        <a href="category.html">Bridal Sets</a>
+        <a href="category.html?category=necklaces">Necklaces</a>
+        <a href="category.html?category=pendants">Pendants</a>
+        <a href="category.html?category=mangalsutra">Mangalsutra</a>
+        <a href="category.html?category=earrings">Earrings</a>
+        <a href="category.html?category=rings">Rings</a>
+        <a href="category.html?category=bracelets">Bracelets</a>
+        <a href="category.html?category=nosepin">Nosepin</a>
       </div>
     </div>
   </section>
@@ -97,16 +115,16 @@
       </div>
       <div class="featured-collections-row reveal">
         <a href="collection.html" class="card-editorial arch-card" style="aspect-ratio:3/4;">
-          <img src="assets/images/hero-necklace.png" alt="The Padma Collection" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="card-overlay"><h3>Padma Collection</h3><p>Heritage necklaces inspired by the lotus</p></div>
+          <img src="assets/images/hero-necklace.png" alt="The Sharanya Collection" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="card-overlay"><h3>Sharanya Collection</h3><p>Silver Temple Jewellery</p></div>
         </a>
         <a href="collection.html" class="card-editorial arch-card" style="aspect-ratio:3/4;">
-          <img src="assets/images/bridal-set.png" alt="The Chandrika Collection" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="card-overlay"><h3>Chandrika Collection</h3><p>Bridal necklaces for the modern bride</p></div>
+          <img src="assets/images/bridal-set.png" alt="The Shagun Collection" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="card-overlay"><h3>Shagun Collection</h3><p>Bridal Diamond Collection</p></div>
         </a>
         <a href="collection.html" class="card-editorial arch-card" style="aspect-ratio:3/4;">
           <img src="assets/images/mangalsutra.png" alt="Everyday Collection" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="card-overlay"><h3>Priya Collection</h3><p>Everyday elegance in fine gold</p></div>
+          <div class="card-overlay"><h3>Saanjh Collection</h3><p>Timeless Kundan Craftsmanship</p></div>
         </a>
       </div>
     </div>
@@ -117,36 +135,36 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="label-gold">— Explore —</span>
-        <h2>Curated Necklaces</h2>
+        <h2 id="curated-title">Curated Necklaces</h2>
         <hr class="gold-line-long">
       </div>
       <div class="grid grid-4 reveal" style="gap:var(--space-xl);">
         <a href="product-detail.html" class="card-product">
-          <div class="card-product-image"><img src="assets/images/hero-necklace.png" alt="Padma Heritage Haar"></div>
+          <div class="card-product-image"><img src="assets/images/hero-necklace.png" alt="Sharanya Heritage Haar"></div>
           <span class="card-product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg></span>
           <div class="card-product-category">Heritage</div>
-          <h5>Padma Heritage Haar</h5>
+          <h5>Sharanya Heritage Haar</h5>
           <div class="card-product-price">₹ 2,85,000</div>
         </a>
         <a href="product-detail.html" class="card-product">
-          <div class="card-product-image"><img src="assets/images/mangalsutra.png" alt="Chandrika Mangalsutra"></div>
+          <div class="card-product-image"><img src="assets/images/mangalsutra.png" alt="Shagun Mangalsutra"></div>
           <span class="card-product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg></span>
           <div class="card-product-category">Mangalsutra</div>
-          <h5>Chandrika Mangalsutra</h5>
+          <h5>Shagun Mangalsutra</h5>
           <div class="card-product-price">₹ 1,45,000</div>
         </a>
         <a href="product-detail.html" class="card-product">
-          <div class="card-product-image"><img src="assets/images/gold-earrings.png" alt="Suvarna Choker"></div>
+          <div class="card-product-image"><img src="assets/images/gold-earrings.png" alt="Kanak Choker"></div>
           <span class="card-product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg></span>
           <div class="card-product-category">Gold</div>
-          <h5>Suvarna Choker</h5>
+          <h5>Kanak Choker</h5>
           <div class="card-product-price">₹ 98,000</div>
         </a>
         <a href="product-detail.html" class="card-product">
-          <div class="card-product-image"><img src="assets/images/diamond-ring.png" alt="Ratna Diamond Pendant"></div>
+          <div class="card-product-image"><img src="assets/images/diamond-ring.png" alt="Chhavi Diamond Pendant"></div>
           <span class="card-product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg></span>
           <div class="card-product-category">Diamond</div>
-          <h5>Ratna Diamond Pendant</h5>
+          <h5>Chhavi Diamond Pendant</h5>
           <div class="card-product-price">₹ 1,75,000</div>
         </a>
       </div>
@@ -171,5 +189,89 @@
   </footer>
   <div class="sticky-ctas"><a href="https://wa.me/919187204025" class="sticky-cta sticky-cta-whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a></div>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const category = urlParams.get('category') || 'necklaces';
+      
+      const categoriesData = {
+        necklaces: {
+          title: 'Necklaces',
+          subtitle: 'Adorned with heritage. Crafted with intention. Worn with meaning.',
+          curated: 'Curated Necklaces',
+          image: 'assets/images/hero-necklace.png'
+        },
+        pendants: {
+          title: 'Pendants',
+          subtitle: 'Elegant talismans of wisdom and grace, resting close to the heart.',
+          curated: 'Curated Pendants',
+          image: 'assets/images/heritage-gold.png'
+        },
+        mangalsutra: {
+          title: 'Mangalsutras',
+          subtitle: 'Sacred bonds reimagined with contemporary sophistication and heritage details.',
+          curated: 'Curated Mangalsutras',
+          image: 'assets/images/mangalsutra.png'
+        },
+        earrings: {
+          title: 'Earrings',
+          subtitle: 'Sculpted gold and flawless gems that catch the light with every turn.',
+          curated: 'Curated Earrings',
+          image: 'assets/images/gold-earrings.png'
+        },
+        rings: {
+          title: 'Rings',
+          subtitle: 'Timeless circles of promise, strength, and individual expression.',
+          curated: 'Curated Rings',
+          image: 'assets/images/diamond-ring.png'
+        },
+        bracelets: {
+          title: 'Bracelets',
+          subtitle: 'Fluid elegance for the wrist, handcrafted in 22K gold and diamonds.',
+          curated: 'Curated Bracelets',
+          image: 'assets/images/gold-bangles.png'
+        },
+        nosepin: {
+          title: 'Nosepins',
+          subtitle: 'Delicate expressions of heritage, shining with subtle fire.',
+          curated: 'Curated Nosepins',
+          image: 'assets/images/editorial-model.png'
+        }
+      };
+
+      const data = categoriesData[category.toLowerCase()] || categoriesData.necklaces;
+
+      // Update titles
+      document.getElementById('category-title').textContent = data.title;
+      document.getElementById('category-subtitle').textContent = data.subtitle;
+      document.getElementById('curated-title').textContent = data.curated;
+      
+      // Update page title
+      document.title = `${data.title} — VEDA Jewel`;
+
+      // Update hero image
+      const heroImg = document.querySelector('.hero-interior .hero-bg img');
+      if (heroImg) {
+        heroImg.src = data.image;
+        heroImg.alt = `VEDA ${data.title}`;
+      }
+
+      // Update active nav link
+      const links = document.querySelectorAll('.category-nav a');
+      links.forEach(link => {
+        let linkCategory = 'necklaces';
+        try {
+          const url = new URL(link.href, window.location.origin);
+          linkCategory = url.searchParams.get('category') || 'necklaces';
+        } catch(e) {}
+        
+        if (linkCategory === category) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

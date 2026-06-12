@@ -18,7 +18,18 @@
       </a>
 
       <div class="navbar-links">
-        <a href="category.html">Jewellery</a>
+        <div class="navbar-dropdown-wrapper">
+          <a href="category.html" class="navbar-dropdown-toggle">Categories <span class="chevron-arrow">&#9662;</span></a>
+          <div class="navbar-dropdown-menu">
+            <a href="category.html?category=necklaces">Gold Necklaces</a>
+            <a href="category.html?category=pendants">Gold Pendants</a>
+            <a href="category.html?category=mangalsutra">Gold Mangalsutras</a>
+            <a href="category.html?category=earrings">Gold Earrings</a>
+            <a href="category.html?category=rings">Gold Rings</a>
+            <a href="category.html?category=bracelets">Gold Bracelets</a>
+            <a href="category.html?category=nosepin">Gold Nosepins</a>
+          </div>
+        </div>
         <a href="collection.html">Collections</a>
         <a href="make-to-order.html">Make To Order</a>
         <a href="old-gold-exchange.html">Old Gold</a>
@@ -46,7 +57,7 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
-    <a href="category.html">Jewellery</a>
+    <a href="category.html">Categories</a>
     <a href="collection.html">Collections</a>
     <a href="make-to-order.html">Make To Order</a>
     <a href="old-gold-exchange.html">Old Gold Exchange</a>
@@ -77,9 +88,9 @@
   </section>
 
   <!-- ═══ THE COLLECTIONS OF VEDA ═══ -->
-  <section class="bg-cream bg-pattern-jaali-light" id="philosophy">
+  <section class="bg-cream bg-pattern-jaali-light" id="philosophy" style="padding: var(--space-2xl) 0;">
     <div class="container" style="position: relative; z-index: 1;">
-      <div class="section-header reveal">
+      <div class="section-header reveal" style="text-align: center; margin-bottom: var(--space-2xl);">
         <span class="label-gold">— Curated Worlds —</span>
         <h2>Our Signature Collections</h2>
         <hr class="gold-line-long">
@@ -87,113 +98,110 @@
           At VEDA, true luxury is meaning. Each of our signature collections is named after one of our five core pillars — embodying the wisdom of the Vedas, royalty, and heritage craftsmanship.
         </p>
       </div>
-    </div>
-    
-    <div class="collections-editorial-grid">
       
-      <!-- Padma (Tejas) - Full Width split layout -->
-      <div class="col-span-12 card-editorial reveal">
-        <div class="editorial-split">
-          <div class="editorial-split-image arch-card-image">
-            <img src="assets/images/hero-necklace.png" alt="The Padma Collection">
-          </div>
-          <div class="editorial-split-content">
-            <span class="pillar-sanskrit-overlay">तेजस्</span>
-            <span class="label">— Tejas —</span>
-            <h3>Padma Collection</h3>
-            <p class="story-snippet">
-              Inspired by the sacred lotus, symbolic of the purity and radiance that emerges from the depths. Each piece is meticulously handcrafted in 22K gold with polki diamonds and soft pink rubies, echoing the divine symmetry of the lotus.
-            </p>
-            <div>
-              <a href="collection.html" class="btn btn-primary" style="padding: 0.8rem 2rem;">Explore Collection</a>
+      <div class="collections-row-grid reveal">
+        
+        <!-- Sharanya (Tejas) -->
+        <div class="collection-row-card reveal">
+          <a href="collection.html" class="collection-card-link">
+            <div class="collection-card-arch">
+              <img src="assets/images/hero-necklace.png" alt="The Sharanya Collection">
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chandrika (Ṛta) - Full Width split layout reversed -->
-      <div class="col-span-12 card-editorial reveal">
-        <div class="editorial-split editorial-split-reverse">
-          <div class="editorial-split-image arch-card-image">
-            <img src="assets/images/bridal-set.png" alt="The Chandrika Collection">
-          </div>
-          <div class="editorial-split-content">
-            <span class="pillar-sanskrit-overlay">ऋत</span>
-            <span class="label">— Ṛta —</span>
-            <h3>Chandrika Collection</h3>
-            <p class="story-snippet">
-              Moonlit harmony and cosmic balance. Divine proportions translated into custom bridal chokers and heritage collars.
-            </p>
-            <div>
-              <a href="collection.html" class="btn-whisper btn-whisper-gold">Explore Collection &rarr;</a>
+            <div class="collection-card-meta">
+              <span class="card-sanskrit-overlay">तेजस्</span>
+              <span class="card-pillar-label">— Tejas —</span>
+              <h3>Sharanya</h3>
+              <p class="card-desc-short">Radiant gold and polki masterpieces designed to shine with inner fire.</p>
+              <span class="card-explore-link">Explore Collection &rarr;</span>
             </div>
-          </div>
+          </a>
         </div>
-      </div>
 
-      <!-- Suvarna (Shuddhi) - Full Width split layout -->
-      <div class="col-span-12 card-editorial reveal">
-        <div class="editorial-split">
-          <div class="editorial-split-image arch-card-image">
-            <img src="assets/images/gold-bangles.png" alt="The Suvarna Collection">
-          </div>
-          <div class="editorial-split-content">
-            <span class="pillar-sanskrit-overlay">शुद्धि</span>
-            <span class="label">— Shuddhi —</span>
-            <h3>Suvarna Collection</h3>
-            <p class="story-snippet">
-              The golden legacy. Purity in design and ethical craftsmanship. Celebrating VEDA's signature 22K gold alloy through hand-granulation, bezel setting, and custom-carved solid cuffs.
-            </p>
-            <div>
-              <a href="collection.html" class="btn-whisper btn-whisper-gold">Explore Collection &rarr;</a>
+        <!-- Shagun (Ṛta) -->
+        <div class="collection-row-card reveal">
+          <a href="collection.html" class="collection-card-link">
+            <div class="collection-card-arch">
+              <img src="assets/images/bridal-set.png" alt="The Shagun Collection">
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ratna (Satya) - Full Width split layout reversed -->
-      <div class="col-span-12 card-editorial reveal">
-        <div class="editorial-split editorial-split-reverse">
-          <div class="editorial-split-image arch-card-image">
-            <img src="assets/images/diamond-ring.png" alt="The Ratna Collection">
-          </div>
-          <div class="editorial-split-content">
-            <span class="pillar-sanskrit-overlay">सत्य</span>
-            <span class="label">— Satya —</span>
-            <h3>Ratna Collection</h3>
-            <p class="story-snippet">
-              Gems of consciousness. Transparency, truth, and complete integrity. Flawless ethically-sourced diamonds set in hand-carved platinum and 18K yellow gold.
-            </p>
-            <div>
-              <a href="collection.html" class="btn-whisper btn-whisper-gold">Explore Collection &rarr;</a>
+            <div class="collection-card-meta">
+              <span class="card-sanskrit-overlay">ऋत</span>
+              <span class="card-pillar-label">— Ṛta —</span>
+              <h3>Shagun</h3>
+              <p class="card-desc-short">Symmetrical bridal sets and custom heritage chokers.</p>
+              <span class="card-explore-link">Explore Collection &rarr;</span>
             </div>
-          </div>
+          </a>
         </div>
-      </div>
 
-      <!-- Priya (Aishwarya) - Full Width split layout -->
-      <div class="col-span-12 card-editorial reveal">
-        <div class="editorial-split">
-          <div class="editorial-split-image arch-card-image">
-            <img src="assets/images/gold-earrings.png" alt="The Priya Collection">
-          </div>
-          <div class="editorial-split-content">
-            <span class="pillar-sanskrit-overlay">ऐश्वर्य</span>
-            <span class="label">— Aishwarya —</span>
-            <h3>Priya Collection</h3>
-            <p class="story-snippet">
-              Beloved everyday pieces. Seamless comfort meets meaningful abundance in 18K everyday wear and lightweight studs.
-            </p>
-            <div>
-              <a href="collection.html" class="btn-whisper btn-whisper-gold">Explore Collection &rarr;</a>
+        <!-- Kanak (Shuddhi) -->
+        <div class="collection-row-card reveal">
+          <a href="collection.html" class="collection-card-link">
+            <div class="collection-card-arch">
+              <img src="assets/images/gold-bangles.png" alt="The Kanak Collection">
             </div>
-          </div>
+            <div class="collection-card-meta">
+              <span class="card-sanskrit-overlay">शुद्धि</span>
+              <span class="card-pillar-label">— Shuddhi —</span>
+              <h3>Kanak</h3>
+              <p class="card-desc-short">Pure 22K gold cuffs featuring delicate hand-granulation.</p>
+              <span class="card-explore-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
         </div>
-      </div>
 
-    </div>
-    <div class="divider-peacock">
-      <div class="divider-peacock-eye"></div>
+        <!-- Chhavi (Satya) -->
+        <div class="collection-row-card reveal">
+          <a href="collection.html" class="collection-card-link">
+            <div class="collection-card-arch">
+              <img src="assets/images/diamond-ring.png" alt="The Chhavi Collection">
+            </div>
+            <div class="collection-card-meta">
+              <span class="card-sanskrit-overlay">सत्य</span>
+              <span class="card-pillar-label">— Satya —</span>
+              <h3>Chhavi</h3>
+              <p class="card-desc-short">Ethically sourced diamonds set in platinum and 18K gold.</p>
+              <span class="card-explore-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Saanjh (Aishwarya) -->
+        <div class="collection-row-card reveal">
+          <a href="collection.html" class="collection-card-link">
+            <div class="collection-card-arch">
+              <img src="assets/images/gold-earrings.png" alt="The Saanjh Collection">
+            </div>
+            <div class="collection-card-meta">
+              <span class="card-sanskrit-overlay">ऐश्वर्य</span>
+              <span class="card-pillar-label">— Aishwarya —</span>
+              <h3>Saanjh</h3>
+              <p class="card-desc-short">Grand statement earrings and heritage-inspired lightweight studs.</p>
+              <span class="card-explore-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Sitara (Ojas) -->
+        <div class="collection-row-card reveal">
+          <a href="collection.html" class="collection-card-link">
+            <div class="collection-card-arch">
+              <img src="assets/images/editorial-model.png" alt="The Sitara Collection">
+            </div>
+            <div class="collection-card-meta">
+              <span class="card-sanskrit-overlay">ओजस्</span>
+              <span class="card-pillar-label">— Ojas —</span>
+              <h3>Sitara</h3>
+              <p class="card-desc-short">Bold, vitalizing statement designs capturing cosmic brilliance.</p>
+              <span class="card-explore-link">Explore Collection &rarr;</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+      
+      <div class="divider-peacock" style="margin-top: var(--space-2xl);">
+        <div class="divider-peacock-eye"></div>
+      </div>
     </div>
   </section>
 
@@ -408,42 +416,42 @@
       </div>
       
       <div class="philosophy-grid reveal">
-        <!-- Tejas -->
+        <!-- Shuddhi -->
         <div class="philosophy-card">
-          <div class="pillar-sanskrit">तेजस्</div>
+          <div class="pillar-sanskrit">शुद्धि</div>
           <span class="pillar-num">Pillar I</span>
-          <h4>Tejas</h4>
-          <div class="pillar-mean">Radiance</div>
-          <p>The inner fire that illuminates the soul. We design ornaments that transcend surface sparkle to reflect the wearer's inner brilliance.</p>
+          <h4>Shuddhi</h4>
+          <div class="pillar-mean">Pure</div>
+          <p>Ethical sanctity in every grain of gold. Committed to absolute transparency, responsible sourcing, and conscious craftsmanship.</p>
         </div>
-        
+
         <!-- Ṛta -->
         <div class="philosophy-card">
           <div class="pillar-sanskrit">ऋत</div>
           <span class="pillar-num">Pillar II</span>
           <h4>Ṛta</h4>
-          <div class="pillar-mean">Order & Harmony</div>
+          <div class="pillar-mean">Timeless</div>
           <p>The fundamental rhythm of cosmic beauty. Every VEDA piece follows natural laws of symmetry, balance, and divine proportion.</p>
         </div>
-        
-        <!-- Shuddhi -->
+
+        <!-- Tejas -->
         <div class="philosophy-card">
-          <div class="pillar-sanskrit">शुद्धि</div>
+          <div class="pillar-sanskrit">तेजस्</div>
           <span class="pillar-num">Pillar III</span>
-          <h4>Shuddhi</h4>
-          <div class="pillar-mean">Conscious Purity</div>
-          <p>Ethical sanctity in every grain of gold. Committed to absolute transparency, responsible sourcing, and conscious craftsmanship.</p>
+          <h4>Tejas</h4>
+          <div class="pillar-mean">Radiant</div>
+          <p>The inner fire that illuminates the soul. We design ornaments that transcend surface sparkle to reflect the wearer's inner brilliance.</p>
         </div>
-        
+
         <!-- Satya -->
         <div class="philosophy-card">
           <div class="pillar-sanskrit">सत्य</div>
           <span class="pillar-num">Pillar IV</span>
           <h4>Satya</h4>
-          <div class="pillar-mean">Authenticity</div>
+          <div class="pillar-mean">Truth</div>
           <p>Truth of material and provenance. Uncompromising integrity in gemstones, certified 22K gold, and signature atelier authenticity.</p>
         </div>
-        
+
         <!-- Aishwarya -->
         <div class="philosophy-card">
           <div class="pillar-sanskrit">ऐश्वर्य</div>
