@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initSmoothScroll();
   initCounters();
+  initLeadNudge();
 });
 
 
@@ -309,4 +310,27 @@ if ('IntersectionObserver' in window) {
   }, { rootMargin: '200px' });
   
   lazyImages.forEach(img => imageObserver.observe(img));
+}
+
+/* ─── Concierge Lead Nudge ──────────────────────────────── */
+function initLeadNudge() {
+  const nudge = document.getElementById('concierge-nudge');
+  if (!nudge) return;
+  
+  // Wait 5 seconds
+  setTimeout(() => {
+    // If user has not closed it already
+    if (!localStorage.getItem('veda-nudge-closed')) {
+      nudge.classList.add('visible');
+    }
+  }, 5000);
+
+  // Close handler
+  const closeBtn = nudge.querySelector('.nudge-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      nudge.classList.remove('visible');
+      localStorage.setItem('veda-nudge-closed', 'true');
+    });
+  }
 }
