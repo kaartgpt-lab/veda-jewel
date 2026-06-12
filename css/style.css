@@ -1123,12 +1123,12 @@ section {
   z-index: var(--z-nav);
   padding: 0.75rem 0;
   transition: all var(--duration-fast) var(--ease-luxury);
-  background: #F5EDE3;
+  background: var(--bg-cream);
   box-shadow: 0 1px 0 var(--border-light);
 }
 
 .navbar.scrolled {
-  background: #F5EDE3;
+  background: var(--bg-cream);
   padding: 0.75rem 0;
   box-shadow: 0 1px 0 var(--border-light);
 }
@@ -1700,8 +1700,8 @@ section {
 }
 
 .sticky-cta-whatsapp {
-  background: #25D366;
-  color: #fff;
+  background: var(--gold-aged);
+  color: var(--bg-deep);
 }
 
 .sticky-cta-appointment {
@@ -3156,7 +3156,7 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 
 .vsvp-timeline-staggered .timeline-card {
-  background: #ffffff;
+  background: var(--bg-cream);
   padding: 1.25rem 2rem;
   display: flex;
   align-items: center;
@@ -3769,11 +3769,11 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Background Colors & Text Colors */
 .bg-cream-warm {
-  background-color: #F4EAE1;
+  background-color: var(--bg-cream);
   color: var(--text-primary);
 }
 .bg-cream-warm .occasion-label {
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
 }
 .bg-cream-warm .occasion-cta {
   color: var(--text-primary);
@@ -3781,23 +3781,23 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 
 .bg-brown-warm {
-  background-color: #8C6A5C;
-  color: var(--text-light);
+  background-color: var(--gold-aged);
+  color: var(--text-primary);
 }
 .bg-brown-warm .occasion-label {
-  color: rgba(250, 247, 242, 0.6);
+  color: var(--text-secondary);
 }
 .bg-brown-warm .occasion-cta {
-  color: var(--text-light);
-  border-bottom-color: var(--text-light);
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
 }
 
 .bg-maroon-deep {
-  background-color: #4A171D;
+  background-color: var(--maroon);
   color: var(--text-light);
 }
 .bg-maroon-deep .occasion-label {
-  color: rgba(250, 247, 242, 0.6);
+  color: rgba(255, 247, 229, 0.6);
 }
 .bg-maroon-deep .occasion-cta {
   color: var(--text-light);
@@ -3877,6 +3877,13 @@ section:hover.bg-pattern-jaali-dark::before {
   }
   .occasion-desc {
     min-height: auto;
-  }
+}
+
+/* Footer Logo and Text Color Override for Contrast Rules */
+.footer-brand .footer-logo img {
+  filter: brightness(0) invert(1) sepia(1) saturate(0.5) hue-rotate(10deg) brightness(0.97) contrast(1) !important;
+}
+.footer-brand .footer-logo span {
+  color: var(--text-light) !important;
 }
 
