@@ -6,7 +6,7 @@
   <title>VEDA Jewel — Where Wisdom Becomes Adornment</title>
   <meta name="description" content="VEDA is a luxury Indian jewellery house inspired by the wisdom of the Vedas, Indian royalty, heritage craftsmanship, and conscious luxury. Silver, Gold & Diamonds.">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-  <link rel="stylesheet" href="css/style.css?v=1.5">
+  <link rel="stylesheet" href="css/style.css?v=2.0">
 </head>
 <body>
 
@@ -57,10 +57,13 @@
 
 
   <!-- ═══ HERO ═══ -->
-  <section class="hero" id="hero">
+  <section class="hero hero-home luxury-texture" id="hero">
     <div class="hero-bg">
-      <img src="assets/images/hero-necklace-new.png" alt="VEDA Jewel — Luxury Indian High Jewellery">
+      <div class="hero-arch-portal">
+        <img src="assets/images/hero-necklace-new.png" alt="VEDA Jewel — Luxury Indian High Jewellery">
+      </div>
       <div class="hero-overlay"></div>
+      <div class="hero-jaali-shadow"></div>
     </div>
     <div class="hero-content" style="text-align: left; align-self: center; margin-right: auto; max-width: 600px; padding-left: clamp(2rem, 6vw, 6rem);">
       <span class="label" style="color: var(--gold-light); animation: fadeInDown 1s ease 0.3s both;">— VEDA JEWEL —</span>
@@ -69,6 +72,67 @@
       <div style="animation: fadeInUp 1.2s ease 1.1s both; display: flex; gap: 1rem; flex-wrap: wrap;">
         <a href="collection.html" class="btn btn-gold">Explore Collection</a>
         <a href="https://wa.me/919187204025" class="btn btn-secondary" style="border-color: rgba(250,247,242,0.3); color: var(--text-light);">Book an Appointment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VEDIC PHILOSOPHY BAND ═══ -->
+  <section class="bg-cream bg-pattern-jaali-light luxury-texture" id="philosophy-band" style="padding: var(--space-xl) 0; border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center; margin-bottom: var(--space-xl);">
+        <span class="label-gold">— The Vedic Path —</span>
+        <h2 style="font-size: clamp(2rem, 3.5vw, 3rem);">Our Guiding Philosophy</h2>
+        <div class="divider-peacock">
+          <div class="divider-peacock-eye"></div>
+        </div>
+        <p style="max-width: 650px; margin: 0 auto;">VEDA is built on wisdom, not trends. Every creation is guided by five sacred principles of heritage luxury.</p>
+      </div>
+      
+      <div class="philosophy-grid reveal">
+        <!-- Tejas -->
+        <div class="philosophy-card">
+          <div class="pillar-sanskrit">तेजस्</div>
+          <span class="pillar-num">Pillar I</span>
+          <h4>Tejas</h4>
+          <div class="pillar-mean">Radiance</div>
+          <p>The inner fire that illuminates the soul. We design ornaments that transcend surface sparkle to reflect the wearer's inner brilliance.</p>
+        </div>
+        
+        <!-- Ṛta -->
+        <div class="philosophy-card">
+          <div class="pillar-sanskrit">ऋत</div>
+          <span class="pillar-num">Pillar II</span>
+          <h4>Ṛta</h4>
+          <div class="pillar-mean">Order & Harmony</div>
+          <p>The fundamental rhythm of cosmic beauty. Every VEDA piece follows natural laws of symmetry, balance, and divine proportion.</p>
+        </div>
+        
+        <!-- Shuddhi -->
+        <div class="philosophy-card">
+          <div class="pillar-sanskrit">शुद्धि</div>
+          <span class="pillar-num">Pillar III</span>
+          <h4>Shuddhi</h4>
+          <div class="pillar-mean">Conscious Purity</div>
+          <p>Ethical sanctity in every grain of gold. Committed to absolute transparency, responsible sourcing, and conscious craftsmanship.</p>
+        </div>
+        
+        <!-- Satya -->
+        <div class="philosophy-card">
+          <div class="pillar-sanskrit">सत्य</div>
+          <span class="pillar-num">Pillar IV</span>
+          <h4>Satya</h4>
+          <div class="pillar-mean">Authenticity</div>
+          <p>Truth of material and provenance. Uncompromising integrity in gemstones, certified 22K gold, and signature atelier authenticity.</p>
+        </div>
+        
+        <!-- Aishwarya -->
+        <div class="philosophy-card">
+          <div class="pillar-sanskrit">ऐश्वर्य</div>
+          <span class="pillar-num">Pillar V</span>
+          <h4>Aishwarya</h4>
+          <div class="pillar-mean">Grandeur</div>
+          <p>The abundance of heritage and spirit. We create regal designs that carry the legacy of Indian royalty and timeless elegance.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -92,7 +156,7 @@
       <!-- Padma (Tejas) - Full Width split layout -->
       <div class="col-span-12 card-editorial">
         <div class="editorial-split">
-          <div class="editorial-split-image">
+          <div class="editorial-split-image arch-card-image">
             <img src="assets/images/hero-necklace.png" alt="The Padma Collection">
           </div>
           <div class="editorial-split-content">
@@ -110,8 +174,8 @@
       </div>
 
       <!-- Chandrika (Ṛta) - Left column card -->
-      <div class="col-span-5 card-editorial-overlaid">
-        <img src="assets/images/bridal-set.png" alt="The Chandrika Collection">
+      <div class="col-span-5 card-editorial-overlaid arch-card">
+        <img src="assets/images/bridal-set.png" alt="The Chandrika Collection" style="width: 100%; height: 100%; object-fit: cover;">
         <div class="card-overlay">
           <span class="pillar-sanskrit-overlay" style="position: absolute; top: var(--space-xl); right: var(--space-xl); font-family: var(--font-serif); font-size: 2rem; color: var(--gold-light); opacity: 0.35;">ऋत</span>
           <span class="label" style="color: var(--gold-light);">— Ṛta —</span>
@@ -124,7 +188,7 @@
       <!-- Suvarna (Shuddhi) - Right column split layout -->
       <div class="col-span-7 card-editorial">
         <div class="editorial-split">
-          <div class="editorial-split-image">
+          <div class="editorial-split-image arch-card-image">
             <img src="assets/images/gold-bangles.png" alt="The Suvarna Collection">
           </div>
           <div class="editorial-split-content">
@@ -144,7 +208,7 @@
       <!-- Ratna (Satya) - Left column split layout -->
       <div class="col-span-7 card-editorial">
         <div class="editorial-split">
-          <div class="editorial-split-image">
+          <div class="editorial-split-image arch-card-image">
             <img src="assets/images/diamond-ring.png" alt="The Ratna Collection">
           </div>
           <div class="editorial-split-content">
@@ -162,8 +226,8 @@
       </div>
 
       <!-- Priya (Aishwarya) - Right column card -->
-      <div class="col-span-5 card-editorial-overlaid">
-        <img src="assets/images/gold-earrings.png" alt="The Priya Collection">
+      <div class="col-span-5 card-editorial-overlaid arch-card">
+        <img src="assets/images/gold-earrings.png" alt="The Priya Collection" style="width: 100%; height: 100%; object-fit: cover;">
         <div class="card-overlay">
           <span class="pillar-sanskrit-overlay" style="position: absolute; top: var(--space-xl); right: var(--space-xl); font-family: var(--font-serif); font-size: 2rem; color: var(--gold-light); opacity: 0.35;">ऐश्वर्य</span>
           <span class="label" style="color: var(--gold-light);">— Aishwarya —</span>
@@ -173,6 +237,9 @@
         </div>
       </div>
 
+    </div>
+    <div class="divider-peacock">
+      <div class="divider-peacock-eye"></div>
     </div>
   </section>
 
@@ -382,17 +449,25 @@
         <p>Join the VEDA community. Share your moments, discover styling inspiration, and connect with fellow lovers of fine jewellery.</p>
       </div>
       <div class="grid grid-4 reveal" style="gap: var(--space-md); padding: 1.5rem 0;">
-        <div class="gallery-item-artistic" style="aspect-ratio: 1; --rot: -1.5deg;">
-          <img src="assets/images/hero-necklace.png" alt="VEDA Community">
+        <div class="gallery-item-artistic frame-museum" style="aspect-ratio: 1; --rot: -1.5deg;">
+          <div class="frame-museum-inner" style="width: 100%; height: 100%;">
+            <img src="assets/images/hero-necklace.png" alt="VEDA Community" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
         </div>
-        <div class="gallery-item-artistic" style="aspect-ratio: 1; --rot: 1deg;">
-          <img src="assets/images/gold-earrings.png" alt="VEDA Community">
+        <div class="gallery-item-artistic frame-museum" style="aspect-ratio: 1; --rot: 1deg;">
+          <div class="frame-museum-inner" style="width: 100%; height: 100%;">
+            <img src="assets/images/gold-earrings.png" alt="VEDA Community" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
         </div>
-        <div class="gallery-item-artistic" style="aspect-ratio: 1; --rot: -1deg;">
-          <img src="assets/images/diamond-ring.png" alt="VEDA Community">
+        <div class="gallery-item-artistic frame-museum" style="aspect-ratio: 1; --rot: -1deg;">
+          <div class="frame-museum-inner" style="width: 100%; height: 100%;">
+            <img src="assets/images/diamond-ring.png" alt="VEDA Community" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
         </div>
-        <div class="gallery-item-artistic" style="aspect-ratio: 1; --rot: 2deg;">
-          <img src="assets/images/gold-bangles.png" alt="VEDA Community">
+        <div class="gallery-item-artistic frame-museum" style="aspect-ratio: 1; --rot: 2deg;">
+          <div class="frame-museum-inner" style="width: 100%; height: 100%;">
+            <img src="assets/images/gold-bangles.png" alt="VEDA Community" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
         </div>
       </div>
       <div class="text-center mt-xl reveal">

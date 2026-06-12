@@ -795,6 +795,8 @@ section {
   overflow: hidden;
   background: var(--bg-cream);
   margin-bottom: var(--space-md);
+  border-radius: 50% 50% 4px 4px;
+  border: 1px solid var(--border-gold);
 }
 
 .card-product .card-product-image img {
@@ -1314,11 +1316,12 @@ section {
 /* ─── Hero Sections ─────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
+  padding-top: 80px;
 }
 
 .hero-bg {
@@ -1374,6 +1377,37 @@ section {
 .hero-content .label {
   color: var(--gold-light);
   margin-bottom: var(--space-lg);
+}
+
+/* Homepage Hero (Strict Single-Screen Height) */
+.hero-home {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 550px;
+}
+
+.hero-home .hero-content {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.hero-home h1 {
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
+}
+
+.hero-home .subtitle {
+  font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .hero-home {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 500px;
+  }
 }
 
 /* Page hero (shorter) */
@@ -2702,5 +2736,292 @@ section {
     right: 20px;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   VEDA V2 BRAND IMMERSION — SYSTEM ENHANCEMENTS
+   ═══════════════════════════════════════════════════════════ */
+
+/* 1. Palace Arch System */
+.arch-portal {
+  border-radius: 500px 500px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--border-gold-solid);
+  box-shadow: 0 15px 45px rgba(44, 24, 16, 0.12), inset 0 0 30px rgba(201, 169, 110, 0.15);
+  position: relative;
+  background: var(--bg-cream);
+}
+
+.arch-card {
+  border-radius: 200px 200px 4px 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  transition: all var(--duration-med) var(--ease-luxury);
+  background: var(--bg-cream);
+  position: relative;
+}
+
+.arch-card:hover {
+  border-color: var(--border-gold-solid);
+  box-shadow: 0 10px 30px rgba(201, 169, 110, 0.15);
+  transform: translateY(-4px);
+}
+
+.arch-card-image {
+  border-radius: 200px 200px 0 0;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+.arch-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-luxury);
+}
+
+.arch-card:hover .arch-card-image img {
+  transform: scale(1.05);
+}
+
+/* 2. Low-Contrast Subtle Jaali Hover Reveals */
+.bg-pattern-jaali-light::before,
+.bg-pattern-jaali-dark::before,
+.bg-pattern-mandala::before {
+  transition: opacity var(--duration-med) var(--ease-luxury);
+}
+
+section:hover.bg-pattern-jaali-light::before {
+  opacity: 0.05;
+}
+
+section:hover.bg-pattern-jaali-dark::before {
+  opacity: 0.07;
+}
+
+/* 3. Peacock Elegance Divider System */
+.divider-peacock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin: var(--space-2xl) auto;
+  width: 100%;
+  max-width: 350px;
+  opacity: 0.85;
+}
+
+.divider-peacock::before,
+.divider-peacock::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-aged), transparent);
+}
+
+.divider-peacock-eye {
+  width: 16px;
+  height: 22px;
+  background: radial-gradient(circle at center, var(--bg-deep) 15%, var(--maroon) 40%, var(--gold-aged) 75%, transparent 100%);
+  border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%; /* Curved feather */
+  box-shadow: 0 2px 8px rgba(201, 169, 110, 0.25);
+  display: inline-block;
+  transform: rotate(0deg);
+}
+
+/* 4. Heritage Texture System (Raw Silk / Handmade Paper / Sandstone) */
+.luxury-texture {
+  position: relative;
+}
+
+.luxury-texture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* 5. Royal Frameworks (Double bordered frames with offset inset) */
+.frame-museum {
+  position: relative;
+  border: 1px solid var(--border-gold-solid);
+  padding: 12px;
+  background: var(--bg-cream);
+  box-shadow: 0 15px 40px var(--shadow-warm);
+}
+
+.frame-museum-inner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(201, 169, 110, 0.35);
+}
+
+.frame-museum-inner img {
+  transition: transform var(--duration-slow) var(--ease-luxury);
+}
+
+.frame-museum:hover .frame-museum-inner img {
+  transform: scale(1.04);
+}
+
+/* 6. Vedic Philosophy Band */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+}
+
+@media (max-width: 992px) {
+  .philosophy-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.philosophy-card {
+  background: var(--bg-cream);
+  border: 1px solid var(--border-gold);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  position: relative;
+  transition: all var(--duration-med) var(--ease-luxury);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  z-index: 1;
+}
+
+.philosophy-card:hover {
+  border-color: var(--border-gold-solid);
+  box-shadow: 0 10px 25px rgba(201, 169, 110, 0.15);
+  transform: translateY(-4px);
+}
+
+.philosophy-card .pillar-sanskrit {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  color: var(--gold-aged);
+  opacity: 0.12;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: -1;
+  transition: opacity var(--duration-fast);
+}
+
+.philosophy-card:hover .pillar-sanskrit {
+  opacity: 0.22;
+}
+
+.philosophy-card .pillar-num {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+}
+
+.philosophy-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--maroon);
+  margin-bottom: var(--space-xs);
+}
+
+.philosophy-card .pillar-mean {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.philosophy-card p {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 7. Museum-Style Product exhibit elements */
+.product-showcase-exhibit {
+  border: 1px solid var(--border-gold);
+  padding: 15px;
+  background: var(--bg-cream);
+  transition: all var(--duration-med) var(--ease-luxury);
+}
+
+.product-showcase-exhibit:hover {
+  border-color: var(--border-gold-solid);
+  box-shadow: 0 12px 30px rgba(44, 24, 16, 0.08);
+}
+
+.product-exhibit-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  display: block;
+  margin-top: var(--space-sm);
+}
+
+/* 8. Cinematic Hero shadow / window styling */
+.hero-arch-portal {
+  border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+}
+
+.hero-jaali-shadow {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z' fill='none' stroke='%23000' stroke-width='2.5' opacity='0.12'/%3E%3Ccircle cx='60' cy='60' r='8' fill='none' stroke='%23000' stroke-width='1.5' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+/* 9. Luxury shimmer reflection on hovers */
+.btn-gold::before,
+.btn-primary::before,
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: skewX(-30deg);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.btn-gold:hover::before,
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+  left: 150%;
+  transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 
 

@@ -6,7 +6,7 @@
   <title>Make To Order — VEDA Jewel Atelier</title>
   <meta name="description" content="Commission your heirloom at the VEDA Atelier. A luxury bespoke jewellery experience — from your story to sketch, design to craftsmanship, and final heirloom.">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-  <link rel="stylesheet" href="css/style.css?v=1.5">
+  <link rel="stylesheet" href="css/style.css?v=2.0">
   <style>
     .journey-grid {
       display: grid;
@@ -169,8 +169,10 @@
     <div class="container">
       <div class="split-layout" style="min-height:auto;gap:var(--space-3xl);align-items:center;">
         <div class="reveal-left" style="padding:0;">
-          <div style="aspect-ratio:4/5;overflow:hidden;">
-            <img src="assets/images/artisan-crafting.png" alt="VEDA Design Team" style="width:100%;height:100%;object-fit:cover;">
+          <div class="frame-museum">
+            <div class="frame-museum-inner" style="aspect-ratio:4/5;">
+              <img src="assets/images/artisan-crafting.png" alt="VEDA Design Team" style="width:100%;height:100%;object-fit:cover;">
+            </div>
           </div>
         </div>
         <div class="reveal-right" style="padding:0;">
@@ -197,10 +199,22 @@
         <hr class="gold-line-long">
         <p>Every masterpiece begins with a line. Explore the artistry behind our bespoke creations.</p>
       </div>
-      <div class="sketch-gallery reveal">
-        <div class="gallery-item"><img src="assets/images/jewellery-sketch.png" alt="Design Sketch"></div>
-        <div class="gallery-item"><img src="assets/images/artisan-crafting.png" alt="Artisan at work"></div>
-        <div class="gallery-item"><img src="assets/images/hero-necklace.png" alt="Finished piece"></div>
+      <div class="sketch-gallery reveal" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md);">
+        <div class="gallery-item frame-museum" style="aspect-ratio:1;">
+          <div class="frame-museum-inner" style="width:100%;height:100%;">
+            <img src="assets/images/jewellery-sketch.png" alt="Design Sketch" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+        <div class="gallery-item frame-museum" style="aspect-ratio:1;">
+          <div class="frame-museum-inner" style="width:100%;height:100%;">
+            <img src="assets/images/artisan-crafting.png" alt="Artisan at work" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+        <div class="gallery-item frame-museum" style="aspect-ratio:1;">
+          <div class="frame-museum-inner" style="width:100%;height:100%;">
+            <img src="assets/images/hero-necklace.png" alt="Finished piece" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -215,22 +229,22 @@
         <p>A selection of bespoke pieces created for our clients — each one unique, each one a story.</p>
       </div>
       <div class="grid grid-3 reveal" style="gap:var(--space-lg);">
-        <div class="card-editorial" style="aspect-ratio:1;">
-          <img src="assets/images/bridal-set.png" alt="Bespoke Bridal Set">
+        <div class="card-editorial arch-card" style="aspect-ratio:1;">
+          <img src="assets/images/bridal-set.png" alt="Bespoke Bridal Set" style="width:100%;height:100%;object-fit:cover;">
           <div class="card-overlay">
             <h3>The Rajkumari Set</h3>
             <p>Commissioned for a royal wedding</p>
           </div>
         </div>
-        <div class="card-editorial" style="aspect-ratio:1;">
-          <img src="assets/images/hero-necklace.png" alt="Bespoke Heritage Necklace">
+        <div class="card-editorial arch-card" style="aspect-ratio:1;">
+          <img src="assets/images/hero-necklace.png" alt="Bespoke Heritage Necklace" style="width:100%;height:100%;object-fit:cover;">
           <div class="card-overlay">
             <h3>The Devika Haar</h3>
             <p>A legacy necklace in 22K gold</p>
           </div>
         </div>
-        <div class="card-editorial" style="aspect-ratio:1;">
-          <img src="assets/images/diamond-ring.png" alt="Bespoke Engagement Ring">
+        <div class="card-editorial arch-card" style="aspect-ratio:1;">
+          <img src="assets/images/diamond-ring.png" alt="Bespoke Engagement Ring" style="width:100%;height:100%;object-fit:cover;">
           <div class="card-overlay">
             <h3>The Anuradha Ring</h3>
             <p>A proposal piece with heritage filigree</p>
