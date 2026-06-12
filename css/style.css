@@ -51,9 +51,10 @@
   --shadow-warm-lg:    rgba(44, 24, 16, 0.16);
 
   /* Typography */
-  --font-display:      'Cormorant Garamond', 'Georgia', serif;
-  --font-serif:        'Cormorant', 'Georgia', serif;
+  --font-display:      'Switzer', -apple-system, sans-serif;
+  --font-serif:        'Switzer', -apple-system, sans-serif;
   --font-body:         'Switzer', -apple-system, sans-serif;
+  --font-sans:         'Switzer', -apple-system, sans-serif;
 
   /* Spacing */
   --space-xs:          0.5rem;
@@ -3731,6 +3732,7 @@ section:hover.bg-pattern-jaali-dark::before {
   position: relative;
   z-index: 2;
   border-bottom: 1px solid var(--border-light);
+  padding: 0 !important;
 }
 
 .occasion-panels-grid {
