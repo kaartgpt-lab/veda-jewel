@@ -3950,11 +3950,11 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 
 
-/* ═══ Occasion Cards (contained 3-card layout) ═══ */
+/* ═══ Occasion Cards — Arch Image Style ═══ */
 .occasion-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   max-width: var(--container-max);
   margin: 0 auto;
 }
@@ -3963,144 +3963,109 @@ section:hover.bg-pattern-jaali-dark::before {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  border: 1px solid var(--border-gold);
+  color: var(--text-primary);
   transition: all var(--duration-med) var(--ease-luxury);
   position: relative;
-  overflow: hidden;
 }
 
 .occasion-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(44, 24, 16, 0.1);
 }
 
+/* Arch-shaped image container */
+.occasion-card-arch {
+  border-radius: 200px 200px 4px 4px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  position: relative;
+  border: 1px solid var(--border-gold);
+  background: var(--bg-cream);
+  box-shadow: 0 8px 25px rgba(44, 24, 16, 0.06);
+  transition: all var(--duration-med) var(--ease-luxury);
+}
+
+.occasion-card-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-luxury);
+}
+
+.occasion-card:hover .occasion-card-arch {
+  border-color: var(--gold-aged);
+  box-shadow: 0 16px 40px rgba(44, 24, 16, 0.12);
+}
+
+.occasion-card:hover .occasion-card-arch img {
+  transform: scale(1.05);
+}
+
+/* Text content below the arch */
 .occasion-card-inner {
-  padding: clamp(2rem, 4vw, 3rem);
+  padding: var(--space-lg) var(--space-xs) 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
+  text-align: center;
   flex: 1;
-}
-
-/* Light card (white) */
-.occasion-card-light {
-  background-color: #ffffff;
-  color: var(--text-primary);
-}
-.occasion-card-light .occasion-card-label {
-  color: var(--text-secondary);
-}
-.occasion-card-light .occasion-card-heading {
-  color: var(--text-primary);
-}
-.occasion-card-light .occasion-card-desc {
-  color: var(--text-secondary);
-}
-.occasion-card-light .occasion-card-price {
-  color: var(--text-tertiary);
-}
-.occasion-card-light .occasion-card-cta {
-  color: var(--maroon);
-  border-bottom-color: var(--maroon);
-}
-
-/* Gold card (#B99874) */
-.occasion-card-gold {
-  background-color: var(--gold-aged);
-  color: var(--text-primary);
-  border-color: rgba(51, 11, 20, 0.1);
-}
-.occasion-card-gold .occasion-card-label {
-  color: rgba(51, 11, 20, 0.55);
-}
-.occasion-card-gold .occasion-card-heading {
-  color: var(--text-primary);
-}
-.occasion-card-gold .occasion-card-desc {
-  color: rgba(51, 11, 20, 0.7);
-}
-.occasion-card-gold .occasion-card-price {
-  color: rgba(51, 11, 20, 0.5);
-}
-.occasion-card-gold .occasion-card-cta {
-  color: var(--text-primary);
-  border-bottom-color: var(--text-primary);
-}
-
-/* Maroon card (#5B1427) */
-.occasion-card-maroon {
-  background-color: var(--maroon);
-  color: var(--text-light);
-  border-color: rgba(185, 152, 116, 0.2);
-}
-.occasion-card-maroon .occasion-card-label {
-  color: rgba(255, 247, 229, 0.55);
-}
-.occasion-card-maroon .occasion-card-heading {
-  color: var(--text-light);
-}
-.occasion-card-maroon .occasion-card-desc {
-  color: rgba(255, 247, 229, 0.7);
-}
-.occasion-card-maroon .occasion-card-price {
-  color: rgba(255, 247, 229, 0.5);
-}
-.occasion-card-maroon .occasion-card-cta {
-  color: var(--gold-light);
-  border-bottom-color: var(--gold-light);
 }
 
 /* Card typography — all Switzer, consistent sizes */
 .occasion-card-label {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: var(--text-tertiary);
 }
 
 .occasion-card-heading {
   font-family: var(--font-body);
-  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.3;
+  color: var(--maroon);
 }
 
 .occasion-card-desc {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
+  color: var(--text-secondary);
   flex-grow: 1;
 }
 
 .occasion-card-price {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.08em;
+  color: var(--text-tertiary);
 }
 
 .occasion-card-cta {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  align-self: flex-start;
+  color: var(--maroon);
   padding-bottom: var(--space-xs);
   border-bottom: 1px solid transparent;
   transition: all var(--duration-fast) ease;
+  display: inline-block;
 }
 
 .occasion-card:hover .occasion-card-cta {
-  border-bottom-color: currentColor;
-  transform: translateX(4px);
+  border-bottom-color: var(--maroon);
 }
 
 @media (max-width: 992px) {
   .occasion-cards-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-md);
+    gap: var(--space-xl);
+    max-width: 400px;
   }
 }
