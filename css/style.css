@@ -11,37 +11,37 @@
 /* ─── Design Tokens ─────────────────────────────────────── */
 :root {
   /* Colors — refined luxury palette */
-  --bg-warm-beige:     #F5EDE3;
-  --bg-cream:          #FAF7F2;
-  --bg-ivory:          #FBF8F3;
-  --bg-deep:           #2C1810;
-  --bg-maroon:         #5C1A1B;
-  --bg-maroon-dark:    #4A1525;
-  --bg-taupe:          #8B7D5E;
+  --bg-warm-beige:     #FFF7E5;
+  --bg-cream:          #FFF7E5;
+  --bg-ivory:          #FFFDF5;
+  --bg-deep:           #26050C;
+  --bg-maroon:         #5B1427;
+  --bg-maroon-dark:    #3F0D1B;
+  --bg-taupe:          #9D7E5C;
 
-  --maroon:            #5C1A1B;
-  --maroon-light:      #7A2533;
-  --maroon-hover:      #6B1D2A;
+  --maroon:            #5B1427;
+  --maroon-light:      #7E263D;
+  --maroon-hover:      #480F1E;
 
-  --gold-aged:         #C9A96E;
-  --gold-muted:        #B09A6A;
-  --gold-light:        #D4BC7C;
-  --gold-faint:        rgba(201, 169, 110, 0.15);
+  --gold-aged:         #B99874;
+  --gold-muted:        #A1815E;
+  --gold-light:        #CFB28F;
+  --gold-faint:        rgba(185, 152, 116, 0.15);
 
-  --brown-deep:        #3D2B1F;
-  --brown-warm:        #5C4033;
-  --brown-brand:       #5C1A1B;
+  --brown-deep:        #3A0C17;
+  --brown-warm:        #6B2332;
+  --brown-brand:       #5B1427;
 
-  --text-primary:      #2C1810;
-  --text-secondary:    #6B5B4F;
-  --text-tertiary:     #8C7B6F;
-  --text-light:        #FAF7F2;
-  --text-gold:         #C9A96E;
+  --text-primary:      #330B14;
+  --text-secondary:    #7C6C60;
+  --text-tertiary:     #8E7E74;
+  --text-light:        #FFF7E5;
+  --text-gold:         #B99874;
 
-  --border-light:      #E5DDD3;
-  --border-medium:     #D4C9BC;
-  --border-gold:       rgba(201, 169, 110, 0.3);
-  --border-gold-solid: #C9A96E;
+  --border-light:      #F2E9D7;
+  --border-medium:     #E2D7C3;
+  --border-gold:       rgba(185, 152, 116, 0.3);
+  --border-gold-solid: #B99874;
 
   --overlay-dark:      rgba(44, 24, 16, 0.5);
   --overlay-light:     rgba(245, 237, 227, 0.9);
@@ -499,7 +499,7 @@ section {
 .jaali-divider {
   width: 100%;
   height: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20Z' fill='none' stroke='%23B8963E' stroke-width='0.5' opacity='0.3'/%3E%3Ccircle cx='20' cy='20' r='3' fill='none' stroke='%23B8963E' stroke-width='0.5' opacity='0.2'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20Z' fill='none' stroke='%23B99874' stroke-width='0.5' opacity='0.3'/%3E%3Ccircle cx='20' cy='20' r='3' fill='none' stroke='%23B99874' stroke-width='0.5' opacity='0.2'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-position: center;
   background-size: 40px 40px;
@@ -617,12 +617,17 @@ section {
 }
 
 .btn-gold {
-  background: var(--gold-aged);
+  background: var(--gold-aged) url('../assets/images/gold-texture.png') no-repeat center;
+  background-size: cover;
   color: var(--bg-deep);
+  transition: all var(--duration-fast) ease;
 }
 
 .btn-gold:hover {
-  background: var(--gold-light);
+  background-image: url('../assets/images/gold-texture.png');
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(185, 152, 116, 0.25);
 }
 
 .btn-white {
@@ -2296,7 +2301,7 @@ section {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23B8963E' stroke-width='0.5' opacity='0.05'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z' fill='none' stroke='%23B8963E' stroke-width='0.3' opacity='0.03'/%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23B8963E' opacity='0.1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23B99874' stroke-width='0.5' opacity='0.05'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z' fill='none' stroke='%23B99874' stroke-width='0.3' opacity='0.03'/%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23B99874' opacity='0.1'/%3E%3C/svg%3E");
   background-size: 80px 80px;
   pointer-events: none;
   z-index: 0;
@@ -2306,7 +2311,7 @@ section {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23B8963E' stroke-width='0.5' opacity='0.22'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z' fill='none' stroke='%23B8963E' stroke-width='0.3' opacity='0.12'/%3E%3Ccircle cx='40' cy='40' r='1.2' fill='%23B8963E' opacity='0.25'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23B99874' stroke-width='0.5' opacity='0.22'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z' fill='none' stroke='%23B99874' stroke-width='0.3' opacity='0.12'/%3E%3Ccircle cx='40' cy='40' r='1.2' fill='%23B99874' opacity='0.25'/%3E%3C/svg%3E");
   background-size: 80px 80px;
   pointer-events: none;
   z-index: 0;
@@ -2316,7 +2321,7 @@ section {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='80' cy='80' r='60' fill='none' stroke='%23B8963E' stroke-width='0.4' opacity='0.02'/%3E%3Ccircle cx='80' cy='80' r='40' fill='none' stroke='%23B8963E' stroke-width='0.3' opacity='0.02'/%3E%3Cpath d='M80 0 A80 80 0 0 1 160 80 A80 80 0 0 1 80 160 A80 80 0 0 1 0 80 A80 80 0 0 1 80 0 Z' fill='none' stroke='%23B8963E' stroke-width='0.3' opacity='0.02'/%3E%3Cpath d='M80 15 L92 42 L120 42 L98 58 L106 85 L80 70 L54 85 L62 58 L40 42 L68 42 Z' fill='none' stroke='%23B8963E' stroke-width='0.3' opacity='0.02'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='80' cy='80' r='60' fill='none' stroke='%23B99874' stroke-width='0.4' opacity='0.02'/%3E%3Ccircle cx='80' cy='80' r='40' fill='none' stroke='%23B99874' stroke-width='0.3' opacity='0.02'/%3E%3Cpath d='M80 0 A80 80 0 0 1 160 80 A80 80 0 0 1 80 160 A80 80 0 0 1 0 80 A80 80 0 0 1 80 0 Z' fill='none' stroke='%23B99874' stroke-width='0.3' opacity='0.02'/%3E%3Cpath d='M80 15 L92 42 L120 42 L98 58 L106 85 L80 70 L54 85 L62 58 L40 42 L68 42 Z' fill='none' stroke='%23B99874' stroke-width='0.3' opacity='0.02'/%3E%3C/svg%3E");
   background-size: 160px 160px;
   background-position: center;
   pointer-events: none;
