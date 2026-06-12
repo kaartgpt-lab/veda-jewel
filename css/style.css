@@ -4000,6 +4000,41 @@ section:hover.bg-pattern-jaali-dark::before {
   transform: scale(1.05);
 }
 
+/* — Card Color Variants — */
+/* White card */
+.occasion-card-light {
+  background-color: #ffffff;
+}
+.occasion-card-light .occasion-card-arch {
+  border-color: rgba(91, 20, 39, 0.1);
+}
+
+/* Gold card (#B99874) */
+.occasion-card-gold {
+  background-color: var(--gold-aged);
+}
+.occasion-card-gold .occasion-card-arch {
+  border-color: rgba(51, 11, 20, 0.12);
+}
+.occasion-card-gold .occasion-card-label { color: rgba(51, 11, 20, 0.55); }
+.occasion-card-gold .occasion-card-heading { color: var(--text-primary); }
+.occasion-card-gold .occasion-card-desc { color: rgba(51, 11, 20, 0.7); }
+.occasion-card-gold .occasion-card-price { color: rgba(51, 11, 20, 0.5); }
+.occasion-card-gold .occasion-card-cta { color: var(--text-primary); }
+
+/* Maroon card (#5B1427) */
+.occasion-card-maroon {
+  background-color: var(--maroon);
+}
+.occasion-card-maroon .occasion-card-arch {
+  border-color: rgba(185, 152, 116, 0.2);
+}
+.occasion-card-maroon .occasion-card-label { color: rgba(255, 247, 229, 0.55); }
+.occasion-card-maroon .occasion-card-heading { color: var(--text-light); }
+.occasion-card-maroon .occasion-card-desc { color: rgba(255, 247, 229, 0.7); }
+.occasion-card-maroon .occasion-card-price { color: rgba(255, 247, 229, 0.5); }
+.occasion-card-maroon .occasion-card-cta { color: var(--gold-light); }
+
 /* Text content below the arch */
 .occasion-card-inner {
   padding: var(--space-lg) var(--space-xs) 0;
