@@ -3059,21 +3059,22 @@ section:hover.bg-pattern-jaali-dark::before {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  max-width: 450px;
+  max-width: 500px;
   margin-left: auto;
   position: relative;
   padding: var(--space-md) 0;
 }
 
 .vsvp-timeline-staggered .timeline-card {
-  background: var(--bg-cream);
-  padding: var(--space-md) var(--space-lg);
+  background: #ffffff;
+  padding: 1.25rem 2rem;
   display: flex;
   align-items: center;
   gap: var(--space-lg);
-  box-shadow: 0 8px 24px rgba(44, 24, 16, 0.04);
-  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(44, 24, 16, 0.04);
+  border-radius: 0px;
   transition: all var(--duration-med) var(--ease-luxury);
+  width: 320px;
 }
 
 .vsvp-timeline-staggered .timeline-card .card-num {
@@ -3101,12 +3102,25 @@ section:hover.bg-pattern-jaali-dark::before {
   color: var(--text-tertiary);
 }
 
-.vsvp-timeline-staggered .timeline-card.tilt-left {
-  transform: rotate(-2.5deg) translateX(-15px);
+/* Tilts & Stagger offsets matching the mockup zig-zag exactly */
+.vsvp-timeline-staggered .timeline-card.tilt-left-far {
+  transform: rotate(-3deg) translateX(-60px);
 }
 
-.vsvp-timeline-staggered .timeline-card.tilt-right {
-  transform: rotate(2deg) translateX(15px);
+.vsvp-timeline-staggered .timeline-card.tilt-right-far {
+  transform: rotate(2deg) translateX(60px);
+}
+
+.vsvp-timeline-staggered .timeline-card.tilt-left-near {
+  transform: rotate(-2deg) translateX(-40px);
+}
+
+.vsvp-timeline-staggered .timeline-card.tilt-right-near {
+  transform: rotate(2.5deg) translateX(40px);
+}
+
+.vsvp-timeline-staggered .timeline-card.tilt-center-near {
+  transform: rotate(0deg) translateX(-15px);
 }
 
 .vsvp-timeline-staggered .timeline-card:hover {
@@ -3114,10 +3128,10 @@ section:hover.bg-pattern-jaali-dark::before {
   box-shadow: 0 12px 30px rgba(92, 26, 27, 0.08);
 }
 
+/* Gift Card Special Style */
 .vsvp-timeline-staggered .timeline-card.card-gift {
   background: var(--bg-maroon);
   box-shadow: 0 8px 25px rgba(92, 26, 27, 0.2);
-  transform: none;
 }
 
 .vsvp-timeline-staggered .timeline-card.card-gift .card-num {
