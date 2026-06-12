@@ -1139,6 +1139,7 @@ section {
   align-items: center;
   gap: 0.75rem;
   z-index: var(--z-nav);
+  flex: 1 1 0%;
 }
 
 .navbar-logo img,
@@ -1168,6 +1169,8 @@ section {
   display: flex;
   align-items: center;
   gap: var(--space-xl);
+  flex: 0 0 auto;
+  justify-content: center;
 }
 
 .navbar-links a {
@@ -1205,6 +1208,8 @@ section {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  flex: 1 1 0%;
+  justify-content: flex-end;
 }
 
 .navbar-utility a,
