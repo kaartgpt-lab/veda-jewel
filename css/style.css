@@ -3701,7 +3701,10 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Burgundy Gradient Background for Hero */
 .hero-burgundy-gradient {
-  background: radial-gradient(circle at 75% 35%, #5E2628 0%, #301011 70%, #1A0708 100%);
+  background: linear-gradient(to right, rgba(48, 16, 17, 0.95) 0%, rgba(48, 16, 17, 0.85) 40%, rgba(48, 16, 17, 0.2) 100%), 
+              url('../assets/images/editorial-model.png') no-repeat;
+  background-size: cover;
+  background-position: 80% center;
   position: absolute;
   inset: 0;
   z-index: var(--z-behind);
@@ -3709,34 +3712,15 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Right-aligned arch & peacock artwork positioning */
 .hero-vector-artwork {
-  position: absolute;
-  right: 5%;
-  bottom: 0;
-  height: 90%;
-  width: 45%;
-  max-width: 500px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  z-index: 1;
-}
-
-.hero-svg-peacock {
-  height: 100%;
-  width: auto;
-  filter: drop-shadow(0 0 15px rgba(184, 150, 62, 0.15));
-  animation: slideInFromRight 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  display: none;
 }
 
 @media (max-width: 768px) {
   .hero-burgundy-gradient {
-    background: radial-gradient(circle at center, #5E2628 0%, #301011 85%, #1A0708 100%);
-  }
-  .hero-vector-artwork {
-    width: 80%;
-    right: 10%;
-    opacity: 0.15;
-    height: 70%;
+    background: linear-gradient(to bottom, rgba(48, 16, 17, 0.85) 0%, rgba(48, 16, 17, 0.95) 100%), 
+                url('../assets/images/editorial-model.png') no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 }
 
