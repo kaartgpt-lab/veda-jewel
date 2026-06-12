@@ -3818,6 +3818,7 @@ section:hover.bg-pattern-jaali-dark::before {
   font-weight: 300;
   font-style: italic;
   line-height: 1.15;
+  color: inherit;
 }
 
 .occasion-desc {
@@ -3825,6 +3826,7 @@ section:hover.bg-pattern-jaali-dark::before {
   line-height: 1.6;
   opacity: 0.85;
   min-height: 48px;
+  color: inherit;
 }
 
 .occasion-price-range {
@@ -3833,6 +3835,7 @@ section:hover.bg-pattern-jaali-dark::before {
   letter-spacing: 0.1em;
   font-weight: 500;
   opacity: 0.75;
+  color: inherit;
 }
 
 .occasion-cta {
