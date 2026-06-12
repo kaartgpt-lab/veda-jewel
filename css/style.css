@@ -3232,19 +3232,21 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Founder Story Section Layout */
 .founder-story-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .founder-story-content {
-  padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 4rem);
+  padding: var(--section-pad) var(--container-pad);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  max-width: 650px;
-  margin-left: auto;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .founder-story-content .label-gold {
@@ -3281,9 +3283,13 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 
 .founder-quote-block {
-  border-left: 2px solid var(--maroon);
-  padding-left: 1.5rem;
+  border-left: none;
+  border-top: 1px solid rgba(201, 169, 110, 0.3);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+  padding: var(--space-md) 0;
   margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 600px;
 }
 
 .founder-quote-text {
@@ -3463,14 +3469,12 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Section Gradient Glows & Transitions */
 #make-to-order {
-  background: radial-gradient(circle at 80% 50%, rgba(92, 64, 51, 0.25) 0%, rgba(44, 24, 16, 1) 85%), var(--bg-deep);
+  background: radial-gradient(circle at 80% 50%, rgba(246, 237, 226, 0.1) 0%, rgba(140, 106, 92, 1) 85%);
   position: relative;
 }
 
 #old-gold {
-  background: linear-gradient(to bottom, rgba(44, 24, 16, 0.75) 0%, transparent 18%), 
-              radial-gradient(circle at 20% 50%, rgba(153, 38, 59, 0.22) 0%, rgba(92, 26, 27, 1) 85%), 
-              var(--bg-maroon);
+  background: radial-gradient(circle at 20% 50%, rgba(246, 237, 226, 0.08) 0%, rgba(74, 23, 29, 1) 85%);
   position: relative;
 }
 
@@ -3730,7 +3734,7 @@ section:hover.bg-pattern-jaali-dark::before {
   overflow: hidden;
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid var(--border-light);
+  border: none;
 }
 
 .occasion-panels-grid {
@@ -3871,5 +3875,48 @@ section:hover.bg-pattern-jaali-dark::before {
   .occasion-desc {
     min-height: auto;
   }
+}
+
+/* Alternate Section Color Theme Readability Overrides */
+.bg-brown-warm .display-serif,
+.bg-maroon-deep .display-serif,
+.bg-brown-warm h2,
+.bg-maroon-deep h2 {
+  color: var(--gold-light) !important;
+}
+
+.bg-brown-warm .founder-quote-text,
+.bg-maroon-deep .founder-quote-text {
+  color: var(--gold-light) !important;
+}
+
+.bg-brown-warm .founder-story-body p,
+.bg-maroon-deep .founder-story-body p,
+.bg-brown-warm .story-column-quote,
+.bg-maroon-deep .story-column-quote {
+  color: rgba(250, 247, 242, 0.9) !important;
+}
+
+.bg-brown-warm .link-editorial,
+.bg-maroon-deep .link-editorial {
+  color: var(--gold-light) !important;
+  border-bottom-color: var(--gold-light) !important;
+}
+
+.bg-brown-warm .label-gold,
+.bg-maroon-deep .label-gold {
+  color: var(--gold-light) !important;
+}
+
+.bg-maroon-deep .featured-quote-text {
+  color: var(--gold-light) !important;
+}
+
+.bg-maroon-deep .featured-quote-author {
+  color: rgba(250, 247, 242, 0.85) !important;
+}
+
+.bg-maroon-deep .story-column-tag {
+  color: var(--gold-light) !important;
 }
 
