@@ -67,8 +67,8 @@
   --space-5xl:         10rem;
 
   /* Section Padding */
-  --section-pad:       clamp(40px, 5vw, 64px);
-  --section-pad-sm:    clamp(30px, 4vw, 48px);
+  --section-pad:       clamp(80px, 10vw, 160px);
+  --section-pad-sm:    clamp(60px, 8vw, 100px);
 
   /* Container */
   --container-max:     1400px;
@@ -2185,8 +2185,8 @@ section {
 
 @media (max-width: 768px) {
   :root {
-    --section-pad: clamp(30px, 4vw, 45px);
-    --section-pad-sm: clamp(20px, 3vw, 30px);
+    --section-pad: clamp(60px, 8vw, 100px);
+    --section-pad-sm: clamp(40px, 6vw, 80px);
   }
   
   .grid-2,
@@ -3232,21 +3232,19 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Founder Story Section Layout */
 .founder-story-grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
 }
 
 .founder-story-content {
-  padding: var(--section-pad) var(--container-pad);
+  padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 4rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  align-items: flex-start;
+  max-width: 650px;
+  margin-left: auto;
 }
 
 .founder-story-content .label-gold {
@@ -3283,13 +3281,9 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 
 .founder-quote-block {
-  border-left: none;
-  border-top: 1px solid rgba(201, 169, 110, 0.3);
-  border-bottom: 1px solid rgba(201, 169, 110, 0.3);
-  padding: var(--space-md) 0;
+  border-left: 2px solid var(--maroon);
+  padding-left: 1.5rem;
   margin-bottom: 2.5rem;
-  width: 100%;
-  max-width: 600px;
 }
 
 .founder-quote-text {
@@ -3469,12 +3463,14 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Section Gradient Glows & Transitions */
 #make-to-order {
-  background: radial-gradient(circle at 80% 50%, rgba(246, 237, 226, 0.1) 0%, rgba(140, 106, 92, 1) 85%);
+  background: radial-gradient(circle at 80% 50%, rgba(92, 64, 51, 0.25) 0%, rgba(44, 24, 16, 1) 85%), var(--bg-deep);
   position: relative;
 }
 
 #old-gold {
-  background: radial-gradient(circle at 20% 50%, rgba(246, 237, 226, 0.08) 0%, rgba(74, 23, 29, 1) 85%);
+  background: linear-gradient(to bottom, rgba(44, 24, 16, 0.75) 0%, transparent 18%), 
+              radial-gradient(circle at 20% 50%, rgba(153, 38, 59, 0.22) 0%, rgba(92, 26, 27, 1) 85%), 
+              var(--bg-maroon);
   position: relative;
 }
 
@@ -3705,28 +3701,44 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Burgundy Gradient Background for Hero */
 .hero-burgundy-gradient {
-  background: linear-gradient(to right, rgba(48, 16, 17, 0.95) 0%, rgba(48, 16, 17, 0.85) 40%, rgba(48, 16, 17, 0.2) 100%), 
-              url('../assets/images/hero-jewellery.png') no-repeat;
-  background-size: cover;
-  background-position: 80% center;
+  background: radial-gradient(circle at 75% 35%, #5E2628 0%, #301011 70%, #1A0708 100%);
   position: absolute;
   inset: 0;
   z-index: var(--z-behind);
 }
 
+/* Right-aligned arch & peacock artwork positioning */
 .hero-vector-artwork {
-  display: none;
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  height: 90%;
+  width: 45%;
+  max-width: 500px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hero-svg-peacock {
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(0 0 15px rgba(184, 150, 62, 0.15));
+  animation: slideInFromRight 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 @media (max-width: 768px) {
   .hero-burgundy-gradient {
-    background: linear-gradient(to bottom, rgba(48, 16, 17, 0.85) 0%, rgba(48, 16, 17, 0.95) 100%), 
-                url('../assets/images/hero-jewellery.png') no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: radial-gradient(circle at center, #5E2628 0%, #301011 85%, #1A0708 100%);
+  }
+  .hero-vector-artwork {
+    width: 80%;
+    right: 10%;
+    opacity: 0.15;
+    height: 70%;
   }
 }
-
 
 /* Occasion Segments Section */
 .occasion-segments-section {
@@ -3734,7 +3746,7 @@ section:hover.bg-pattern-jaali-dark::before {
   overflow: hidden;
   position: relative;
   z-index: 2;
-  border: none;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .occasion-panels-grid {
@@ -3875,48 +3887,5 @@ section:hover.bg-pattern-jaali-dark::before {
   .occasion-desc {
     min-height: auto;
   }
-}
-
-/* Alternate Section Color Theme Readability Overrides */
-.bg-brown-warm .display-serif,
-.bg-maroon-deep .display-serif,
-.bg-brown-warm h2,
-.bg-maroon-deep h2 {
-  color: var(--gold-light) !important;
-}
-
-.bg-brown-warm .founder-quote-text,
-.bg-maroon-deep .founder-quote-text {
-  color: var(--gold-light) !important;
-}
-
-.bg-brown-warm .founder-story-body p,
-.bg-maroon-deep .founder-story-body p,
-.bg-brown-warm .story-column-quote,
-.bg-maroon-deep .story-column-quote {
-  color: rgba(250, 247, 242, 0.9) !important;
-}
-
-.bg-brown-warm .link-editorial,
-.bg-maroon-deep .link-editorial {
-  color: var(--gold-light) !important;
-  border-bottom-color: var(--gold-light) !important;
-}
-
-.bg-brown-warm .label-gold,
-.bg-maroon-deep .label-gold {
-  color: var(--gold-light) !important;
-}
-
-.bg-maroon-deep .featured-quote-text {
-  color: var(--gold-light) !important;
-}
-
-.bg-maroon-deep .featured-quote-author {
-  color: rgba(250, 247, 242, 0.85) !important;
-}
-
-.bg-maroon-deep .story-column-tag {
-  color: var(--gold-light) !important;
 }
 
