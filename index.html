@@ -311,37 +311,37 @@
     <div class="container">
       <div class="split-layout" style="min-height: auto; gap: var(--space-3xl); align-items: center; position: relative; z-index: 2;">
         <div class="reveal-left" style="padding: 0;" id="gold-calculator">
-          <div style="background-color: var(--bg-cream); padding: var(--space-xl); border: 1px solid var(--border-gold); max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-            <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem; font-weight: 500;">Exchange Programme</h3>
+          <div style="background-color: #8B3F2C; padding: var(--space-xl); border: 1px solid rgba(255, 248, 230, 0.2); max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-radius: 4px;">
+            <h3 style="font-size: 1.8rem; color: #FFF8E6; margin-bottom: 1.5rem; font-weight: 500;">Exchange Programme</h3>
             
             <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label style="color: var(--text-secondary); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Weight of Gold</label>
-              <div style="display: flex; align-items: center; border-bottom: 1px solid var(--text-secondary); padding-bottom: 0.2rem;">
-                <input type="number" id="gold-weight" placeholder="10" value="10" style="border: none; background: transparent; font-size: 1.4rem; color: var(--text-primary); width: 60px; outline: none;">
-                <span style="font-size: 1.4rem; color: var(--text-primary); margin-left: 0.2rem;">grams</span>
+              <label style="color: rgba(255, 248, 230, 0.7); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Weight of Gold</label>
+              <div style="display: flex; align-items: center; border-bottom: 1px solid rgba(255, 248, 230, 0.4); padding-bottom: 0.2rem;">
+                <input type="number" id="gold-weight" placeholder="10" value="10" style="border: none; background: transparent; font-size: 1.4rem; color: #FFF8E6; width: 60px; outline: none;">
+                <span style="font-size: 1.4rem; color: #FFF8E6; margin-left: 0.2rem;">grams</span>
               </div>
             </div>
 
             <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label style="color: var(--text-secondary); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Purity (in Karat)</label>
-              <div style="border-bottom: 1px solid var(--text-secondary); padding-bottom: 0.2rem; position: relative;">
-                <select id="metal-type" style="border: none; background: transparent; font-size: 1.2rem; color: var(--text-primary); width: 100%; outline: none; appearance: none; padding-right: 20px;">
-                  <option value="24k">24k (99.9% Pure)</option>
-                  <option value="22k" selected>22k (91.6% Pure)</option>
-                  <option value="18k">18k (75.0% Pure)</option>
-                  <option value="14k">14k (58.5% Pure)</option>
+              <label style="color: rgba(255, 248, 230, 0.7); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Purity (in Karat)</label>
+              <div style="border-bottom: 1px solid rgba(255, 248, 230, 0.4); padding-bottom: 0.2rem; position: relative;">
+                <select id="metal-type" style="border: none; background: transparent; font-size: 1.2rem; color: #FFF8E6; width: 100%; outline: none; appearance: none; padding-right: 20px;">
+                  <option value="24k" style="color: #482D22;">24k (99.9% Pure)</option>
+                  <option value="22k" selected style="color: #482D22;">22k (91.6% Pure)</option>
+                  <option value="18k" style="color: #482D22;">18k (75.0% Pure)</option>
+                  <option value="14k" style="color: #482D22;">14k (58.5% Pure)</option>
                 </select>
-                <span style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 0.8rem;">▼</span>
+                <span style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 0.8rem; color: #FFF8E6;">▼</span>
               </div>
             </div>
 
-            <p style="font-size: 1rem; color: var(--text-primary); margin-bottom: 1rem;">Current <span id="calc-rate-label">22k</span> Gold rate <span style="color: #002D62; font-weight: 500;" id="calc-rate-value">₹6,600/gram</span></p>
+            <p style="font-size: 1rem; color: #FFF8E6; margin-bottom: 1rem;">Current <span id="calc-rate-label">22k</span> Gold rate <span style="font-weight: 500;" id="calc-rate-value">₹6,600/gram</span></p>
 
-            <div id="calc-result" class="active" style="border: 1px solid #E3643C; padding: 1rem; margin-bottom: 1rem;">
-              <div id="calc-value" style="font-size: 2rem; color: #002D62; font-weight: 500;">₹ 66,000</div>
+            <div id="calc-result" class="active" style="border: 1px solid rgba(255, 248, 230, 0.4); padding: 1rem; margin-bottom: 1rem; background: rgba(0,0,0,0.1);">
+              <div id="calc-value" style="font-size: 2rem; color: #FFF8E6; font-weight: 500;">₹ 66,000</div>
             </div>
 
-            <p style="font-size: 0.85rem; color: var(--text-tertiary);">*Indicative value only. Company prevailing gold rates apply.</p>
+            <p style="font-size: 0.85rem; color: rgba(255, 248, 230, 0.5);">*Indicative value only. Company prevailing gold rates apply.</p>
           </div>
         </div>
         <div class="reveal-right" style="padding: 0;">
