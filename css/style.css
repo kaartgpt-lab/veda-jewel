@@ -2977,7 +2977,7 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 
 .philosophy-card {
-  background: #482D22;
+  background: #8B3F2C;
   border: 1px solid rgba(185, 152, 116, 0.2);
   padding: var(--space-xl) var(--space-md);
   text-align: center;
@@ -3220,7 +3220,7 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Gift Card Special Style */
 .vsvp-timeline-staggered .timeline-card.card-gift {
-  background: #482D22;
+  background: #8B3F2C;
   box-shadow: 0 8px 25px rgba(72, 45, 34, 0.3);
 }
 
@@ -3419,7 +3419,7 @@ section:hover.bg-pattern-jaali-dark::before {
   display: flex;
   flex-direction: column;
   padding: var(--space-xl) var(--space-lg);
-  background: #482D22;
+  background: #8B3F2C;
   border-top: none;
   border-radius: var(--radius-sm);
 }
