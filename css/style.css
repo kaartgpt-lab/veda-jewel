@@ -3818,7 +3818,7 @@ section:hover.bg-pattern-jaali-dark::before {
   color: var(--text-primary);
   transition: all var(--duration-med) var(--ease-luxury);
   position: relative;
-  border-radius: 8px;
+  border-radius: 200px 200px 4px 4px;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(72, 45, 34, 0.1);
 }
