@@ -68,8 +68,8 @@
   --space-5xl:         10rem;
 
   /* Section Padding */
-  --section-pad:       clamp(80px, 10vw, 160px);
-  --section-pad-sm:    clamp(60px, 8vw, 100px);
+  --section-pad:       clamp(40px, 5vw, 80px);
+  --section-pad-sm:    clamp(30px, 4vw, 50px);
 
   /* Container */
   --container-max:     1400px;
