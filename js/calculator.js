@@ -30,6 +30,11 @@ function initCalculator() {
     const rate = rates[metalType] || 0;
     const value = Math.round(weight * rate);
 
+    const rateLabel = document.querySelector('#calc-rate-label');
+    const rateValue = document.querySelector('#calc-rate-value');
+    if (rateLabel) rateLabel.textContent = metalType;
+    if (rateValue) rateValue.textContent = '₹' + rate.toLocaleString('en-IN') + '/gram';
+
     if (value > 0 && resultDisplay && resultValue) {
       resultDisplay.classList.add('active');
       animateValue(resultValue, value);
