@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initCounters();
   initLeadNudge();
+  initSectionHighlight();
 });
 
 
@@ -79,6 +80,35 @@ function initScrollReveal() {
   });
 
   reveals.forEach(el => observer.observe(el));
+}
+
+/* ─── Section Highlight ─────────────────────────────────── */
+function initSectionHighlight() {
+  const sections = document.querySelectorAll('section');
+  if (!sections.length) return;
+
+  sections.forEach(sec => sec.classList.add('highlightable-section'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-active-section');
+      } else {
+        entry.target.classList.remove('is-active-section');
+      }
+    });
+
+    const activeExists = document.querySelector('.is-active-section');
+    if (activeExists) {
+      document.body.classList.add('has-active-section');
+    } else {
+      document.body.classList.remove('has-active-section');
+    }
+  }, {
+    threshold: 0.35 // Trigger when 35% of the section is in view
+  });
+
+  sections.forEach(sec => observer.observe(sec));
 }
 
 
