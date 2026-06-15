@@ -3855,42 +3855,43 @@ section:hover.bg-pattern-jaali-dark::before {
 /* — Card Color Variants — */
 /* White card */
 .occasion-card-light {
-  background-color: #8B3F2C;
+  background-color: transparent;
 }
 .occasion-card-light .occasion-card-arch {
   border-color: rgba(185, 152, 116, 0.2);
 }
-.occasion-card-light .occasion-card-label { color: rgba(255, 248, 230, 0.55); }
-.occasion-card-light .occasion-card-heading { color: #FFF8E6; }
-.occasion-card-light .occasion-card-desc { color: rgba(255, 248, 230, 0.75); }
-.occasion-card-light .occasion-card-price { color: rgba(255, 248, 230, 0.5); }
-.occasion-card-light .occasion-card-cta { color: var(--gold-light); }
+.occasion-card-light .occasion-card-label { color: var(--gold-aged); }
+.occasion-card-light .occasion-card-heading { color: #482D22; }
+.occasion-card-light .occasion-card-desc { color: rgba(72, 45, 34, 0.75); }
+.occasion-card-light .occasion-card-price { color: rgba(72, 45, 34, 0.5); }
+.occasion-card-light .occasion-card-cta { color: #8B3F2C; }
 
 /* Deep Gold card */
 .occasion-card-gold {
-  background-color: #896E50;
+  background-color: transparent;
 }
 .occasion-card-gold .occasion-card-arch {
-  border-color: rgba(255, 248, 230, 0.15);
+  border-color: rgba(185, 152, 116, 0.2);
 }
-.occasion-card-gold .occasion-card-label { color: rgba(255, 248, 230, 0.55); }
-.occasion-card-gold .occasion-card-heading { color: #FFF8E6; }
-.occasion-card-gold .occasion-card-desc { color: rgba(255, 248, 230, 0.75); }
-.occasion-card-gold .occasion-card-price { color: rgba(255, 248, 230, 0.5); }
-.occasion-card-gold .occasion-card-cta { color: #FFF8E6; }
+.occasion-card-gold .occasion-card-label { color: var(--gold-aged); }
+.occasion-card-gold .occasion-card-heading { color: #482D22; }
+.occasion-card-gold .occasion-card-desc { color: rgba(72, 45, 34, 0.75); }
+.occasion-card-gold .occasion-card-price { color: rgba(72, 45, 34, 0.5); }
+.occasion-card-gold .occasion-card-cta { color: #8B3F2C; }
 
 /* Deep Brown card */
 .occasion-card-maroon {
-  background-color: #482D22;
+  background-color: transparent;
 }
 .occasion-card-maroon .occasion-card-arch {
+
   border-color: rgba(185, 152, 116, 0.2);
 }
-.occasion-card-maroon .occasion-card-label { color: rgba(255, 248, 230, 0.55); }
-.occasion-card-maroon .occasion-card-heading { color: #FFF8E6; }
-.occasion-card-maroon .occasion-card-desc { color: rgba(255, 248, 230, 0.7); }
-.occasion-card-maroon .occasion-card-price { color: rgba(255, 248, 230, 0.5); }
-.occasion-card-maroon .occasion-card-cta { color: var(--gold-light); }
+.occasion-card-maroon .occasion-card-label { color: var(--gold-aged); }
+.occasion-card-maroon .occasion-card-heading { color: #482D22; }
+.occasion-card-maroon .occasion-card-desc { color: rgba(72, 45, 34, 0.75); }
+.occasion-card-maroon .occasion-card-price { color: rgba(72, 45, 34, 0.5); }
+.occasion-card-maroon .occasion-card-cta { color: #8B3F2C; }
 
 /* Text content below the arch */
 .occasion-card-inner {
