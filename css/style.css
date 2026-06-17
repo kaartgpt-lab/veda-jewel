@@ -1542,12 +1542,39 @@ section {
   margin-bottom: var(--space-lg);
 }
 
+.hero-home-content {
+  text-align: left;
+  align-self: center;
+  margin-right: auto;
+  max-width: 600px;
+  padding-left: var(--container-pad);
+}
+
+.hero-home-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
   .hero-home {
-    height: 100vh;
-    height: 100dvh;
-    min-height: 500px;
+    height: auto;
+    min-height: 60vh;
+    padding-top: 120px;
+    padding-bottom: 60px;
   }
+  
+  .hero-home-content {
+    text-align: center;
+    margin: 0 auto;
+    padding-left: var(--container-pad);
+    padding-right: var(--container-pad);
+  }
+
+  .hero-home-buttons {
+    justify-content: center;
+  }
+
 }
 
 /* Page hero (shorter) */
