@@ -194,7 +194,7 @@
 
 
   <!-- ═══ OCCASION SEGMENTS ═══ -->
-  <section class="bg-cream" id="occasions" style="padding-bottom: 0;">
+  <section class="bg-cream bg-pattern-jaali-light" id="occasions" style="padding-bottom: 0;">
     <div class="container">
       <div class="section-header reveal" style="text-align: center; margin-bottom: var(--space-2xl);">
         <span class="label-gold">— Shop By Occasion —</span>
@@ -268,38 +268,38 @@
     <div class="sanskrit-backdrop">शिल्पकला</div>
     <div class="corner-ornaments"><span></span></div>
     <div class="container">
-      <div class="split-layout" style="min-height: auto; gap: var(--space-3xl); align-items: center; position: relative; z-index: 2;">
-        <div class="reveal-left" style="padding: 0;">
-          <span class="label" style="color: var(--gold-aged);">— Bespoke Atelier —</span>
-          <h2 style="margin: var(--space-lg) 0; color: var(--maroon);">Commission<br>Your Heirloom</h2>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
-            At the VEDA Atelier, we bring your vision to life. Work with our master designers to craft a bespoke masterpiece that translates your personal expression, memories, and legacy into precious metal and flawless gems. Every commission is a collaboration of artistic design, master craftsmanship, and personal story.
-          </p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-            <a href="make-to-order.html" class="btn btn-primary">Explore MTO Stories</a>
-            <a href="make-to-order.html#catalogue" class="btn btn-secondary" style="border-color: var(--maroon); color: var(--maroon);">Explore MTO Catalogue</a>
+      <div class="bespoke-split-layout" style="position: relative; z-index: 2;">
+        <span class="label bespoke-label reveal-left" style="color: var(--gold-aged);">— Bespoke Atelier —</span>
+        
+        <div class="mto-collage-grid bespoke-images reveal-right">
+          <div class="mto-collage-item">
+            <img src="assets/images/jewellery-sketch.png" alt="VEDA Atelier - Hand-drawn Sketches">
+            <div class="item-label">01. Sketches</div>
           </div>
-          <a href="https://wa.me/919187204025" class="btn-whisper">Reach Out To Us →</a>
+          <div class="mto-collage-item">
+            <img src="assets/images/cad-rendering.png" alt="VEDA Atelier - 3D CAD Renders">
+            <div class="item-label">02. CAD Rendering</div>
+          </div>
+          <div class="mto-collage-item">
+            <img src="assets/images/artisan-crafting.png" alt="VEDA Atelier - Master Goldsmiths">
+            <div class="item-label">03. Artisans</div>
+          </div>
+          <div class="mto-collage-item">
+            <img src="assets/images/heritage-gold.png" alt="VEDA Atelier - Past Creations">
+            <div class="item-label">04. Masterpieces</div>
+          </div>
         </div>
-        <div class="reveal-right">
-          <div class="mto-collage-grid">
-            <div class="mto-collage-item">
-              <img src="assets/images/jewellery-sketch.png" alt="VEDA Atelier - Hand-drawn Sketches">
-              <div class="item-label">01. Sketches</div>
-            </div>
-            <div class="mto-collage-item">
-              <img src="assets/images/cad-rendering.png" alt="VEDA Atelier - 3D CAD Renders">
-              <div class="item-label">02. CAD Rendering</div>
-            </div>
-            <div class="mto-collage-item">
-              <img src="assets/images/artisan-crafting.png" alt="VEDA Atelier - Master Goldsmiths">
-              <div class="item-label">03. Artisans</div>
-            </div>
-            <div class="mto-collage-item">
-              <img src="assets/images/heritage-gold.png" alt="VEDA Atelier - Past Creations">
-              <div class="item-label">04. Masterpieces</div>
-            </div>
-          </div>
+
+        <h2 class="bespoke-heading reveal-left" style="margin: var(--space-lg) 0; color: var(--maroon);">Commission<br>Your Heirloom</h2>
+        
+        <p class="bespoke-text reveal-left" style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+          At the VEDA Atelier, we bring your vision to life. Work with our master designers to craft a bespoke masterpiece that translates your personal expression, memories, and legacy into precious metal and flawless gems. Every commission is a collaboration of artistic design, master craftsmanship, and personal story.
+        </p>
+        
+        <div class="bespoke-ctas reveal-left" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+          <a href="make-to-order.html" class="btn btn-primary">Explore MTO Stories</a>
+          <a href="make-to-order.html#catalogue" class="btn btn-secondary" style="border-color: var(--maroon); color: var(--maroon);">Explore MTO Catalogue</a>
+          <a href="https://wa.me/919187204025" class="btn-whisper bespoke-cta-link" style="margin-top: 1rem;">Reach Out To Us →</a>
         </div>
       </div>
     </div>
@@ -310,9 +310,10 @@
   <section class="bg-gold-section" id="old-gold">
     <div class="sanskrit-backdrop" style="color: rgba(51, 11, 20, 0.04);">परम्परा</div>
     <div class="container">
-      <div class="split-layout" style="min-height: auto; gap: var(--space-3xl); align-items: center; position: relative; z-index: 2;">
-        <div class="reveal-left" style="padding: 0;" id="gold-calculator">
-          <div style="background-color: #8B3F2C; padding: var(--space-xl); border: 1px solid rgba(255, 248, 230, 0.2); max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-radius: 4px;">
+      <div class="old-gold-split-layout" style="position: relative; z-index: 2;">
+        <!-- Calculator Block (Desktop Left Column) -->
+        <div class="old-gold-calculator reveal-left" id="gold-calculator">
+          <div style="background-color: #8B3F2C; padding: var(--space-xl); border: 1px solid rgba(255, 248, 230, 0.2); max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-radius: 4px; margin: 0 auto;">
             <h3 style="font-size: 1.8rem; color: #FFF8E6; margin-bottom: 1.5rem; font-weight: 500;">Exchange Programme</h3>
             
             <div class="form-group" style="margin-bottom: 1.5rem;">
@@ -345,20 +346,20 @@
             <p style="font-size: 0.85rem; color: rgba(255, 248, 230, 0.5);">*Indicative value only. Company prevailing gold rates apply.</p>
           </div>
         </div>
-        <div class="reveal-right" style="padding: 0;">
-          <span class="label" style="color: var(--maroon);">— Old Gold Exchange —</span>
-          <hr class="gold-line" style="margin: 0.5rem 0 1rem 0; background-color: var(--maroon); opacity: 0.3;">
-          <h2 style="margin: var(--space-lg) 0; color: var(--text-primary);">Give Heritage<br>a New Life</h2>
-          <p style="margin-bottom: var(--space-lg); color: rgba(51, 11, 20, 0.75);">
-            Your family's gold carries stories, emotions, and ancestral blessings. At VEDA, we believe in preserving that values while recreating it for modern times. Exchange your old gold for new heirloom masterpieces designed uniquely for you — with transparent valuation, certified pricing, and the heritage preservation it deserves.
-          </p>
-          <div class="quote-block" style="margin-bottom: var(--space-xl); border-left-color: var(--maroon);">
-            <p class="quote-text" style="font-size: 1.2rem; color: var(--maroon);">From legacy to legacy. From heritage to heritage.</p>
-          </div>
-          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-            <a href="old-gold-exchange.html" class="btn btn-primary">Learn More</a>
-            <a href="https://wa.me/919187204025" class="btn btn-secondary" style="border-color: var(--maroon); color: var(--maroon);">Reach Out To Us</a>
-          </div>
+        
+        <!-- Text Content (Desktop Right Column) -->
+        <span class="label old-gold-label reveal-right" style="color: var(--maroon);">— Old Gold Exchange —</span>
+        <hr class="gold-line old-gold-line reveal-right" style="margin: 0.5rem 0 1rem 0; background-color: var(--maroon); opacity: 0.3;">
+        <h2 class="old-gold-heading reveal-right" style="margin: var(--space-lg) 0; color: var(--text-primary);">Give Heritage<br>a New Life</h2>
+        <p class="old-gold-text reveal-right" style="margin-bottom: var(--space-lg); color: rgba(51, 11, 20, 0.75);">
+          Your family's gold carries stories, emotions, and ancestral blessings. At VEDA, we believe in preserving that values while recreating it for modern times. Exchange your old gold for new heirloom masterpieces designed uniquely for you — with transparent valuation, certified pricing, and the heritage preservation it deserves.
+        </p>
+        <div class="quote-block old-gold-quote reveal-right" style="margin-bottom: var(--space-xl); border-left-color: var(--maroon);">
+          <p class="quote-text" style="font-size: 1.2rem; color: var(--maroon);">From legacy to legacy. From heritage to heritage.</p>
+        </div>
+        <div class="old-gold-ctas reveal-right" style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <a href="old-gold-exchange.html" class="btn btn-primary">Learn More</a>
+          <a href="https://wa.me/919187204025" class="btn btn-secondary" style="border-color: var(--maroon); color: var(--maroon);">Reach Out To Us</a>
         </div>
       </div>
     </div>

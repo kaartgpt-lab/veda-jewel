@@ -2052,6 +2052,70 @@ section {
   transform: translateY(0);
 }
 
+/* Bespoke Split Layout Reordering */
+.bespoke-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+  column-gap: var(--space-3xl);
+  row-gap: 0;
+  align-items: center;
+}
+
+@media (min-width: 993px) {
+  .bespoke-label { grid-column: 1; grid-row: 1; align-self: end; }
+  .bespoke-heading { grid-column: 1; grid-row: 2; }
+  .bespoke-text { grid-column: 1; grid-row: 3; }
+  .bespoke-ctas { grid-column: 1; grid-row: 4; align-self: start; }
+  .bespoke-images { grid-column: 2; grid-row: 1 / span 4; }
+}
+
+@media (max-width: 992px) {
+  .bespoke-split-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .bespoke-label { order: 1; }
+  .bespoke-images { order: 2; margin-bottom: var(--space-lg); }
+  .bespoke-heading { order: 3; margin-top: 0 !important; }
+  .bespoke-text { order: 4; }
+  .bespoke-ctas { order: 5; }
+}
+
+/* Old Gold Split Layout Reordering */
+.old-gold-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+  column-gap: var(--space-3xl);
+  row-gap: 0;
+  align-items: center;
+}
+
+@media (min-width: 993px) {
+  .old-gold-calculator { grid-column: 1; grid-row: 1 / span 6; align-self: center; }
+  .old-gold-label { grid-column: 2; grid-row: 1; align-self: end; }
+  .old-gold-line { grid-column: 2; grid-row: 2; }
+  .old-gold-heading { grid-column: 2; grid-row: 3; }
+  .old-gold-text { grid-column: 2; grid-row: 4; }
+  .old-gold-quote { grid-column: 2; grid-row: 5; }
+  .old-gold-ctas { grid-column: 2; grid-row: 6; align-self: start; }
+}
+
+@media (max-width: 992px) {
+  .old-gold-split-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .old-gold-label { order: 1; }
+  .old-gold-line { order: 2; }
+  .old-gold-heading { order: 3; margin-top: 0 !important; }
+  .old-gold-text { order: 4; }
+  .old-gold-calculator { order: 5; margin: var(--space-lg) 0; }
+  .old-gold-quote { order: 6; }
+  .old-gold-ctas { order: 7; }
+}
+
 .reveal-left {
   opacity: 0;
   transform: translateX(-40px);
@@ -3852,6 +3916,25 @@ section:hover.bg-pattern-jaali-dark::before {
   color: var(--text-primary);
 }
 
+/* Text content below the arch */
+.occasion-card-inner {
+  padding: var(--space-md) var(--space-xs) 0 var(--space-xs);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+  align-items: center;
+}
+
+.occasion-card-label {
+  margin-bottom: var(--space-xs);
+}
+
+.occasion-card-heading {
+  margin-bottom: var(--space-xs);
+  margin-top: 2px;
+}
+
 /* ═══ Founder Story on Maroon — text overrides ═══ */
 .founder-story-maroon .founder-story-content .label-gold {
   color: var(--gold-light);
@@ -3917,9 +4000,7 @@ section:hover.bg-pattern-jaali-dark::before {
   color: var(--text-primary);
   transition: all var(--duration-med) var(--ease-luxury);
   position: relative;
-  border-radius: 200px 200px 4px 4px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(72, 45, 34, 0.1);
+  background-color: transparent !important;
 }
 
 .occasion-card:hover {
@@ -3928,13 +4009,14 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Image container */
 .occasion-card-arch {
-  border-radius: 0;
+  border-radius: 200px 200px 4px 4px;
   overflow: hidden;
   aspect-ratio: 3/4;
   position: relative;
   background: var(--bg-cream);
-  border-bottom: 1px solid rgba(255, 248, 230, 0.1);
+  border-bottom: 1px solid rgba(185, 152, 116, 0.2);
   transition: all var(--duration-med) var(--ease-luxury);
+  box-shadow: 0 8px 25px rgba(72, 45, 34, 0.1);
 }
 
 .occasion-card-arch img {
@@ -3945,7 +4027,9 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 
 .occasion-card:hover .occasion-card-arch {
-  opacity: 0.95;
+  transform: translateY(-4px);
+  border-color: var(--gold-aged);
+  box-shadow: 0 12px 30px rgba(72, 45, 34, 0.2);
 }
 
 .occasion-card:hover .occasion-card-arch img {
@@ -3953,45 +4037,14 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 
 /* — Card Color Variants — */
-/* White card */
-.occasion-card-light {
-  background-color: #8B3F2C;
-}
-.occasion-card-light .occasion-card-arch {
-  border-color: rgba(185, 152, 116, 0.2);
-}
-.occasion-card-light .occasion-card-label { color: rgba(255, 248, 230, 0.55); }
-.occasion-card-light .occasion-card-heading { color: #FFF8E6; }
-.occasion-card-light .occasion-card-desc { color: rgba(255, 248, 230, 0.75); }
-.occasion-card-light .occasion-card-price { color: rgba(255, 248, 230, 0.5); }
-.occasion-card-light .occasion-card-cta { color: var(--gold-light); }
+/* We remove colored backgrounds to match signature cards */
+.occasion-card-label { color: var(--text-tertiary); font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; }
+.occasion-card-heading { color: #482D22; font-family: var(--font-display); font-size: 1.5rem; font-weight: 300; transition: color var(--duration-fast) ease; }
+.occasion-card:hover .occasion-card-heading { color: var(--maroon-light); }
+.occasion-card-desc { color: var(--text-secondary); font-size: 0.95rem; }
+.occasion-card-price { color: var(--text-secondary); font-size: 0.85rem; margin-top: auto; }
+.occasion-card-cta { color: var(--maroon); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid transparent; transition: all 0.3s ease; }
 
-/* Deep Gold card */
-.occasion-card-gold {
-  background-color: #8B3F2C;
-}
-.occasion-card-gold .occasion-card-arch {
-  border-color: rgba(185, 152, 116, 0.2);
-}
-.occasion-card-gold .occasion-card-label { color: rgba(255, 248, 230, 0.55); }
-.occasion-card-gold .occasion-card-heading { color: #FFF8E6; }
-.occasion-card-gold .occasion-card-desc { color: rgba(255, 248, 230, 0.75); }
-.occasion-card-gold .occasion-card-price { color: rgba(255, 248, 230, 0.5); }
-.occasion-card-gold .occasion-card-cta { color: #FFF8E6; }
-
-/* Deep Brown card */
-.occasion-card-maroon {
-  background-color: #8B3F2C;
-}
-.occasion-card-maroon .occasion-card-arch {
-
-  border-color: rgba(185, 152, 116, 0.2);
-}
-.occasion-card-maroon .occasion-card-label { color: rgba(255, 248, 230, 0.55); }
-.occasion-card-maroon .occasion-card-heading { color: #FFF8E6; }
-.occasion-card-maroon .occasion-card-desc { color: rgba(255, 248, 230, 0.7); }
-.occasion-card-maroon .occasion-card-price { color: rgba(255, 248, 230, 0.5); }
-.occasion-card-maroon .occasion-card-cta { color: var(--gold-light); }
 
 /* Text content below the arch */
 .occasion-card-inner {
