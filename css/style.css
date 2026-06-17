@@ -3184,7 +3184,33 @@ section:hover.bg-pattern-jaali-dark::before {
 
 @media (max-width: 600px) {
   .philosophy-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: space-between;
+    height: 320px;
+    gap: var(--space-xs);
+    align-items: stretch;
+  }
+  .philosophy-card {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-sm);
+  }
+  .philosophy-card p,
+  .philosophy-card .pillar-mean,
+  .philosophy-card .pillar-num,
+  .philosophy-card .pillar-sanskrit {
+    display: none;
+  }
+  .philosophy-card h4 {
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    font-weight: 400;
   }
 }
 
