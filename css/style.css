@@ -2139,7 +2139,7 @@ section {
   }
   .vsvp-text-content { order: 1; }
   .vsvp-cards { order: 2; }
-  .vsvp-cta { order: 3; display: flex; justify-content: flex-start; }
+  .vsvp-cta { order: 3; display: flex; justify-content: center; }
 }
 
 .reveal-left {
@@ -3425,6 +3425,7 @@ section:hover.bg-pattern-jaali-dark::before {
 .vsvp-timeline-staggered .timeline-card.card-gift {
   background: #8B3F2C;
   box-shadow: 0 8px 25px rgba(72, 45, 34, 0.3);
+  justify-content: center;
 }
 
 .vsvp-timeline-staggered .timeline-card.card-gift .card-num {
