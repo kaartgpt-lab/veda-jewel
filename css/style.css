@@ -3628,7 +3628,7 @@ section:hover.bg-pattern-jaali-dark::before {
     padding: var(--space-2xl) var(--space-lg);
   }
   .founder-story-image {
-    display: none;
+    display: none !important;
   }
   .founder-mobile-img {
     display: block;
