@@ -2956,7 +2956,7 @@ section {
 
 @media (max-width: 480px) {
   .mto-collage-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .concierge-nudge {
     width: calc(100vw - 40px);
@@ -3925,16 +3925,6 @@ section:hover.bg-pattern-jaali-dark::before {
   text-align: center;
   align-items: center;
 }
-
-.occasion-card-label {
-  margin-bottom: var(--space-xs);
-}
-
-.occasion-card-heading {
-  margin-bottom: var(--space-xs);
-  margin-top: 2px;
-}
-
 /* ═══ Founder Story on Maroon — text overrides ═══ */
 .founder-story-maroon .founder-story-content .label-gold {
   color: var(--gold-light);
@@ -4048,11 +4038,12 @@ section:hover.bg-pattern-jaali-dark::before {
 
 /* Text content below the arch */
 .occasion-card-inner {
-  padding: var(--space-lg) var(--space-md) var(--space-md);
+  padding: var(--space-md) var(--space-xs) 0 var(--space-xs);
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   text-align: center;
+  align-items: center;
   flex: 1;
 }
 
@@ -4067,11 +4058,12 @@ section:hover.bg-pattern-jaali-dark::before {
 }
 
 .occasion-card-heading {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: clamp(1.3rem, 2vw, 1.6rem);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.3;
-  color: #FFF8E6;
+  color: #482D22;
+  margin-top: -2px;
 }
 
 .occasion-card-desc {
