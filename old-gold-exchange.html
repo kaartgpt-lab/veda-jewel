@@ -1,317 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Old Gold Exchange — VEDA Jewel</title>
-  <meta name="description" content="Give your heritage a new life. Exchange your old gold for new VEDA heirloom pieces with transparent valuation and fair pricing.">
-  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-  <link rel="stylesheet" href="css/style.css?v=2.0">
-  <style>
-    .calc-container {
-      background: var(--bg-cream);
-      border: 1px solid var(--border-light);
-      padding: var(--space-2xl);
-      max-width: 500px;
-    }
-    .calc-result {
-      margin-top: var(--space-xl);
-      padding: var(--space-xl);
-      background: var(--bg-warm-beige);
-      border: 1px solid var(--border-gold);
-      text-align: center;
-      display: none;
-    }
-    .calc-result.active { display: block; }
-    .calc-result .calc-value {
-      font-family: var(--font-display);
-      font-size: 2.5rem;
-      color: var(--gold-aged);
-      font-weight: 400;
-    }
-    .calc-result .calc-note {
-      font-size: 0.8rem;
-      color: var(--text-tertiary);
-      margin-top: var(--space-xs);
-    }
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-2xl);
-      text-align: center;
-    }
-    .step-item { position: relative; }
-    .step-item .step-icon {
-      width: 80px; height: 80px; margin: 0 auto var(--space-lg);
-      border-radius: 50%; border: 1px solid var(--gold-aged);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold-aged);
-    }
-    .step-item .step-icon svg { width: 32px; height: 32px; }
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-xl);
-      text-align: center;
-    }
-    .trust-item { padding: var(--space-xl); }
-    .trust-item .trust-icon {
-      font-family: var(--font-display); font-size: 2.5rem;
-      color: var(--gold-aged); margin-bottom: var(--space-sm);
-    }
-    @media (max-width: 768px) {
-      .steps-grid { grid-template-columns: 1fr; }
-      .trust-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDA &middot; Old Gold Exchange &mdash; Give Your Gold a New Life</title>
+<meta name="description" content="Exchange your old gold at VEDA Jewel. Transparent valuation, BIS certified testing, no hidden deductions. HSR Layout, Bengaluru.">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --beige:#FFF8E6; --gold:#B99874; --dgold:#896E50;
+  --rust:#8B3F2C; --brown:#482D22;
+  --line:rgba(72,45,34,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--beige)}
+.veda{
+  max-width:420px;margin:0 auto;background:var(--beige);color:var(--brown);
+  font-family:'Switzer',system-ui,sans-serif;position:relative;
+  min-height:100vh;overflow-x:hidden;padding-bottom:100px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);font-weight:600}
+.eyebrow.center{text-align:center}
+.sec-h2{font-weight:300;font-size:30px;line-height:1.12;letter-spacing:-.01em;color:var(--brown);margin-top:10px}
+.sec-h2.center{text-align:center}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* photo placeholder */
+.veda-photo{width:100%;background:linear-gradient(135deg,#5b4632,#2f2016 60%,#1e130c);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden}
+.veda-photo::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 25%,rgba(185,152,116,.35),transparent 55%)}
+.veda-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:10px}
+
+/* header */
+.topbar{position:sticky;top:0;z-index:40}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;
+  background:var(--beige);border-bottom:1px solid var(--line)}
+.hdr-mark svg{height:27px;width:auto;display:block}
+.hdr-actions{display:flex;gap:12px;align-items:center}
+.hdr-actions svg{color:var(--brown)}
+.icon-btn{display:flex;align-items:center;background:none;border:none;cursor:pointer}
+
+/* rate bar */
+.ratebar{display:flex;align-items:center;justify-content:center;gap:6px;
+  font-size:12px;color:var(--brown);padding:9px 16px;background:#EBDCBB;
+  border-bottom:1px solid rgba(72,45,34,.16);box-shadow:0 3px 8px rgba(72,45,34,.06)}
+.ratebar strong{color:var(--brown);font-weight:600}
+.ratebar .dot{width:7px;height:7px;border-radius:50%;background:var(--rust);
+  box-shadow:0 0 0 3px rgba(139,63,44,.18);animation:pulse 2s infinite;flex-shrink:0}
+.rate-upd{color:var(--dgold);font-size:11px;margin-left:4px;opacity:.85}
+@keyframes pulse{50%{opacity:.4}}
+
+/* hero */
+.hero{padding:34px 22px 8px;position:relative;overflow:hidden}
+.hero-peacock{position:absolute;top:16px;right:14px;opacity:.28}
+.hero-peacock svg{height:120px;width:auto}
+.hero-h1{font-weight:300;font-size:44px;line-height:1.04;letter-spacing:-.02em;color:var(--brown);margin-top:14px}
+.hero-sub{font-size:15px;line-height:1.6;color:var(--dgold);margin-top:14px;max-width:300px}
+.hero-img{margin-top:22px;border-radius:10px;overflow:hidden;aspect-ratio:16/9}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+.trust-strip{list-style:none;margin-top:18px;padding:0 4px;display:flex;flex-direction:column;gap:11px}
+.trust-strip li{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--brown)}
+.tick{display:flex;align-items:center;justify-content:center;width:20px;height:20px;
+  border-radius:50%;background:var(--rust);color:var(--beige);flex-shrink:0}
+
+/* calculator */
+.calc{padding:34px 18px 12px}
+.calc-h{margin-bottom:20px}
+.calc-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 18px;box-shadow:0 8px 30px rgba(72,45,34,.06)}
+.fld-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dgold);font-weight:600;display:block;margin-bottom:12px}
+.slider-row{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.slider{-webkit-appearance:none;appearance:none;flex:1;height:3px;border-radius:3px;background:var(--line);outline:none}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--rust);cursor:pointer;border:3px solid var(--beige);box-shadow:0 2px 6px rgba(72,45,34,.25)}
+.slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--rust);cursor:pointer;border:3px solid var(--beige)}
+.grams-out{font-weight:300;font-size:26px;color:var(--brown);min-width:58px;text-align:right}
+.grams-out span{font-weight:500}
+
+.purity-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px}
+.purity-pill{border:1px solid var(--line);border-radius:10px;padding:12px 10px;text-align:left;transition:.2s;background:#fff;cursor:pointer}
+.purity-pill.on{border-color:var(--rust);background:rgba(139,63,44,.05)}
+.pp-label{display:block;font-weight:600;font-size:15px;color:var(--brown)}
+.pp-sub{display:block;font-size:11px;color:var(--dgold);margin-top:2px}
+
+.mode-toggle{display:flex;background:rgba(185,152,116,.14);border-radius:10px;padding:4px;margin-bottom:22px}
+.mode-toggle button{flex:1;padding:9px;border-radius:7px;font-size:13px;font-weight:500;color:var(--dgold);transition:.2s}
+.mode-toggle button.on{background:#fff;color:var(--rust);box-shadow:0 1px 4px rgba(72,45,34,.1)}
+
+.result{text-align:center;padding:20px 0 6px;border-top:1px solid var(--line)}
+.result-cap{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dgold);font-weight:600}
+.result-num{font-weight:300;font-size:46px;color:var(--rust);line-height:1;margin-top:8px;letter-spacing:-.01em}
+.result-num.sm{font-size:26px}
+.result-math{font-size:12px;color:var(--dgold);margin-top:10px}
+.result-hint{font-size:12.5px;color:var(--dgold);font-weight:500;margin-top:8px}
+.result-foot{font-size:11px;color:var(--dgold);opacity:.9;text-align:center;margin-top:12px;line-height:1.5}
+
+.btn-wa{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--rust);color:#FFFDF7;font-weight:600;font-size:15px;padding:15px;border-radius:12px;transition:.2s;width:100%;margin-top:20px;border:none;cursor:pointer;text-decoration:none}
+.btn-wa:active{transform:scale(.99)}
+.btn-wa svg{color:#FFFDF7;flex-shrink:0}
+
+/* how it works */
+.how{padding:48px 18px 12px;overflow:hidden}
+.how-carousel{margin-top:24px;overflow:hidden;border-radius:10px}
+.how-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.how-slide{flex:0 0 100%;padding-right:2px}
+.how-slide-img{aspect-ratio:16/11;border-radius:10px;overflow:hidden}
+.how-slide-img img{width:100%;height:100%;object-fit:cover;display:block}
+.step-body{padding:16px 4px 0}
+.step-n{font-weight:300;font-size:40px;color:var(--brown);opacity:.28;line-height:1;display:block}
+.step-t{font-weight:500;font-size:20px;color:var(--brown);margin-top:4px}
+.step-d{font-size:14px;line-height:1.55;color:var(--dgold);margin-top:8px;min-height:66px}
+.how-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.how-dot{width:8px;height:8px;border-radius:50%;background:rgba(72,45,34,.3);transition:.3s;padding:0;border:none;cursor:pointer}
+.how-dot.on{background:var(--rust);width:22px;border-radius:4px}
+.bring{margin-top:34px;background:rgba(185,152,116,.12);border-radius:14px;padding:20px}
+.bring-h{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:14px}
+.bring ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.bring li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--brown)}
+.bring li svg{color:var(--rust);flex-shrink:0}
+
+/* stories */
+.stories{padding:48px 0 12px}
+.stories .eyebrow,.stories .sec-h2{padding:0 18px}
+.story-rail{display:flex;gap:14px;overflow-x:auto;padding:26px 18px 8px;scroll-snap-type:x mandatory}
+.story-rail::-webkit-scrollbar{display:none}
+.story-card{flex:0 0 220px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 18px;text-align:center}
+.story-avatar{width:64px;height:64px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#5b4632,#2f2016);overflow:hidden}
+.story-line{font-size:14px;line-height:1.55;color:var(--brown);margin-top:16px;font-style:italic}
+.story-name{font-size:12px;letter-spacing:.06em;color:var(--rust);font-weight:600;margin-top:14px}
+
+/* after text */
+.after{padding:48px 18px 12px;background:rgba(185,152,116,.1);margin-top:20px}
+.after-steps{margin-top:26px;display:flex;flex-direction:column;gap:18px}
+.after-step{display:flex;align-items:flex-start;gap:14px}
+.after-ic{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:var(--beige);color:var(--rust);flex-shrink:0}
+.after-t{font-weight:600;font-size:15px;color:var(--brown)}
+.after-d{font-size:13px;color:var(--dgold);margin-top:2px;line-height:1.5}
+
+/* faq */
+.faq{padding:48px 18px 12px}
+.faq-list{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.faq-card{background:rgba(185,152,116,.1);border-radius:12px;overflow:hidden}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;text-align:left;font-weight:500;font-size:14.5px;color:var(--brown);line-height:1.35;cursor:pointer;background:none;border:none}
+.chev{color:var(--rust);flex-shrink:0;transition:transform .3s}
+.faq-card.open .chev{transform:rotate(180deg)}
+.faq-a-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease}
+.faq-card.open .faq-a-wrap{grid-template-rows:1fr}
+.faq-a-inner{min-height:0;overflow:hidden}
+.faq-a-inner p{padding:0 18px 18px;font-size:13.5px;line-height:1.6;color:var(--dgold)}
+
+/* image band */
+.band{padding:44px 18px 8px}
+.band-img{aspect-ratio:21/12;border-radius:10px;overflow:hidden}
+.band-img img{width:100%;height:100%;object-fit:cover;display:block}
+.band-cap{text-align:center;font-weight:300;font-size:20px;color:var(--brown);margin-top:16px;font-style:italic}
+
+/* footer */
+.ftr{margin-top:36px}
+.ftr-nav{padding:12px 18px 24px}
+.ftr-sec{border-bottom:1px solid var(--line)}
+.ftr-sec>button{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 2px;font-weight:500;font-size:15px;color:var(--brown);background:none;border:none;cursor:pointer}
+.ftr-sec.open .chev{transform:rotate(180deg)}
+.ftr-items-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.ftr-sec.open .ftr-items-wrap{grid-template-rows:1fr}
+.ftr-items-inner{min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.ftr-items-inner a{padding:8px 2px;font-size:14px;color:var(--dgold)}
+.ftr-follow{padding-top:20px}
+.ftr-follow p{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:600}
+.ftr-social{display:flex;gap:18px;margin-top:12px}
+.ftr-social a{font-size:14px;color:var(--dgold)}
+.ftr-rust{background:var(--rust);color:var(--beige);padding:34px 22px 92px}
+.fr-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,248,230,.7);font-weight:600}
+.fr-addr{font-weight:300;font-size:24px;margin-top:10px}
+.fr-hours{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,248,230,.85);margin-top:8px}
+.fr-btns{display:flex;gap:10px;margin-top:20px}
+.fr-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:12px;border-radius:10px;font-size:13px;font-weight:600}
+.fr-btn.solid{background:var(--beige);color:var(--rust)}
+.fr-btn.ghost{border:1px solid rgba(255,248,230,.4);color:var(--beige)}
+.fr-quick{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:24px;font-size:13px;color:rgba(255,248,230,.85)}
+.fr-quick span{opacity:.5}
+.fr-fine{font-size:11px;color:rgba(255,248,230,.6);margin-top:16px;line-height:1.5}
+
+/* sticky */
+.sticky{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:420px;padding:12px 16px;background:linear-gradient(to top,var(--beige) 72%,transparent);z-index:50}
+.sticky .btn-wa{margin-top:0;box-shadow:0 6px 20px rgba(139,63,44,.3)}
+</style>
 </head>
 <body>
+<div class="veda">
 
-  <!-- Navigation -->
-  <nav class="navbar" id="main-nav">
-    <div class="navbar-inner">
-      <a href="index.html" class="navbar-logo"><img src="assets/icons/logo-full.png" alt="VEDA Jewel" style="height: 50px; width: auto;"></a>
-      <div class="navbar-links">
-        <div class="navbar-dropdown-wrapper">
-          <a href="category.html" class="navbar-dropdown-toggle">Categories <span class="chevron-arrow">&#9662;</span></a>
-          <div class="navbar-dropdown-menu">
-            <a href="category.html?category=necklaces">Gold Necklaces</a>
-            <a href="category.html?category=pendants">Gold Pendants</a>
-            <a href="category.html?category=mangalsutra">Gold Mangalsutras</a>
-            <a href="category.html?category=earrings">Gold Earrings</a>
-            <a href="category.html?category=rings">Gold Rings</a>
-            <a href="category.html?category=bracelets">Gold Bracelets</a>
-            <a href="category.html?category=nosepin">Gold Nosepins</a>
-          </div>
-        </div>
-        <a href="collection.html">Collections</a>
-        <a href="make-to-order.html">Make To Order</a>
-        <a href="old-gold-exchange.html" class="active">Old Gold</a>
-        <a href="vsvp.html">VSVP</a>
-        <a href="about.html">About</a>
+  <!-- HEADER -->
+  <div class="topbar">
+    <header class="hdr">
+      <button class="icon-btn" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a href="index.html" aria-label="VEDA Home">
+        <svg viewBox="0 0 137.43 46.89" style="height:27px;width:auto;display:block">
+          <defs><style>.wm{fill:#8b402c}</style></defs>
+          <path class="wm" d="M12.32,22.32c.8.63,2.13,2.13,3.35,4.1,4.12,6.66,8.77,4.82,9.87,2.94,2.61-4.45-7.28-10.19-13.22-7.04h0Z"/>
+          <path class="wm" d="M12.56,23.19c-.21-.22-.41-.39-.64-.54-7.46,4.28-3.09,19.16-11.91,21.38,8.65,1.13,11.66-.49,12.8-4.73.7-2.58,2.65-10.82,2.54-11.94-.09-.87-2.08-3.45-2.78-4.18"/>
+          <path class="wm" d="M21.1,15.47c-1.01.36-1.36,1.06-1.46,1.42-.16.61-.33,1.23-.49,1.84.38-.5.58-.65,1.01-.74.44-.08,1.02-.12,1.3-.52.14-.21.15-.38.4-.52.21-.11.48-.14.72-.11,2.03.28,2.51,3.56,2.15,5.04-.19.79-.9,1.71-.9,1.71.15.17,1.91,1.06,2.51,3.55.86-1.58,1.28-2.77,1.33-4.31.16-4.84-3.34-8.51-6.57-7.36h0Z"/>
+          <path class="wm" d="M32.73,36.29H6.98c-.16,0-.29-.13-.29-.29V13.28c-.06-1.17.59-2.54,1.53-3.38.65-.55,1.4-.85,2.15-.81.03-1.04.52-2.05,1.37-2.83.75-.72,1.76-1.14,2.51-1.17.36-.91,1.4-1.14,2.38-1.4,1.46-.36,2.96-.72,3.06-2.96v-.42c0-.16.13-.29.29-.29s.29.13.29.29v.46c.1,2.21,1.43,2.57,2.86,2.93.94.26,1.95.52,2.28,1.4.75,0,1.76.46,2.51,1.17.85.78,1.33,1.79,1.37,2.83.72-.03,1.46.23,2.15.81.98.85,1.59,2.18,1.53,3.38v22.72c0,.06,0,.16-.1.2-.07.06-.13.1-.2.1h.06ZM7.24,35.7h25.16V13.28c.03-1.01-.49-2.18-1.33-2.93-.62-.52-1.33-.75-1.99-.62-.1,0-.2,0-.26-.06-.06-.06-.1-.13-.1-.23.1-1.33-.72-2.28-1.17-2.7-.81-.75-1.76-1.07-2.28-1.01-.16,0-.29-.06-.33-.23-.2-.72-.85-.91-1.95-1.2-1.14-.29-2.47-.62-3.03-2.05-.62,1.4-2.02,1.76-3.19,2.05-1.01.23-1.85.46-2.05,1.2-.03.13-.16.23-.33.23-.52-.06-1.46.26-2.28,1.01-.49.42-1.24,1.37-1.17,2.7,0,.1,0,.2-.1.23-.07.06-.16.1-.26.06-.65-.13-1.37.1-1.98.62-.85.72-1.4,1.92-1.33,2.93v22.42h-.03Z"/>
+          <path class="wm" d="M32.73,39.22H6.98c-.16,0-.29-.13-.29-.29v-2.93c0-.16.13-.29.29-.29h25.74c.16,0,.29.13.29.29v2.93c0,.16-.13.29-.29.29M7.24,38.63h25.16v-2.34H7.24v2.34Z"/>
+          <path class="wm" d="M32.73,45.53H6.98c-.16,0-.29-.13-.29-.29v-6.28c0-.16.13-.29.29-.29h25.74c.16,0,.29.13.29.29v6.28c0,.16-.13.29-.29.29M7.24,44.94h25.16v-5.73H7.24v5.73Z"/>
+          <path class="wm" d="M61.97,7.92c-.31,2.24-.95,4.77-3.2,10.44l-3.8,9.61-8-20.47h-3.58l10.35,26.12h.79l5.8-14.68c1.51-3.8,4.33-10.71,4.36-10.78l.27-.65h-2.93l-.06.41h0Z"/>
+          <path class="wm" d="M85.48,30.59c-.25.04-6.13,1.01-10.1,1.01h-1.73v-11.02h1.5c4.24,0,6.32.27,7.17.43h.63s0-2.38,0-2.38h-.63c-.88.17-2.83.37-7.17.37h-1.5v-10h1.7c3.02,0,6.18.32,9.4.94h.78s-.67-2.5-.67-2.5h-14.48v25.68h14.93l.93-2.55h-.76s0,0,0,0Z"/>
+          <path class="wm" d="M100.85,7.48h-8.8v25.68h8.48c1.55,0,3.1-.17,4.59-.59,1.33-.37,2.61-.94,3.75-1.72,1.14-.78,2.03-1.68,2.79-2.76.76-1.08,1.36-2.38,1.73-3.69.42-1.49.63-3.08.56-4.62-.07-1.54-.25-3.17-.78-4.7-.44-1.27-1.09-2.46-1.96-3.48s-1.9-1.84-3.07-2.47c-1.27-.69-2.66-1.13-4.08-1.38-1.06-.19-2.14-.26-3.21-.26M95.34,8.97h5.21c5.92,0,9.89,4.52,9.89,11.24v.48h.02c-.15,6.98-3.62,10.97-9.56,10.97-2.69,0-4.52-.07-5.56-.23V8.97Z"/>
+          <path class="wm" d="M127.1,7.02h-.79l-5.8,14.68-.6,1.51c-1.29,3.27-2.52,6.35-3.82,9.28l-.3.67h2.95l.06-.41c.29-1.94.78-4.01,2.2-7.78h9.68l3.19,8.16h3.55l-10.33-26.12h0ZM121.62,23.42l.42-1.11,3.78-9.64,4.24,10.75h-8.44Z"/>
+        </svg>
+      </a>
+      <div class="hdr-actions">
+        <button class="icon-btn" aria-label="Search"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button>
+        <button class="icon-btn" aria-label="Wishlist"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M12 21C12 21 3 13.5 3 8.5 3 5.42 5.42 3 8.5 3c1.74 0 3.41.81 3.5 2 .09-1.19 1.76-2 3.5-2C18.58 3 21 5.42 21 8.5c0 5-9 12.5-9 12.5Z"/></svg></button>
+        <button class="icon-btn" aria-label="Bag"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M6 2L3 6v14c0 .5.2 1 .6 1.4.36.4.87.6 1.4.6h14c.5 0 1-.2 1.4-.6.4-.4.6-.9.6-1.4V6L18 2H6Z"/><path d="M3 6h18"/><path d="M16 10c0 2.2-1.8 4-4 4-2.2 0-4-1.8-4-4"/></svg></button>
+        <button class="icon-btn" aria-label="Profile"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
       </div>
-      <div class="navbar-utility">
-        <button aria-label="Search" class="hide-mobile">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+    </header>
+
+    <!-- Rate bar -->
+    <div class="ratebar">
+      <span class="dot"></span>
+      Today&apos;s 22K rate&nbsp;&nbsp;<strong id="rate-display">&#8377;7,500/g</strong>
+      <span class="rate-upd">updated just now</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero reveal">
+    <div class="hero-peacock">
+      <svg viewBox="0 0 62.07 85.59" style="height:120px;width:auto">
+        <path fill="#8b402c" d="M23.15,41.95c1.5,1.19,4,4,6.29,7.71,7.75,12.51,16.49,9.05,18.56,5.52,4.91-8.36-13.68-19.16-24.86-13.24h0Z"/>
+        <path fill="#8b402c" d="M23.6,43.6c-.4-.42-.78-.73-1.21-1.01-14.02,8.04-5.81,36.01-22.39,40.19,16.27,2.12,21.91-.92,24.06-8.89,1.31-4.85,4.98-20.33,4.77-22.45-.17-1.63-3.92-6.49-5.22-7.85"/>
+        <path fill="#8b402c" d="M39.66,29.08c-1.89.68-2.56,2-2.74,2.67-.31,1.15-.61,2.31-.91,3.46.72-.95,1.08-1.23,1.9-1.38.83-.15,1.91-.22,2.44-.99.27-.39.28-.72.76-.98.4-.21.89-.27,1.35-.21,3.82.53,4.71,6.69,4.04,9.47-.36,1.49-1.7,3.22-1.7,3.22.27.32,3.6,2,4.72,6.68,1.62-2.97,2.41-5.21,2.51-8.11.3-9.09-6.27-16.01-12.35-13.83h0Z"/>
+        <path fill="#8b402c" d="M61.52,68.21H13.13c-.31,0-.55-.24-.55-.55V24.96c-.12-2.2,1.1-4.77,2.88-6.36,1.22-1.04,2.63-1.59,4.04-1.53.06-1.96.98-3.85,2.57-5.32,1.41-1.35,3.3-2.14,4.71-2.2.67-1.71,2.63-2.14,4.47-2.63,2.75-.67,5.57-1.35,5.75-5.57v-.8c0-.31.24-.55.55-.55s.55.24.55.55v.86c.18,4.16,2.69,4.83,5.38,5.51,1.77.49,3.67.98,4.28,2.63,1.41,0,3.3.86,4.71,2.2,1.59,1.47,2.51,3.36,2.57,5.32,1.35-.06,2.75.43,4.04,1.53,1.84,1.59,3,4.1,2.88,6.36v42.7c0,.12,0,.31-.18.37-.12.12-.24.18-.37.18h.12ZM13.62,67.11h47.29V24.96c.06-1.9-.92-4.1-2.51-5.51-1.16-.98-2.51-1.41-3.73-1.16-.18,0-.37,0-.49-.12-.12-.12-.18-.24-.18-.43.18-2.51-1.35-4.28-2.2-5.08-1.53-1.41-3.3-2.02-4.28-1.9-.31,0-.55-.12-.61-.43-.37-1.35-1.59-1.71-3.67-2.26-2.14-.55-4.65-1.16-5.69-3.85-1.16,2.63-3.79,3.3-6,3.85-1.9.43-3.49.86-3.85,2.26-.06.24-.31.43-.61.43-.98-.12-2.75.49-4.28,1.9-.92.79-2.33,2.57-2.2,5.08,0,.18,0,.37-.18.43-.12.12-.31.18-.49.12-1.22-.24-2.57.18-3.73,1.16-1.59,1.35-2.63,3.61-2.51,5.51v42.15h-.06Z"/>
+        <path fill="#8b402c" d="M61.52,73.72H13.13c-.31,0-.55-.24-.55-.55v-5.51c0-.31.25-.55.55-.55h48.39c.31,0,.55.25.55.55v5.51c0,.31-.24.55-.55.55M13.62,72.62h47.29v-4.4H13.62v4.4Z"/>
+        <path fill="#8b402c" d="M61.52,85.59H13.13c-.31,0-.55-.24-.55-.55v-11.81c0-.31.25-.55.55-.55h48.39c.31,0,.55.24.55.55v11.81c0,.31-.24.55-.55.55M13.62,84.49h47.29v-10.77H13.62v10.77Z"/>
+      </svg>
+    </div>
+    <p class="eyebrow">Old Gold Exchange</p>
+    <h1 class="hero-h1">Give your gold<br>a new life</h1>
+    <p class="hero-sub">Old or unworn gold, valued openly at today&apos;s rate. See what yours is worth.</p>
+    <div class="hero-img">
+      <img src="assets/images/gold-bangles.png" alt="Old gold jewellery">
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="calc reveal">
+    <h2 class="sec-h2 center calc-h">What is your gold<br>worth today?</h2>
+    <div class="calc-card">
+
+      <label class="fld-label">Weight of gold</label>
+      <div class="slider-row">
+        <input type="range" min="1" max="100" value="10" id="calc-slider" class="slider">
+        <div class="grams-out"><span id="gram-val">10</span>g</div>
+      </div>
+
+      <label class="fld-label">Purity</label>
+      <div class="purity-row" id="purity-row">
+        <button class="purity-pill on" data-idx="0" data-factor="1.0">
+          <span class="pp-label">22K</span><span class="pp-sub">91.6% pure</span>
         </button>
-        <a href="#" aria-label="Wishlist" class="hide-mobile">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg>
+        <button class="purity-pill" data-idx="1" data-factor="0.818">
+          <span class="pp-label">18K</span><span class="pp-sub">75.0% pure</span>
+        </button>
+        <button class="purity-pill" data-idx="2" data-factor="1.090">
+          <span class="pp-label">24K</span><span class="pp-sub">99.9% pure</span>
+        </button>
+        <button class="purity-pill" data-idx="3" data-factor="null">
+          <span class="pp-label">Not sure</span><span class="pp-sub">we will test it</span>
+        </button>
+      </div>
+
+      <div class="mode-toggle" id="mode-toggle">
+        <button class="on" id="btn-exchange" onclick="setMode('exchange')">Exchange value</button>
+        <button id="btn-cash" onclick="setMode('cash')">Cash value</button>
+      </div>
+
+      <div class="result" id="result-area">
+        <p class="result-cap" id="result-cap">Estimated exchange value</p>
+        <p class="result-num" id="result-num">&#8377;75,000</p>
+        <p class="result-math" id="result-math">10g &middot; 22K &middot; &#8377;7,500/g</p>
+        <p class="result-hint" id="result-hint">Exchange is worth &#8377;4,500 more than cash on this piece.</p>
+      </div>
+
+      <a class="btn-wa" id="wa-link" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
+        Text this on WhatsApp
+      </a>
+      <p class="result-foot">Indicative only. Final value confirmed at the counter, with you watching.</p>
+    </div>
+
+    <ul class="trust-strip">
+      <li><span class="tick"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Transparent, itemised valuation</li>
+      <li><span class="tick"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>BIS certified, tested in front of you</li>
+      <li><span class="tick"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>No hidden deductions</li>
+    </ul>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how reveal">
+    <p class="eyebrow center">How it works</p>
+    <h2 class="sec-h2 center">Nothing happens<br>out of your sight</h2>
+    <div class="how-carousel">
+      <div class="how-track" id="how-track">
+        <div class="how-slide">
+          <div class="how-slide-img"><img src="assets/images/artisan-crafting.png" alt="Step 01"></div>
+          <div class="step-body"><span class="step-n">01</span><h3 class="step-t">Bring it in</h3><p class="step-d">Any gold. Broken, old, unhallmarked, a single earring. Bill or no bill.</p></div>
+        </div>
+        <div class="how-slide">
+          <div class="how-slide-img"><img src="assets/images/gold-bangles.png" alt="Step 02"></div>
+          <div class="step-body"><span class="step-n">02</span><h3 class="step-t">Tested in front of you</h3><p class="step-d">A karatmeter reads the exact purity without cutting or melting your piece. You watch every reading.</p></div>
+        </div>
+        <div class="how-slide">
+          <div class="how-slide-img"><img src="assets/images/gold-earrings.png" alt="Step 03"></div>
+          <div class="step-body"><span class="step-n">03</span><h3 class="step-t">Weighed openly</h3><p class="step-d">Net gold weight on the scale, in the open, no back room.</p></div>
+        </div>
+        <div class="how-slide">
+          <div class="how-slide-img"><img src="assets/images/bridal-set.png" alt="Step 04"></div>
+          <div class="step-body"><span class="step-n">04</span><h3 class="step-t">Your value, your call</h3><p class="step-d">Take it as exchange or cash. Nothing is final until you say yes. Walk away anytime.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="how-dots" id="how-dots">
+      <button class="how-dot on" onclick="jumpSlide(0)"></button>
+      <button class="how-dot" onclick="jumpSlide(1)"></button>
+      <button class="how-dot" onclick="jumpSlide(2)"></button>
+      <button class="how-dot" onclick="jumpSlide(3)"></button>
+    </div>
+    <div class="bring">
+      <p class="bring-h">What to bring</p>
+      <ul>
+        <li><svg width="14" height="14" fill="none" stroke="#8B3F2C" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Your gold, in any condition</li>
+        <li><svg width="14" height="14" fill="none" stroke="#8B3F2C" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> PAN card (needed above a set value)</li>
+        <li><svg width="14" height="14" fill="none" stroke="#8B3F2C" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Original bill, only if you still have it</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STORIES -->
+  <section class="stories reveal">
+    <p class="eyebrow center">From our counter</p>
+    <h2 class="sec-h2 center">People who<br>did this before you</h2>
+    <div class="story-rail">
+      <div class="story-card">
+        <div class="story-avatar"></div>
+        <p class="story-line">&ldquo;Turned my mother&apos;s worn bangles into value I could see being counted.&rdquo;</p>
+        <p class="story-name">Lakshmi R.</p>
+      </div>
+      <div class="story-card">
+        <div class="story-avatar"></div>
+        <p class="story-line">&ldquo;They tested it in front of me and let me leave to think. No pressure at all.&rdquo;</p>
+        <p class="story-name">Anitha K.</p>
+      </div>
+      <div class="story-card">
+        <div class="story-avatar"></div>
+        <p class="story-line">&ldquo;The estimate on the site was exactly what I got at the store.&rdquo;</p>
+        <p class="story-name">Priya S.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFTER TEXT -->
+  <section class="after reveal">
+    <p class="eyebrow center">What happens next</p>
+    <h2 class="sec-h2 center">One text.<br>That is the whole step.</h2>
+    <div class="after-steps">
+      <div class="after-step">
+        <span class="after-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
+        <div><p class="after-t">You text us</p><p class="after-d">Send your estimate or just a question.</p></div>
+      </div>
+      <div class="after-step">
+        <span class="after-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9M12 8v4l3 3"/><path d="M3 3l18 18" opacity=".3"/></svg></span>
+        <div><p class="after-t">We value it with you</p><p class="after-d">Purity tested, weight shown, all in the open.</p></div>
+      </div>
+      <div class="after-step">
+        <span class="after-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M2 12h2M20 12h2M12 2v2M12 20v2"/></svg></span>
+        <div><p class="after-t">You decide, no rush</p><p class="after-d">Take the value or take your gold home. Your call.</p></div>
+      </div>
+    </div>
+    <a class="btn-wa" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20would%20like%20to%20know%20what%20my%20old%20gold%20is%20worth.">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
+      Start on WhatsApp
+    </a>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq reveal">
+    <p class="eyebrow center">Questions</p>
+    <h2 class="sec-h2 center">Good to know</h2>
+    <div class="faq-list" id="faq-list"></div>
+  </section>
+
+  <!-- IMAGE BAND -->
+  <section class="band reveal">
+    <div class="band-img"><img src="assets/images/artisan-crafting.png" alt="Old gold, weighed"></div>
+    <p class="band-cap">Every gram, in the open.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="ftr">
+    <div class="ftr-nav" id="ftr-nav"></div>
+    <div class="ftr-rust">
+      <p class="fr-eyebrow">Visit us</p>
+      <p class="fr-addr">HSR Layout, Bengaluru</p>
+      <p class="fr-hours">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Mon to Sat, 11am to 8pm
+      </p>
+      <div class="fr-btns">
+        <a class="fr-btn solid" href="https://maps.google.com/?q=VEDA+Jewel+HSR+Layout+Bengaluru">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Find our store
         </a>
-        <a href="#" aria-label="Cart" class="hide-mobile">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6V20C3 20.53 3.21 21.04 3.59 21.41C3.96 21.79 4.47 22 5 22H19C19.53 22 20.04 21.79 20.41 21.41C20.79 21.04 21 20.53 21 20V6L18 2H6Z"/><path d="M3 6H21"/><path d="M16 10C16 11.06 15.58 12.08 14.83 12.83C14.08 13.58 13.06 14 12 14C10.94 14 9.92 13.58 9.17 12.83C8.42 12.08 8 11.06 8 10"/></svg>
+        <a class="fr-btn ghost" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20have%20a%20question.">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
+          WhatsApp us
         </a>
-        <div class="navbar-hamburger" id="hamburger-toggle"><span></span><span></span><span></span></div>
       </div>
-    </div>
-  </nav>
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-menu-close" aria-label="Close menu">&times;</button><a href="index.html">Home</a><a href="category.html">Categories</a><a href="collection.html">Collections</a><a href="make-to-order.html">Make To Order</a><a href="old-gold-exchange.html">Old Gold Exchange</a><a href="vsvp.html">VSVP</a>
-    <a href="about.html">Our Story</a></div>
-
-  <!-- Hero -->
-  <section class="hero hero-page luxury-texture">
-    <div class="hero-bg">
-      <div class="hero-arch-portal">
-        <img src="assets/images/heritage-gold.png" alt="Old Gold Exchange" style="width:100%;height:100%;object-fit:cover;">
+      <div class="fr-quick">
+        <a href="#">Gold Rate Today</a><span>&middot;</span>
+        <a href="old-gold-exchange.html">Old Gold Exchange</a><span>&middot;</span>
+        <a href="make-to-order.html">Made to Order</a>
       </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-jaali-shadow"></div>
-    </div>
-    <div class="hero-content">
-      <span class="label" style="color:var(--gold-light);">— Old Gold Exchange —</span>
-      <h1>From Legacy<br>to Legacy</h1>
-      <p class="subtitle">Your family's gold carries stories. We honour that heritage by giving it new life as a VEDA heirloom.</p>
-    </div>
-  </section>
-
-  <!-- Why Exchange -->
-  <section class="bg-cream bg-pattern-jaali-light luxury-texture">
-    <div class="container" style="position:relative;z-index:1;">
-      <div class="split-layout" style="min-height:auto;gap:var(--space-3xl);align-items:center;">
-        <div class="reveal" style="padding:0;">
-          <span class="label-gold">— Philosophy —</span>
-          <h2 style="margin:var(--space-lg) 0;">Why Exchange<br>with VEDA?</h2>
-          <p style="margin-bottom:var(--space-lg);">Gold is not just a metal. It is a carrier of memories. When you exchange your old gold at VEDA, you are not trading — you are transforming. Your family's legacy continues in a new form, carried forward with the same love.</p>
-          <div class="quote-block" style="margin-bottom:var(--space-lg);">
-            <p class="quote-text">We don't melt memories. We transform heritage.</p>
-          </div>
-          <p>VEDA's Old Gold Exchange ensures complete transparency, fair valuation based on current market rates, and the assurance that your gold's story continues in a piece worthy of its legacy.</p>
-        </div>
-        <div class="reveal-right" style="padding:0;">
-          <div class="frame-museum" style="aspect-ratio:4/5;overflow:hidden;">
-            <img src="assets/images/gold-bangles.png" alt="Heritage Gold Jewellery" style="width:100%;height:100%;object-fit:cover;">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Three Step Journey -->
-  <section class="bg-taupe luxury-texture">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="label-gold">— The Process —</span>
-        <h2>Three Simple Steps</h2>
-        <div class="divider-peacock">
-          <div class="divider-peacock-eye"></div>
-        </div>
-      </div>
-      <div class="steps-grid stagger-children">
-        <div class="step-item">
-          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <h4>Bring</h4>
-          <p>Visit our store with your old gold jewellery. No appointment needed — walk in at your convenience.</p>
-        </div>
-        <div class="step-item">
-          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h4>Evaluate</h4>
-          <p>Our experts test and value your gold transparently — right before your eyes, using certified instruments.</p>
-        </div>
-        <div class="step-item">
-          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-          <h4>Transform</h4>
-          <p>Apply the value towards any VEDA creation — from our collections or a bespoke Make To Order piece.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Trust Signals -->
-  <section class="bg-cream luxury-texture">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="label-gold">— Our Promise —</span>
-        <h2>Trust & Transparency</h2>
-        <div class="divider-peacock">
-          <div class="divider-peacock-eye"></div>
-        </div>
-      </div>
-      <div class="trust-grid stagger-children">
-        <div class="trust-item">
-          <div class="trust-icon">⚖</div>
-          <h5>Fair Valuation</h5>
-          <p class="body-sm">Market-rate pricing updated daily. No hidden deductions.</p>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">🔍</div>
-          <h5>Transparent Testing</h5>
-          <p class="body-sm">Karat testing done in front of you using certified equipment.</p>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">✓</div>
-          <h5>BIS Hallmark</h5>
-          <p class="body-sm">All VEDA jewellery is BIS hallmarked and certified.</p>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">♦</div>
-          <h5>Instant Credit</h5>
-          <p class="body-sm">Exchange value applied immediately to your new purchase.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Calculator -->
-  <section class="bg-taupe luxury-texture" id="calculator">
-    <div class="container">
-      <div class="split-layout" style="min-height:auto;gap:var(--space-3xl);align-items:start;">
-        <div class="reveal" style="padding:0;">
-          <span class="label-gold">— Estimate —</span>
-          <h2 style="margin:var(--space-lg) 0;">Gold Value<br>Calculator</h2>
-          <p style="margin-bottom:var(--space-lg);">Get an indicative estimate of your gold's exchange value. Final valuation is done in-store with certified instruments.</p>
-          <p class="body-sm" style="color:var(--text-tertiary);">* Rates are approximate and updated periodically. Actual exchange value may vary based on purity testing.</p>
-        </div>
-        <div class="reveal-right" style="padding:0;" id="gold-calculator">
-          <div class="calc-container frame-museum">
-            <div class="form-group">
-              <label class="form-label" for="metal-type">Gold Purity</label>
-              <select class="form-select" id="metal-type">
-                <option value="24k">24 Karat (999 Fine Gold)</option>
-                <option value="22k" selected>22 Karat (916 Hallmark)</option>
-                <option value="18k">18 Karat (750)</option>
-                <option value="14k">14 Karat (585)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="gold-weight">Weight (grams)</label>
-              <input type="number" class="form-input" id="gold-weight" placeholder="Enter weight in grams" min="0" step="0.1">
-            </div>
-            <div class="calc-result" id="calc-result">
-              <p class="body-sm" style="color:var(--text-tertiary);margin-bottom:var(--space-xs);">Estimated Exchange Value</p>
-              <div class="calc-value" id="calc-value">₹ 0</div>
-              <p class="calc-note">*Indicative value. Final rate determined in-store.</p>
-            </div>
-            <a href="https://wa.me/919187204025?text=I'd%20like%20to%20schedule%20a%20gold%20evaluation%20at%20VEDA" class="btn btn-primary mt-xl" style="width:100%;justify-content:center;">Book Evaluation</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="bg-cream luxury-texture">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="label-gold">— Stories —</span>
-        <h2>Exchange Experiences</h2>
-        <div class="divider-peacock">
-          <div class="divider-peacock-eye"></div>
-        </div>
-      </div>
-      <div class="testimonial-carousel reveal">
-        <div class="testimonial-slides">
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <p class="testimonial-quote"><span class="quote-mark">"</span>I exchanged my mother's old bangles for a beautiful new necklace. The process was so transparent — I could see every step of the testing. The value was fair and the new piece carries her legacy forward.</p>
-              <p class="testimonial-author">Kavitha Rao</p>
-              <p class="testimonial-role">Bengaluru</p>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <p class="testimonial-quote"><span class="quote-mark">"</span>VEDA made the exchange process feel respectful, not transactional. They understood that my grandmother's gold carried stories. The new piece they created honours that beautifully.</p>
-              <p class="testimonial-author">Sunita Krishnan</p>
-              <p class="testimonial-role">Mysuru</p>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-dots"><span class="testimonial-dot active"></span><span class="testimonial-dot"></span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="bg-maroon">
-    <div class="container text-center">
-      <div style="max-width:700px;margin:0 auto;">
-        <span class="label reveal" style="color:var(--gold-light);">— Transform Your Heritage —</span>
-        <h2 class="reveal" style="color:var(--text-light);margin:var(--space-lg) 0;">Ready to Give Your<br>Gold a New Story?</h2>
-        <p class="reveal" style="color:rgba(250,247,242,0.7);margin-bottom:var(--space-2xl);">Visit us at VEDA, HSR Layout, Bengaluru. Walk in or book an appointment for a private evaluation.</p>
-        <div class="reveal" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-          <a href="https://wa.me/919187204025" class="btn btn-gold">Book Evaluation</a>
-          <a href="tel:+919187204025" class="btn btn-secondary">Call Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand"><div class="footer-logo"><a href="index.html" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/icons/logo-peacock.png" alt="VEDA" style="height:50px;width:auto;filter:brightness(0) invert(0.7) sepia(1) saturate(2) hue-rotate(10deg);"><span style="font-family:var(--font-display);font-size:1.8rem;letter-spacing:0.12em;color:var(--gold-aged);">VEDA</span></a></div><p class="footer-tagline">Where wisdom becomes adornment.</p></div>
-        <div class="footer-column"><h5>Jewellery</h5><ul><li><a href="category.html">Necklaces</a></li><li><a href="category.html">Earrings</a></li><li><a href="category.html">Rings</a></li></ul></div>
-        <div class="footer-column"><h5>Services</h5><ul><li><a href="make-to-order.html">Make To Order</a></li><li><a href="old-gold-exchange.html">Old Gold Exchange</a></li></ul></div>
-        <div class="footer-column"><h5>The House</h5><ul><li><a href="about.html">Our Story</a></li><li><a href="#">Craftsmanship</a></li></ul></div>
-        <div class="footer-newsletter"><h5>Stay Connected</h5><p>Receive exclusive VEDA updates.</p><form class="footer-newsletter-form" onsubmit="event.preventDefault();"><input type="email" placeholder="Your email"><button type="submit">Join</button></form></div>
-      </div>
-      <div class="footer-bottom"><p>&copy; 2025 VEDA Jewel. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+      <p class="fr-fine">VEDA Jewel &copy; 2026</p>
     </div>
   </footer>
 
-  <div class="sticky-ctas"><a href="https://wa.me/919187204025" class="sticky-cta sticky-cta-whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a></div>
+  <!-- STICKY CTA -->
+  <div class="sticky">
+    <a class="btn-wa" id="sticky-wa" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20would%20like%20to%20know%20what%20my%20old%20gold%20is%20worth.">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
+      Value my gold on WhatsApp
+    </a>
+  </div>
 
-  <script src="js/main.js"></script>
-  <script src="js/calculator.js"></script>
+</div><!-- /.veda -->
+
+<script>
+var WA = "919187204025";
+var RATE = 7500;
+var CASH_FACTOR = 0.94;
+var purityFactor = 1.0;
+var grams = 10;
+var mode = "exchange";
+var notSure = false;
+
+function inr(n) { return "₹" + Math.round(n).toLocaleString("en-IN"); }
+function waUrl(msg) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); }
+
+// Calculator
+document.getElementById("calc-slider").addEventListener("input", function() {
+  grams = +this.value;
+  document.getElementById("gram-val").textContent = grams;
+  updateCalc();
+});
+
+document.querySelectorAll(".purity-pill").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    document.querySelectorAll(".purity-pill").forEach(function(b) { b.classList.remove("on"); });
+    this.classList.add("on");
+    var f = this.dataset.factor;
+    notSure = f === "null";
+    purityFactor = notSure ? 0 : parseFloat(f);
+    var karat = this.querySelector(".pp-label").textContent;
+    document.getElementById("mode-toggle").style.display = notSure ? "none" : "flex";
+    updateCalc();
+  });
+});
+
+function setMode(m) {
+  mode = m;
+  document.getElementById("btn-exchange").classList.toggle("on", m === "exchange");
+  document.getElementById("btn-cash").classList.toggle("on", m === "cash");
+  updateCalc();
+}
+
+function updateCalc() {
+  var purityLabel = document.querySelector(".purity-pill.on .pp-label").textContent;
+  var base = grams * RATE * purityFactor;
+  var value = mode === "cash" ? base * CASH_FACTOR : base;
+
+  if (notSure) {
+    document.getElementById("result-cap").textContent = "Not sure of purity";
+    document.getElementById("result-num").textContent = "We test it, free";
+    document.getElementById("result-num").className = "result-num sm";
+    document.getElementById("result-math").textContent = "A quick non damaging test tells you the exact karat before anything is decided.";
+    document.getElementById("result-hint").style.display = "none";
+    var msg = "Hi VEDA, I have about " + grams + "g of gold but I am not sure of its purity. Can you help me value it?";
+    document.getElementById("wa-link").href = waUrl(msg);
+    document.getElementById("sticky-wa").href = waUrl("Hi VEDA, I would like to know what my old gold is worth.");
+  } else {
+    document.getElementById("result-cap").textContent = "Estimated " + mode + " value";
+    document.getElementById("result-num").textContent = inr(value);
+    document.getElementById("result-num").className = "result-num";
+    document.getElementById("result-math").textContent = grams + "g · " + purityLabel + " · " + inr(RATE) + "/g";
+    var hint = document.getElementById("result-hint");
+    if (mode === "exchange") {
+      hint.textContent = "Exchange is worth " + inr(base - base * CASH_FACTOR) + " more than cash on this piece.";
+      hint.style.display = "";
+    } else {
+      hint.style.display = "none";
+    }
+    var msg2 = "Hi VEDA, I have about " + grams + "g of " + purityLabel + " gold. I saw an estimate of " + inr(value) + " for " + mode + ". I would like to know more.";
+    document.getElementById("wa-link").href = waUrl(msg2);
+  }
+}
+updateCalc();
+
+// Carousel
+var slideIdx = 0;
+var rounds = 0;
+var timer;
+function setSlide(i) {
+  slideIdx = i;
+  document.getElementById("how-track").style.transform = "translateX(-" + (i * 100) + "%)";
+  document.querySelectorAll(".how-dot").forEach(function(d, j) { d.classList.toggle("on", j === i); });
+}
+function jumpSlide(i) { clearInterval(timer); setSlide(i); }
+timer = setInterval(function() {
+  var next = (slideIdx + 1) % 4;
+  if (next === 0) rounds++;
+  if (rounds >= 2) { clearInterval(timer); return; }
+  setSlide(next);
+}, 5000);
+
+// FAQ
+var faqs = [
+  ["How is my gold's value calculated?", "Net gold weight times purity times today's rate. That is the whole formula. The rate you see is the rate you get."],
+  ["Do I have to go through with it after valuation?", "No. You can see the value, take your time, and walk away with your gold. Nothing is final until you agree."],
+  ["Is the purity test damaging?", "No. A karatmeter reads purity without cutting, scratching or melting your piece."],
+  ["What happens to the stones in my piece?", "Diamonds and coloured stones are removed and returned to you, or valued on their own. Their weight is never counted as gold."],
+  ["Do I get back the original making charges?", "No. The making charge paid when a piece was crafted cannot be recovered on any exchange, anywhere. We would rather say so here than surprise you at the counter."],
+  ["Can I exchange only part of my gold?", "Yes. Bring three pieces and exchange one. There is no pressure to give up everything at once."],
+  ["What if I lost the original bill?", "That is completely fine. A bill is never required to value or exchange your gold."],
+  ["What if my gold is not hallmarked?", "Older gold is often not hallmarked. We test its exact purity ourselves, so it makes no difference to your value."],
+  ["Can I exchange gold I did not buy from VEDA?", "Yes. We accept gold from any source."],
+  ["I am not in Bengaluru. Can you still help?", "Text us on WhatsApp and we will guide you on the options for your city."]
+];
+var openFaq = -1;
+var faqList = document.getElementById("faq-list");
+faqs.forEach(function(f, i) {
+  var card = document.createElement("div");
+  card.className = "faq-card";
+  card.innerHTML = '<button class="faq-q"><span>' + f[0] + '</span><svg class="chev" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a-wrap"><div class="faq-a-inner"><p>' + f[1] + '</p></div></div>';
+  card.querySelector("button").addEventListener("click", function() {
+    var was = openFaq === i;
+    document.querySelectorAll(".faq-card").forEach(function(c) { c.classList.remove("open"); });
+    openFaq = was ? -1 : i;
+    if (!was) card.classList.add("open");
+  });
+  faqList.appendChild(card);
+});
+
+// Footer nav
+var footNav = [
+  { t: "Our Story", items: [["About VEDA","about.html"],["Craftsmanship","#"],["Philosophy","#"]] },
+  { t: "Collections", items: [["Necklaces","#"],["Earrings","#"],["Bangles","#"],["Made to Order","make-to-order.html"]] },
+  { t: "Visit Us", items: [["HSR Layout store","#"],["Find our store","https://maps.google.com/?q=VEDA+Jewel+HSR+Layout+Bengaluru"]] },
+  { t: "Support", items: [["Contact","#"],["WhatsApp us","https://wa.me/919187204025"],["Care guide","#"]] },
+  { t: "Legal", items: [["Terms","#"],["Privacy","#"],["Hallmarking","#"]] }
+];
+var openFtr = -1;
+var ftrNav = document.getElementById("ftr-nav");
+footNav.forEach(function(s, i) {
+  var sec = document.createElement("div");
+  sec.className = "ftr-sec";
+  var links = s.items.map(function(it) { return '<a href="' + it[1] + '">' + it[0] + '</a>'; }).join("");
+  sec.innerHTML = '<button>' + s.t + '<svg class="chev" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="ftr-items-wrap"><div class="ftr-items-inner">' + links + '</div></div>';
+  sec.querySelector("button").addEventListener("click", function() {
+    var was = openFtr === i;
+    document.querySelectorAll(".ftr-sec").forEach(function(c) { c.classList.remove("open"); });
+    openFtr = was ? -1 : i;
+    if (!was) sec.classList.add("open");
+  });
+  ftrNav.appendChild(sec);
+});
+var follow = document.createElement("div");
+follow.className = "ftr-follow";
+follow.innerHTML = '<p>Follow us</p><div class="ftr-social"><a href="#">Instagram</a><a href="#">Facebook</a></div>';
+ftrNav.appendChild(follow);
+
+// Scroll reveal
+var ro = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add("in"); ro.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(function(el) { ro.observe(el); });
+</script>
 </body>
 </html>

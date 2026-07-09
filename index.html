@@ -1,173 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VEDA Jewel — Where Wisdom Becomes Adornment</title>
-  <meta name="description" content="Handcrafted gold, silver and diamond jewellery. Designed in Bengaluru, rooted in the wisdom of the Vedas.">
-  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; background: #FFF8E6; font-family: 'Switzer', -apple-system, BlinkMacSystemFont, sans-serif; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    h1,h2,h3,h4,h5,h6,p { margin: 0; }
-    input, select, button { font-family: inherit; }
-
-    .vser { font-family: 'Cormorant Garamond', Georgia, serif; }
-    .vsan { font-family: 'Switzer', -apple-system, BlinkMacSystemFont, sans-serif; }
-
-    .vlink { position: relative; transition: color .3s ease; }
-    .vlink:hover { color: #8B3F2C; }
-
-    .vcard-img { transition: transform 1.4s cubic-bezier(.16,1,.3,1); }
-    .vcard:hover .vcard-img { transform: scale(1.05); }
-
-    .vbtn-fill { transition: background .35s ease, transform .35s ease, box-shadow .35s ease; }
-    .vbtn-fill:hover { background: #6E3222 !important; transform: translateY(-1px); box-shadow: 0 6px 22px rgba(110,50,34,.28); }
-
-    .vbtn-line { transition: background .35s ease, color .35s ease; }
-    .vbtn-line:hover { background: #B99874 !important; color: #FFF8E6 !important; }
-
-    .vbtn-gold { transition: filter .35s ease, transform .35s ease; }
-    .vbtn-gold:hover { filter: brightness(1.06); transform: translateY(-1px); }
-
-    .vwhisper { position: relative; transition: opacity .3s ease; }
-    .vwhisper:hover { opacity: .6; }
-
-    .vsticky { transition: transform .3s ease, box-shadow .3s ease; }
-    .vsticky:hover { transform: scale(1.06); }
-
-    input::placeholder { color: rgba(137,110,80,.55); }
-
-    /* Reveal animations */
-    [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
-    [data-reveal].revealed { opacity: 1; transform: none; }
-
-    /* ── Hamburger / Mobile Nav ── */
-    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: #482D22; }
-    .mobile-nav { position: fixed; inset: 0; z-index: 200; pointer-events: none; }
-    .mobile-nav-overlay { position: absolute; inset: 0; background: rgba(72,45,34,0.45); opacity: 0; transition: opacity .35s ease; }
-    .mobile-nav-panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(320px, 88vw); background: #FFF8E6; transform: translateX(100%); transition: transform .38s cubic-bezier(.16,1,.3,1); display: flex; flex-direction: column; padding: 0; overflow-y: auto; }
-    .mobile-nav.open { pointer-events: all; }
-    .mobile-nav.open .mobile-nav-overlay { opacity: 1; }
-    .mobile-nav.open .mobile-nav-panel { transform: none; }
-    .mobile-nav-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid #EDE0CC; }
-    .mobile-nav-close { background: none; border: none; cursor: pointer; color: #482D22; padding: 6px; }
-    .mobile-nav-links { padding: 28px 24px; flex: 1; }
-    .mobile-nav-links a { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.85rem; font-weight: 300; color: #482D22; padding: 14px 0; border-bottom: 1px solid #EDE0CC; letter-spacing: 0.02em; transition: color .25s; }
-    .mobile-nav-links a:last-child { border-bottom: none; }
-    .mobile-nav-links a:hover { color: #8B3F2C; }
-    .mobile-nav-footer { padding: 24px; border-top: 1px solid #EDE0CC; }
-    .mobile-nav-footer a { display: inline-block; font-family: 'Switzer', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #FFF8E6; background: #8B3F2C; padding: 15px 28px; width: 100%; text-align: center; }
-
-    /* ── Mobile hero image ── */
-    .hero-mobile-image { display: none; }
-
-    /* ── Breakpoint: tablet / large phone ── */
-    @media (max-width: 900px) {
-      .nav-links { display: none !important; }
-      .nav-hamburger { display: flex; align-items: center; }
-      .nav-icons { gap: 14px !important; }
-      .nav-icon-wishlist { display: none; }
-
-      .hero-grid { grid-template-columns: 1fr !important; padding-bottom: 0 !important; gap: 0 !important; }
-      .hero-image { display: none !important; }
-      .hero-mobile-image { display: block; width: 100%; height: 64vw; max-height: 380px; overflow: hidden; }
-      .hero-mobile-image img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 18%; }
-      .hero-text { padding-bottom: clamp(1.5rem,3vw,2rem) !important; }
-      .hero-btns { flex-direction: column !important; gap: 12px !important; }
-      .hero-btns a { text-align: center !important; }
-
-      .collections-grid { grid-template-columns: repeat(2,1fr) !important; gap: 20px !important; }
-      .collections-card-title { font-size: 1.5rem !important; }
-
-      .occasions-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-      .occasions-card-img { aspect-ratio: 3/2 !important; }
-
-      .mto-mobile-banner { display: block !important; }
-      .mto-grid { grid-template-columns: 1fr !important; }
-      .mto-image-wrap { display: none !important; }
-      .mto-steps { flex-wrap: wrap !important; gap: 12px !important; }
-      .mto-steps > span { display: none !important; }
-      .mto-step { flex: 1 1 calc(50% - 6px); min-width: 100px; background: rgba(255,255,255,0.06); padding: 14px 10px; border-radius: 2px; }
-      .mto-cta { flex-direction: column !important; align-items: flex-start !important; gap: 18px !important; }
-
-      .oge-mobile-banner { display: block !important; }
-      .oge-grid { grid-template-columns: 1fr !important; }
-      .oge-benefits-divider { display: none !important; }
-      .oge-benefits { gap: 20px !important; }
-
-      .vsvp-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
-      .vsvp-cta { text-align: left !important; }
-      .vsvp-num { font-size: clamp(2.8rem,9vw,4rem) !important; }
-
-      .founder-grid { grid-template-columns: 1fr !important; }
-      .founder-image { min-height: 64vw !important; max-height: 420px; order: -1; }
-
-      .phil-grid { grid-template-columns: repeat(3,1fr) !important; }
-
-      .stories-grid { grid-template-columns: 1fr !important; }
-      .story-item { border-top: none !important; border-bottom: 1px solid rgba(207,178,143,0.3) !important; padding-bottom: 28px !important; padding-top: 0 !important; }
-      .story-item:first-child { border-top: 1px solid rgba(207,178,143,0.3) !important; padding-top: 28px !important; }
-
-      .store-grid { grid-template-columns: 1fr !important; }
-      .store-image { display: none !important; }
-      .store-mobile-banner { display: block !important; }
-
-      .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 36px !important; }
-      .footer-brand { grid-column: 1 / -1; }
-      .footer-newsletter { grid-column: 1 / -1; }
-      .footer-bottom-links { gap: 16px !important; flex-wrap: wrap !important; }
-    }
-
-    /* ── Breakpoint: phone ── */
-    @media (max-width: 540px) {
-      .hero-btns a { display: block !important; width: 100% !important; box-sizing: border-box; }
-
-      .collections-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
-      .collections-card-desc { display: none; }
-      .collections-card-title { font-size: 1.65rem !important; }
-
-      .occasions-card-img { aspect-ratio: 16/9 !important; }
-
-      .mto-step { flex: 1 1 100%; }
-
-      .oge-benefits { flex-direction: column !important; gap: 16px !important; }
-
-      .vsvp-cta a { display: block !important; width: 100%; text-align: center; }
-
-      .phil-grid { grid-template-columns: repeat(2,1fr) !important; }
-      .phil-grid > div:nth-child(5) { grid-column: 1 / -1 !important; max-width: 50%; margin: 0 auto; }
-
-      .store-cta { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
-      .store-cta a.vbtn-fill { display: block !important; width: 100%; text-align: center; }
-
-      .footer-grid { grid-template-columns: 1fr !important; }
-      .footer-brand { grid-column: auto; }
-      .footer-newsletter { grid-column: auto; }
-      .footer-bottom-links { flex-direction: column !important; gap: 10px !important; }
-
-      .vsticky-wrap { right: 14px !important; bottom: 14px !important; gap: 10px !important; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDA Jewel — Fine Indian Jewellery, Bengaluru</title>
+<meta name="description" content="VEDA Fine Jewellery — Crafted from Heritage. Designed in Bengaluru. Rooted in the wisdom of the Vedas. Make to Order, Old Gold Exchange, VSVP Plan.">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0; background:#FFF8E6; overflow-x:hidden;}
+  a{color:inherit; text-decoration:none;}
+  .vser{font-family:'Cormorant Garamond',Georgia,serif;}
+  .vscript{font-family:'Pinyon Script',cursive;}
+  .vsan{font-family:'Switzer',-apple-system,BlinkMacSystemFont,sans-serif;}
+  .vlink{position:relative; transition:color .3s ease;}
+  .vlink:hover{color:#8B3F2C;}
+  .vcard-img{transition:transform 1.4s cubic-bezier(.16,1,.3,1);}
+  .vcard:hover .vcard-img{transform:scale(1.05);}
+  .vbtn-fill{transition:background .35s ease, transform .35s ease, box-shadow .35s ease;}
+  .vbtn-fill:hover{background:#6E3222 !important; transform:translateY(-1px); box-shadow:0 6px 22px rgba(110,50,34,.28);}
+  .vbtn-line{transition:background .35s ease, color .35s ease;}
+  .vbtn-line:hover{background:rgba(185,152,116,0.18) !important;}
+  .vbtn-gold{transition:filter .35s ease, transform .35s ease;}
+  .vbtn-gold:hover{filter:brightness(1.06); transform:translateY(-1px);}
+  .vwhisper{position:relative; transition:opacity .3s ease;}
+  .vwhisper:hover{opacity:.6;}
+  .vsticky{transition:transform .3s ease, box-shadow .3s ease;}
+  .vsticky:hover{transform:scale(1.06);}
+  input::placeholder{color:rgba(137,110,80,.55);}
+  .v-nav-burger{display:none;}
+  [data-reveal]{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
+  [data-reveal].revealed{opacity:1; transform:translateY(0);}
+  @media (min-width:981px){ .v-mobile-menu{display:none !important;} }
+  @media (max-width:980px){
+    .v-nav-links{display:none !important;}
+    .v-nav-burger{display:flex !important;}
+    .v-grid-split{grid-template-columns:1fr !important;}
+    .v-grid-5{grid-template-columns:repeat(3,1fr) !important;}
+    .v-footer-grid{grid-template-columns:1fr 1fr 1fr !important;}
+    .v-footer-brand{grid-column:1 / -1 !important;}
+    .v-footer-news{grid-column:1 / -1 !important;}
+  }
+  @media (max-width:680px){
+    .v-hero-grid{grid-template-columns:1fr !important;}
+    .v-grid-3{grid-template-columns:1fr !important;}
+    .v-og-copy{order:-1 !important; margin-bottom:28px;}
+    .v-grid-occ{grid-template-columns:1fr 1fr !important; gap:12px !important;}
+    .v-occ{padding:8px 8px 14px !important;}
+    .v-occ .v-occ-body{padding:0 6px !important;}
+    .v-occ .v-occ-img{aspect-ratio:1/1 !important; margin-bottom:12px !important;}
+    .v-occ .v-occ-eyebrow{color:#482D22 !important;}
+    .v-occ-last{grid-column:1 / -1 !important; display:flex !important; align-items:center; gap:16px;}
+    .v-occ-last .v-occ-img{width:40%; flex-shrink:0; aspect-ratio:1/1 !important; margin-bottom:0 !important;}
+    .v-occ-last .v-occ-body{flex:1;}
+    .v-grid-collections{display:flex !important; grid-template-columns:none !important; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; margin:0 -18px; padding:4px 18px 14px; scrollbar-width:none;}
+    .v-grid-collections::-webkit-scrollbar{display:none;}
+    .v-grid-collections > .vcard{flex:0 0 62% !important; scroll-snap-align:start;}
+    .v-grid-5{display:flex !important; grid-template-columns:none !important; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; margin:0 -18px; padding:4px 18px 12px; scrollbar-width:none;}
+    .v-grid-5::-webkit-scrollbar{display:none;}
+    .v-grid-5 > *{flex:0 0 38% !important; scroll-snap-align:start;}
+    .v-footer-grid{grid-template-columns:1fr 1fr !important;}
+    .v-vsvp-cta{text-align:left !important; margin-top:22px;}
+    .v-mto-watermark{font-size:130px !important;}
+    .v-grid-collections{gap:14px !important;}
+    .v-grid-3{gap:26px !important;}
+    .v-grid-5{gap:12px !important;}
+    .v-founder-img{min-height:340px !important;}
+    .v-hero-bleed{display:block !important;}
+    .v-hero-img{display:none !important;}
+    .v-hero-grid{display:flex !important; flex-direction:column !important; justify-content:flex-end !important; min-height:86vh !important; padding:0 !important; z-index:2;}
+    .v-hero-copy{text-align:left !important; width:100% !important; padding:0 clamp(1.5rem,6vw,2rem) clamp(2.4rem,8vw,3.2rem) !important;}
+    .v-hero-peacock{height:46px !important; margin-bottom:14px !important;}
+    .v-hero-cta{gap:12px !important; margin-top:26px !important;}
+    .v-hero-dots{display:none !important;}
+    .v-h1{font-size:2.9rem !important;}
+    .v-lead{font-size:1.05rem !important; margin-top:16px !important; color:rgba(251,243,226,0.82) !important; max-width:none !important;}
+    .v-card-body{margin-bottom:14px !important;}
+  }
+</style>
 </head>
-<body style="background:#FFF8E6; color:#482D22; overflow-x:hidden;">
+<body class="vsan" style="background:#FFF8E6; color:#482D22;">
 
-<!-- clip-path definitions -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <clipPath id="veda-ogee" clipPathUnits="objectBoundingBox"><path d="M0,1 L0,0.46 C0,0.2 0.2,0.15 0.35,0.11 C0.45,0.085 0.48,0.045 0.5,0 C0.52,0.045 0.55,0.085 0.65,0.11 C0.8,0.15 1,0.2 1,0.46 L1,1 Z"></path></clipPath>
   <clipPath id="veda-archtop" clipPathUnits="objectBoundingBox"><path d="M0,1 L0,0.4 C0,0.16 0.28,0.04 0.5,0 C0.72,0.04 1,0.16 1,0.4 L1,1 Z"></path></clipPath>
 </defs></svg>
 
-<!-- ═══ NAV ═══ -->
+<!-- NAV -->
 <nav style="position:sticky; top:0; z-index:100; background:rgba(255,248,230,0.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid #EDE0CC;">
-  <div style="max-width:1480px; margin:0 auto; padding:0 clamp(1.25rem,4vw,3.5rem); height:64px; display:flex; align-items:center; justify-content:space-between;">
-    <a href="#" style="display:flex; align-items:center;"><img src="assets/icons/logo-full.png" alt="VEDA Jewel" style="height:38px; width:auto;"></a>
-    <div class="nav-links" style="display:flex; align-items:center; gap:34px; font-size:13px; letter-spacing:0.06em; color:#482D22;">
+  <div style="max-width:1480px; margin:0 auto; padding:0 clamp(1.25rem,4vw,3.5rem); height:74px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="#" style="display:flex; align-items:center;"><img src="assets/icons/logo-full.png" alt="VEDA Jewel" style="height:42px; width:auto; display:block;"></a>
+    <div class="v-nav-links" style="display:flex; align-items:center; gap:34px; font-size:13px; letter-spacing:0.06em; color:#482D22;">
       <a href="#collections" class="vlink">Categories</a>
       <a href="#collections" class="vlink">Collections</a>
       <a href="#make-to-order" class="vlink">Make To Order</a>
@@ -175,196 +101,103 @@
       <a href="#vsvp" class="vlink">VSVP</a>
       <a href="#founder" class="vlink">About</a>
     </div>
-    <div class="nav-icons" style="display:flex; align-items:center; gap:20px; color:#482D22;">
-      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" aria-label="Search"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
-      <svg class="nav-icon-wishlist" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" aria-label="Wishlist"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg>
-      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" aria-label="Cart"><path d="M6 2L3 6V20C3 20.5 3.2 21 3.6 21.4C3.96 21.8 4.47 22 5 22H19C19.5 22 20 21.8 20.4 21.4C20.8 21 21 20.5 21 20V6L18 2H6Z"/><path d="M3 6H21"/><path d="M16 10C16 12.2 14.2 14 12 14C9.8 14 8 12.2 8 10"/></svg>
-      <button class="nav-hamburger" id="nav-open" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <div style="display:flex; align-items:center; gap:20px; color:#482D22;">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg>
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 2L3 6V20C3 20.5 3.2 21 3.6 21.4C3.96 21.8 4.47 22 5 22H19C19.5 22 20 21.8 20.4 21.4C20.8 21 21 20.5 21 20V6L18 2H6Z"/><path d="M3 6H21"/><path d="M16 10C16 12.2 14.2 14 12 14C9.8 14 8 12.2 8 10"/></svg>
+      <button class="v-nav-burger" id="nav-burger" onclick="toggleMenu()" aria-label="Menu" style="display:none; align-items:center; justify-content:center; width:40px; height:40px; background:none; border:none; cursor:pointer; color:#482D22; padding:0; margin-left:-4px;">
+        <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
+  </div>
+  <div class="v-mobile-menu" id="v-mobile-menu" style="display:none; flex-direction:column; padding:6px clamp(1.25rem,4vw,3.5rem) 22px; border-top:1px solid #EDE0CC; background:rgba(255,248,230,0.98);">
+    <a href="#collections" onclick="closeMenu()" class="vsan" style="padding:15px 2px; font-size:15px; letter-spacing:0.05em; color:#482D22; border-bottom:1px solid #EDE0CC;">Categories</a>
+    <a href="#collections" onclick="closeMenu()" class="vsan" style="padding:15px 2px; font-size:15px; letter-spacing:0.05em; color:#482D22; border-bottom:1px solid #EDE0CC;">Collections</a>
+    <a href="#make-to-order" onclick="closeMenu()" class="vsan" style="padding:15px 2px; font-size:15px; letter-spacing:0.05em; color:#482D22; border-bottom:1px solid #EDE0CC;">Make To Order</a>
+    <a href="#old-gold" onclick="closeMenu()" class="vsan" style="padding:15px 2px; font-size:15px; letter-spacing:0.05em; color:#482D22; border-bottom:1px solid #EDE0CC;">Old Gold</a>
+    <a href="#vsvp" onclick="closeMenu()" class="vsan" style="padding:15px 2px; font-size:15px; letter-spacing:0.05em; color:#482D22; border-bottom:1px solid #EDE0CC;">VSVP</a>
+    <a href="#founder" onclick="closeMenu()" class="vsan" style="padding:15px 2px; font-size:15px; letter-spacing:0.05em; color:#482D22;">About</a>
   </div>
 </nav>
 
-<!-- ═══ MOBILE NAV ═══ -->
-<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-  <div class="mobile-nav-panel">
-    <div class="mobile-nav-head">
-      <img src="assets/icons/logo-peacock.png" alt="VEDA" style="height:36px; width:auto;">
-      <button class="mobile-nav-close" id="nav-close" aria-label="Close menu">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="mobile-nav-links">
-      <a href="#collections" class="vlink">Collections</a>
-      <a href="#make-to-order" class="vlink">Make To Order</a>
-      <a href="#old-gold" class="vlink">Old Gold</a>
-      <a href="#vsvp" class="vlink">VSVP</a>
-      <a href="#founder" class="vlink">About</a>
-      <a href="about.html" class="vlink">Our Story</a>
-    </div>
-    <div class="mobile-nav-footer">
-      <a href="https://wa.me/919187204025?text=I%20would%20like%20to%20book%20an%20appointment">Book Appointment</a>
-    </div>
+<!-- HERO -->
+<section style="position:relative; overflow:hidden; background:#34211A;">
+  <div style="position:absolute; inset:0; background:radial-gradient(125% 95% at 32% 12%, #5C3A2A 0%, #482D22 46%, #34211A 100%);"></div>
+  <div style="position:absolute; inset:0; pointer-events:none; opacity:0.6; background-image:radial-gradient(1.6px 1.6px at 14% 20%, rgba(231,207,160,0.95), transparent 60%),radial-gradient(1.2px 1.2px at 68% 16%, rgba(231,207,160,0.7), transparent 60%),radial-gradient(1px 1px at 82% 42%, rgba(231,207,160,0.6), transparent 60%),radial-gradient(1.4px 1.4px at 90% 26%, rgba(231,207,160,0.8), transparent 60%),radial-gradient(1px 1px at 56% 62%, rgba(231,207,160,0.5), transparent 60%),radial-gradient(1.3px 1.3px at 24% 74%, rgba(231,207,160,0.6), transparent 60%),radial-gradient(1px 1px at 40% 34%, rgba(231,207,160,0.45), transparent 60%),radial-gradient(1.5px 1.5px at 74% 78%, rgba(231,207,160,0.55), transparent 60%);"></div>
+  <div class="v-hero-bleed" style="display:none; position:absolute; inset:0; z-index:0;">
+    <img src="assets/images/editorial-model.png" alt="VEDA editorial portrait" style="width:100%; height:100%; object-fit:cover; object-position:54% 34%;">
+    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(40,25,18,0.95) 4%, rgba(46,29,21,0.6) 40%, rgba(52,33,26,0.32) 100%);"></div>
   </div>
-</div>
-
-<!-- ═══ HERO ═══ -->
-<section style="position:relative; background:#FFF8E6;">
-  <div class="hero-grid" style="max-width:1480px; margin:0 auto; display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(2rem,5vw,5rem); align-items:center; padding:clamp(2rem,4vw,3.5rem) clamp(1.25rem,4vw,3.5rem) clamp(3rem,5vw,5rem);">
-    <div class="hero-text" style="padding:clamp(1rem,3vw,2.5rem) 0;">
-      <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.3em; color:#B99874;">— VEDA JEWELLERY —</span>
-      <h1 class="vser" style="margin:24px 0 0; font-size:clamp(3.2rem,7vw,6.2rem); font-weight:300; line-height:1.0; letter-spacing:0.01em; color:#482D22;">Crafted<br>from <span style="font-style:italic; color:#8B3F2C;">Heritage.</span></h1>
-      <div style="width:56px; height:1px; background:#B99874; margin:clamp(1.6rem,3vw,2.2rem) 0;"></div>
-      <p class="vser" style="margin:0; font-style:italic; font-size:clamp(1.25rem,2vw,1.6rem); font-weight:300; color:#6B5545; max-width:420px; line-height:1.45;">Designed in Bengaluru. Rooted in the wisdom of the Vedas.</p>
-      <div class="hero-btns" style="display:flex; gap:16px; margin-top:clamp(2rem,3.5vw,2.8rem); flex-wrap:wrap;">
-        <a href="#make-to-order" class="vbtn-fill vsan" style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FFF8E6; background:#8B3F2C; padding:16px 32px;">Start Your Design</a>
-        <a href="#collections" class="vbtn-line vsan" style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#8B3F2C; border:1px solid #B99874; padding:16px 32px;">Explore Collections</a>
-      </div>
-    </div>
-    <div class="hero-image" style="position:relative; align-self:stretch; min-height:clamp(420px,62vh,680px); margin-top:clamp(1rem,2vw,1.5rem);">
+  <div class="v-hero-grid" style="position:relative; max-width:1400px; margin:0 auto; display:grid; grid-template-columns:0.92fr 1.08fr; gap:clamp(2rem,5vw,5.5rem); align-items:center; padding:clamp(2.5rem,4vw,4rem) clamp(1.5rem,4vw,4rem); min-height:clamp(560px,84vh,880px);">
+    <div class="v-hero-img" style="position:relative; align-self:stretch; min-height:clamp(360px,68vh,740px);">
       <div style="position:absolute; inset:0;">
-        <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,#E7Cfa0,#B99874); clip-path:url(#veda-ogee);"></div>
-        <div style="position:absolute; inset:8px; clip-path:url(#veda-ogee); overflow:hidden;">
-          <img src="assets/images/editorial-model.png" alt="VEDA editorial portrait" style="width:100%; height:100%; object-fit:cover; object-position:58% 20%;">
+        <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,#E7Cfa0,#9a7c58); clip-path:url(#veda-ogee);"></div>
+        <div style="position:absolute; inset:7px; clip-path:url(#veda-ogee); overflow:hidden; background:#2c1b14;">
+          <img src="assets/images/editorial-model.png" alt="VEDA editorial portrait" style="width:100%; height:100%; object-fit:cover; object-position:58% 16%;">
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(44,27,20,0.62), transparent 46%);"></div>
         </div>
-        <div style="position:absolute; top:-13px; left:50%; transform:translateX(-50%); width:9px; height:9px; border-radius:50%; background:#B99874; box-shadow:0 0 0 5px rgba(185,152,116,0.16);"></div>
+        <div style="position:absolute; top:-13px; left:50%; transform:translateX(-50%); width:9px; height:9px; border-radius:50%; background:#E7Cfa0; box-shadow:0 0 0 5px rgba(207,178,143,0.18);"></div>
+      </div>
+    </div>
+    <div class="v-hero-copy" style="text-align:left;">
+      <img src="assets/icons/peacock-gold.svg" alt="" class="v-hero-peacock" style="display:block; height:62px; width:auto; margin-bottom:20px;">
+      <div class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.36em; text-transform:uppercase; color:#CFB28F; margin-bottom:18px;">VEDA Fine Jewellery</div>
+      <h1 class="vser v-h1" style="margin:0; font-weight:300; line-height:1.02; color:#FBF3E2; font-size:clamp(3rem,5.4vw,5rem); letter-spacing:0.01em;">Crafted from <span class="vscript" style="display:inline-block; font-size:1.32em; line-height:0.9; color:#E7Cfa0; padding:0 0.04em;">Heritage</span></h1>
+      <p class="vser v-lead" style="margin:26px 0 0; font-style:italic; font-size:clamp(1.2rem,1.8vw,1.55rem); font-weight:300; color:rgba(251,243,226,0.74); max-width:470px; line-height:1.5;">Designed in Bengaluru. Rooted in the wisdom of the Vedas &mdash; jewellery made not for display, but for living.</p>
+      <div class="v-hero-cta" style="display:flex; gap:16px; margin-top:clamp(2rem,3.5vw,2.6rem); flex-wrap:wrap;">
+        <a href="#make-to-order" class="vbtn-gold vsan" style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#3A241B; background:linear-gradient(#E7Cfa0,#CFB28F); padding:16px 34px;">Start Your Design</a>
+        <a href="#collections" class="vbtn-line vsan" style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FBF3E2; border:1px solid rgba(207,178,143,0.5); padding:16px 34px;">Explore Collections</a>
+      </div>
+      <div class="v-hero-dots" style="display:flex; align-items:center; gap:10px; margin-top:clamp(2.2rem,4vw,3rem);">
+        <span style="width:28px; height:3px; background:#CFB28F;"></span>
+        <span style="width:14px; height:3px; background:rgba(207,178,143,0.32);"></span>
+        <span style="width:14px; height:3px; background:rgba(207,178,143,0.32);"></span>
+        <span style="width:14px; height:3px; background:rgba(207,178,143,0.32);"></span>
       </div>
     </div>
   </div>
-  <!-- mobile-only image strip -->
-  <div class="hero-mobile-image" style="height:64vw; max-height:380px;">
-    <img src="assets/images/editorial-model.png" alt="VEDA" style="width:100%; height:100%; object-fit:cover; object-position:58% 18%;">
-  </div>
 </section>
 
-<!-- ═══ SIGNATURE COLLECTIONS ═══ -->
-<section id="collections" style="padding:clamp(72px,8vw,120px) 0; background:#FFF8E6;">
+<!-- SHOP BY OCCASION -->
+<section style="padding:clamp(28px,5vw,72px) 0 clamp(34px,7vw,120px); background:#FFF8E6;">
   <div style="max-width:1400px; margin:0 auto; padding:0 clamp(1.5rem,4vw,4rem);">
-    <div data-reveal style="text-align:center; max-width:640px; margin:0 auto clamp(48px,5vw,72px);">
-      <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; color:#B99874;">— Curated Worlds —</span>
-      <h2 class="vser" style="margin:16px 0 18px; font-size:clamp(2.4rem,4.5vw,3.6rem); font-weight:300; color:#482D22;">Our Signature Collections</h2>
-      <div style="display:flex; justify-content:center;"><svg width="118" height="34" viewBox="0 0 120 36" fill="none"><path d="M12 34 L12 18 Q12 4 60 2 Q108 4 108 18 L108 34" stroke="rgba(185,152,116,0.55)" stroke-width="1"/><line x1="0" y1="34" x2="120" y2="34" stroke="rgba(185,152,116,0.25)" stroke-width="0.8"/></svg></div>
-    </div>
-    <div class="collections-grid" data-reveal style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(28px,3vw,52px);">
-
-      <a href="collection.html" class="vcard" style="display:block; text-align:center;">
-        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
-          <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,#E7Cfa0,#B99874); clip-path:url(#veda-archtop);"></div>
-          <div style="position:absolute; inset:6px; clip-path:url(#veda-archtop); border-radius:50% 50% 0 0/40% 40% 0 0; overflow:hidden;"><img class="vcard-img" src="assets/images/hero-necklace.png" alt="Sharanya" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-        </div>
-        <span class="vser" style="display:block; font-size:34px; color:rgba(185,152,116,0.32); line-height:1; margin-bottom:6px;">तेजस्</span>
-        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">— Tejas —</span>
-        <h3 class="vser collections-card-title" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Sharanya</h3>
-        <p class="vsan collections-card-desc" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Radiant gold and polki masterpieces designed to shine with inner fire.</p>
-      </a>
-
-      <a href="collection.html" class="vcard" style="display:block; text-align:center;">
-        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
-          <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,#E7Cfa0,#B99874); clip-path:url(#veda-archtop);"></div>
-          <div style="position:absolute; inset:6px; clip-path:url(#veda-archtop); border-radius:50% 50% 0 0/40% 40% 0 0; overflow:hidden;"><img class="vcard-img" src="assets/images/bridal-set.png" alt="Shagun" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-        </div>
-        <span class="vser" style="display:block; font-size:34px; color:rgba(185,152,116,0.32); line-height:1; margin-bottom:6px;">ऋत</span>
-        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">— Ṛta —</span>
-        <h3 class="vser collections-card-title" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Shagun</h3>
-        <p class="vsan collections-card-desc" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Symmetrical bridal sets and custom heritage chokers.</p>
-      </a>
-
-      <a href="collection.html" class="vcard" style="display:block; text-align:center;">
-        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
-          <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,#E7Cfa0,#B99874); clip-path:url(#veda-archtop);"></div>
-          <div style="position:absolute; inset:6px; clip-path:url(#veda-archtop); border-radius:50% 50% 0 0/40% 40% 0 0; overflow:hidden;"><img class="vcard-img" src="assets/images/gold-bangles.png" alt="Kanak" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-        </div>
-        <span class="vser" style="display:block; font-size:34px; color:rgba(185,152,116,0.32); line-height:1; margin-bottom:6px;">शुद्धि</span>
-        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">— Shuddhi —</span>
-        <h3 class="vser collections-card-title" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Kanak</h3>
-        <p class="vsan collections-card-desc" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Pure 22K gold cuffs featuring delicate hand-granulation.</p>
-      </a>
-
-      <a href="collection.html" class="vcard" style="display:block; text-align:center;">
-        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
-          <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,#E7Cfa0,#B99874); clip-path:url(#veda-archtop);"></div>
-          <div style="position:absolute; inset:6px; clip-path:url(#veda-archtop); border-radius:50% 50% 0 0/40% 40% 0 0; overflow:hidden;"><img class="vcard-img" src="assets/images/diamond-ring.png" alt="Chhavi" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-        </div>
-        <span class="vser" style="display:block; font-size:34px; color:rgba(185,152,116,0.32); line-height:1; margin-bottom:6px;">सत्य</span>
-        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">— Satya —</span>
-        <h3 class="vser collections-card-title" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Chhavi</h3>
-        <p class="vsan collections-card-desc" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Ethically sourced diamonds set in platinum and 18K gold.</p>
-      </a>
-
-      <a href="collection.html" class="vcard" style="display:block; text-align:center;">
-        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
-          <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,#E7Cfa0,#B99874); clip-path:url(#veda-archtop);"></div>
-          <div style="position:absolute; inset:6px; clip-path:url(#veda-archtop); border-radius:50% 50% 0 0/40% 40% 0 0; overflow:hidden;"><img class="vcard-img" src="assets/images/gold-earrings.png" alt="Saanjh" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-        </div>
-        <span class="vser" style="display:block; font-size:34px; color:rgba(185,152,116,0.32); line-height:1; margin-bottom:6px;">ऐश्वर्य</span>
-        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">— Aishwarya —</span>
-        <h3 class="vser collections-card-title" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Saanjh</h3>
-        <p class="vsan collections-card-desc" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Grand statement earrings and heritage-inspired lightweight studs.</p>
-      </a>
-
-      <a href="collection.html" class="vcard" style="display:block; text-align:center;">
-        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
-          <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,#E7Cfa0,#B99874); clip-path:url(#veda-archtop);"></div>
-          <div style="position:absolute; inset:6px; clip-path:url(#veda-archtop); border-radius:50% 50% 0 0/40% 40% 0 0; overflow:hidden;"><img class="vcard-img" src="assets/images/editorial-model.png" alt="Sitara" style="width:100%;height:100%;object-fit:cover;object-position:55% 25%;display:block;"></div>
-        </div>
-        <span class="vser" style="display:block; font-size:34px; color:rgba(185,152,116,0.32); line-height:1; margin-bottom:6px;">ओजस्</span>
-        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">— Ojas —</span>
-        <h3 class="vser collections-card-title" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Sitara</h3>
-        <p class="vsan collections-card-desc" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Bold, vitalizing statement designs capturing cosmic brilliance.</p>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SHOP BY OCCASION ═══ -->
-<section style="padding:clamp(40px,5vw,72px) 0 clamp(72px,8vw,120px); background:#FFF8E6;">
-  <div style="max-width:1400px; margin:0 auto; padding:0 clamp(1.5rem,4vw,4rem);">
-    <div data-reveal style="text-align:center; max-width:640px; margin:0 auto clamp(48px,5vw,64px);">
-      <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; color:#B99874;">— Shop By Occasion —</span>
+    <div data-reveal style="text-align:center; max-width:640px; margin:0 auto clamp(28px,5vw,64px);">
+      <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; color:#B99874;">&#8212; Shop By Occasion &#8212;</span>
       <h2 class="vser" style="margin:16px 0 18px; font-size:clamp(2.4rem,4.5vw,3.6rem); font-weight:300; color:#482D22;">Jewellery for Every Moment</h2>
       <div style="width:64px; height:1px; background:#D9C8AD; margin:0 auto;"></div>
     </div>
-    <div class="occasions-grid" data-reveal style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(24px,2.5vw,40px);">
+    <div data-reveal class="v-grid-occ" style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(24px,2.5vw,40px);">
 
-      <a href="category.html" class="vcard" style="display:block; background:#fff; border:1px solid #EDE0CC; padding:14px 14px 30px;">
-        <div class="occasions-card-img" style="position:relative; aspect-ratio:4/5; overflow:hidden; margin-bottom:24px;"><img class="vcard-img" src="assets/images/gold-earrings.png" alt="Everyday" style="width:100%; height:100%; object-fit:cover;"></div>
-        <div style="padding:0 14px;">
-          <span class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">— Everyday</span>
-          <h3 class="vser" style="font-size:1.7rem; font-weight:400; color:#482D22; margin:10px 0 8px; line-height:1.2;">For the woman who never takes it off.</h3>
-          <p class="vsan" style="font-size:0.9rem; color:#6B5545; line-height:1.6; margin:0 0 18px;">Silver and gold pieces that move with you, every day.</p>
-          <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #EDE0CC; padding-top:16px;">
-            <span class="vser" style="font-style:italic; font-size:1.15rem; color:#8B3F2C;">₹30K — ₹60K</span>
-            <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#482D22;">Shop &rarr;</span>
+      <a href="#" class="vcard v-occ" style="display:block; background:#fff; border:1px solid #EDE0CC; padding:14px 14px 22px;">
+        <div class="v-occ-img" style="position:relative; aspect-ratio:4/5; overflow:hidden; margin-bottom:20px;"><img class="vcard-img" src="assets/images/gold-earrings.png" alt="Everyday" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="v-occ-body" style="padding:0 10px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <div>
+            <span class="vsan v-occ-eyebrow" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#B99874; margin-bottom:6px;">Everyday</span>
+            <span class="vser" style="font-style:italic; font-size:1.15rem; color:#8B3F2C;">&#8377;30K &mdash; &#8377;60K</span>
           </div>
+          <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#482D22; white-space:nowrap;">Shop &rarr;</span>
         </div>
       </a>
 
-      <a href="category.html" class="vcard" style="display:block; background:#fff; border:1px solid #EDE0CC; padding:14px 14px 30px;">
-        <div class="occasions-card-img" style="position:relative; aspect-ratio:4/5; overflow:hidden; margin-bottom:24px;"><img class="vcard-img" src="assets/images/bridal-set.png" alt="Occasion" style="width:100%; height:100%; object-fit:cover;"></div>
-        <div style="padding:0 14px;">
-          <span class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">— Occasion</span>
-          <h3 class="vser" style="font-size:1.7rem; font-weight:400; color:#482D22; margin:10px 0 8px; line-height:1.2;">For the moments that matter most.</h3>
-          <p class="vsan" style="font-size:0.9rem; color:#6B5545; line-height:1.6; margin:0 0 18px;">Birthdays, anniversaries, festivals — pieces that mark the milestones.</p>
-          <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #EDE0CC; padding-top:16px;">
-            <span class="vser" style="font-style:italic; font-size:1.15rem; color:#8B3F2C;">₹60K — ₹3L</span>
-            <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#482D22;">Shop &rarr;</span>
+      <a href="#" class="vcard v-occ" style="display:block; background:#fff; border:1px solid #EDE0CC; padding:14px 14px 22px;">
+        <div class="v-occ-img" style="position:relative; aspect-ratio:4/5; overflow:hidden; margin-bottom:20px;"><img class="vcard-img" src="assets/images/bridal-set.png" alt="Occasion" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="v-occ-body" style="padding:0 10px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <div>
+            <span class="vsan v-occ-eyebrow" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#B99874; margin-bottom:6px;">Occasion</span>
+            <span class="vser" style="font-style:italic; font-size:1.15rem; color:#8B3F2C;">&#8377;60K &mdash; &#8377;3L</span>
           </div>
+          <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#482D22; white-space:nowrap;">Shop &rarr;</span>
         </div>
       </a>
 
-      <a href="category.html" class="vcard" style="display:block; background:#482D22; padding:14px 14px 30px;">
-        <div class="occasions-card-img" style="position:relative; aspect-ratio:4/5; overflow:hidden; margin-bottom:24px;"><img class="vcard-img" src="assets/images/gold-bangles.png" alt="Bridal" style="width:100%; height:100%; object-fit:cover;"></div>
-        <div style="padding:0 14px;">
-          <span class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F;">— Bridal</span>
-          <h3 class="vser" style="font-size:1.7rem; font-weight:400; color:#FBF3E2; margin:10px 0 8px; line-height:1.2;">For the day you have always imagined.</h3>
-          <p class="vsan" style="font-size:0.9rem; color:rgba(251,243,226,0.65); line-height:1.6; margin:0 0 18px;">Handcrafted bridal sets, made to be remembered for generations.</p>
-          <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(207,178,143,0.25); padding-top:16px;">
-            <span class="vser" style="font-style:italic; font-size:1.15rem; color:#E7Cfa0;">₹3L — ₹20L</span>
-            <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#FBF3E2;">Explore &rarr;</span>
+      <a href="#" class="vcard v-occ v-occ-last" style="display:block; background:#fff; border:1px solid #EDE0CC; padding:14px 14px 22px;">
+        <div class="v-occ-img" style="position:relative; aspect-ratio:4/5; overflow:hidden; margin-bottom:20px;"><img class="vcard-img" src="assets/images/gold-bangles.png" alt="Bridal" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="v-occ-body" style="padding:0 10px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <div>
+            <span class="vsan v-occ-eyebrow" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#B99874; margin-bottom:6px;">Bridal</span>
+            <span class="vser" style="font-style:italic; font-size:1.15rem; color:#8B3F2C;">&#8377;3L &mdash; &#8377;20L</span>
           </div>
+          <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#482D22; white-space:nowrap;">Explore &rarr;</span>
         </div>
       </a>
 
@@ -372,96 +205,153 @@
   </div>
 </section>
 
-<!-- ═══ MAKE TO ORDER ═══ -->
+<!-- SIGNATURE COLLECTIONS -->
+<section id="collections" style="padding:clamp(34px,7vw,120px) 0 clamp(34px,7vw,120px); background:#FFF8E6;">
+  <div style="max-width:1400px; margin:0 auto; padding:0 clamp(1.5rem,4vw,4rem);">
+    <div data-reveal style="text-align:center; max-width:640px; margin:0 auto clamp(28px,5vw,72px);">
+      <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; color:#B99874;">&#8212; Curated Worlds &#8212;</span>
+      <h2 class="vser" style="margin:16px 0 18px; font-size:clamp(2.4rem,4.5vw,3.6rem); font-weight:300; color:#482D22;">Our Signature Collections</h2>
+      <div style="display:flex; justify-content:center;"><img src="assets/icons/peacock-maroon.svg" alt="" style="height:52px; width:auto; opacity:0.9;"></div>
+    </div>
+
+    <div data-reveal class="v-grid-3 v-grid-collections" style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(28px,3vw,52px);">
+
+      <a href="#" class="vcard" style="display:block; text-align:center;">
+        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
+          <div style="position:absolute; inset:0; overflow:hidden;"><img class="vcard-img" src="assets/images/hero-necklace.png" alt="Sharanya" style="width:100%; height:100%; object-fit:cover;"></div>
+        </div>
+        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">&#8212; Tejas &#8212;</span>
+        <h3 class="vser" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Sharanya</h3>
+        <p class="vsan" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Radiant gold and polki masterpieces designed to shine with inner fire.</p>
+      </a>
+
+      <a href="#" class="vcard" style="display:block; text-align:center;">
+        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
+          <div style="position:absolute; inset:0; overflow:hidden;"><img class="vcard-img" src="assets/images/bridal-set.png" alt="Shagun" style="width:100%; height:100%; object-fit:cover;"></div>
+        </div>
+        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">&#8212; &#7771;ta &#8212;</span>
+        <h3 class="vser" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Shagun</h3>
+        <p class="vsan" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Symmetrical bridal sets and custom heritage chokers.</p>
+      </a>
+
+      <a href="#" class="vcard" style="display:block; text-align:center;">
+        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
+          <div style="position:absolute; inset:0; overflow:hidden;"><img class="vcard-img" src="assets/images/gold-bangles.png" alt="Kanak" style="width:100%; height:100%; object-fit:cover;"></div>
+        </div>
+        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">&#8212; Shuddhi &#8212;</span>
+        <h3 class="vser" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Kanak</h3>
+        <p class="vsan" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Pure 22K gold cuffs featuring delicate hand-granulation.</p>
+      </a>
+
+      <a href="#" class="vcard" style="display:block; text-align:center;">
+        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
+          <div style="position:absolute; inset:0; overflow:hidden;"><img class="vcard-img" src="assets/images/diamond-ring.png" alt="Chhavi" style="width:100%; height:100%; object-fit:cover;"></div>
+        </div>
+        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">&#8212; Satya &#8212;</span>
+        <h3 class="vser" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Chhavi</h3>
+        <p class="vsan" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Ethically sourced diamonds set in platinum and 18K gold.</p>
+      </a>
+
+      <a href="#" class="vcard" style="display:block; text-align:center;">
+        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
+          <div style="position:absolute; inset:0; overflow:hidden;"><img class="vcard-img" src="assets/images/gold-earrings.png" alt="Saanjh" style="width:100%; height:100%; object-fit:cover;"></div>
+        </div>
+        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">&#8212; Aishwarya &#8212;</span>
+        <h3 class="vser" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Saanjh</h3>
+        <p class="vsan" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Grand statement earrings and heritage-inspired lightweight studs.</p>
+      </a>
+
+      <a href="#" class="vcard" style="display:block; text-align:center;">
+        <div style="position:relative; aspect-ratio:4/5; margin-bottom:22px;">
+          <div style="position:absolute; inset:0; overflow:hidden;"><img class="vcard-img" src="assets/images/editorial-model.png" alt="Sitara" style="width:100%; height:100%; object-fit:cover; object-position:55% 25%;"></div>
+        </div>
+        <span class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#B99874; margin-bottom:8px;">&#8212; Ojas &#8212;</span>
+        <h3 class="vser" style="font-size:1.85rem; font-weight:400; color:#482D22; margin:0 0 10px;">Sitara</h3>
+        <p class="vsan" style="font-size:0.92rem; line-height:1.6; color:#6B5545; max-width:280px; margin:0 auto;">Bold, vitalizing statement designs capturing cosmic brilliance.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAKE TO ORDER -->
 <section id="make-to-order" style="background:#482D22; position:relative; overflow:hidden;">
-  <!-- mobile banner image -->
-  <div class="mto-mobile-banner" style="display:none; width:100%; height:52vw; max-height:300px; overflow:hidden; position:relative;">
-    <img src="assets/images/artisan-crafting.png" alt="Master goldsmith at work" style="width:100%; height:100%; object-fit:cover; object-position:50% 30%; display:block;">
-    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(72,45,34,0.6) 0%, transparent 50%);"></div>
-  </div>
-  <div class="vser" style="position:absolute; right:-2%; top:8%; font-size:240px; line-height:1; color:rgba(207,178,143,0.04); user-select:none; pointer-events:none;" aria-hidden="true">रचना</div>
+  <div class="vser v-mto-watermark" style="position:absolute; right:-2%; top:8%; font-size:240px; line-height:1; color:rgba(207,178,143,0.04); user-select:none; pointer-events:none;">&#2352;&#2330;&#2344;&#2366;</div>
   <div style="max-width:1400px; margin:0 auto; padding:0 clamp(1.5rem,4vw,4rem); position:relative;">
-    <div class="mto-grid" style="display:grid; grid-template-columns:0.85fr 1.15fr; gap:clamp(2.5rem,6vw,6rem); align-items:center; padding:clamp(64px,8vw,110px) 0;">
-      <div class="mto-image-wrap" data-reveal style="position:relative; aspect-ratio:3/4;">
-        <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,rgba(207,178,143,0.7),rgba(185,152,116,0.5)); clip-path:url(#veda-ogee);"></div>
-        <div style="position:absolute; inset:8px; clip-path:url(#veda-ogee); overflow:hidden;"><img src="assets/images/artisan-crafting.png" alt="VEDA master goldsmith" style="width:100%; height:100%; object-fit:cover;"></div>
-        <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); width:8px; height:8px; border-radius:50%; background:#CFB28F; box-shadow:0 0 0 5px rgba(207,178,143,0.14);"></div>
+    <div class="v-grid-split" style="display:grid; grid-template-columns:0.85fr 1.15fr; gap:clamp(2.5rem,6vw,6rem); align-items:center; padding:clamp(34px,7vw,110px) 0;">
+      <div data-reveal style="position:relative; aspect-ratio:3/4; overflow:hidden;">
+        <img src="assets/images/artisan-crafting.png" alt="VEDA master goldsmith at work" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:14px; border:1px solid rgba(207,178,143,0.55); pointer-events:none;"></div>
       </div>
       <div data-reveal>
-        <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#CFB28F;">— Bespoke Atelier —</span>
+        <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#CFB28F;">&#8212; Bespoke Atelier &#8212;</span>
         <h2 class="vser" style="margin:22px 0; font-style:italic; font-weight:300; font-size:clamp(2.6rem,5vw,4.4rem); line-height:1.05; color:#FBF3E2;">Commission<br>Your Heirloom</h2>
-        <p class="vsan" style="color:rgba(251,243,226,0.6); font-size:1.05rem; line-height:1.7; max-width:440px; margin:0 0 clamp(2rem,4vw,3rem);">From concept sketch to handcrafted masterpiece — your vision, our craft.</p>
-        <div class="mto-steps" style="display:flex; align-items:center; gap:8px; margin-bottom:clamp(2rem,4vw,3rem); flex-wrap:wrap;">
-          <div class="mto-step" style="text-align:center;"><div class="vser" style="font-size:1.6rem; color:#E7Cfa0;">01</div><div class="vsan" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(251,243,226,0.7); margin-top:4px;">Sketch</div></div>
-          <span style="color:rgba(207,178,143,0.4); margin:0 14px;">→</span>
-          <div class="mto-step" style="text-align:center;"><div class="vser" style="font-size:1.6rem; color:#E7Cfa0;">02</div><div class="vsan" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(251,243,226,0.7); margin-top:4px;">CAD</div></div>
-          <span style="color:rgba(207,178,143,0.4); margin:0 14px;">→</span>
-          <div class="mto-step" style="text-align:center;"><div class="vser" style="font-size:1.6rem; color:#E7Cfa0;">03</div><div class="vsan" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(251,243,226,0.7); margin-top:4px;">Craft</div></div>
-          <span style="color:rgba(207,178,143,0.4); margin:0 14px;">→</span>
-          <div class="mto-step" style="text-align:center;"><div class="vser" style="font-size:1.6rem; color:#E7Cfa0;">04</div><div class="vsan" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(251,243,226,0.7); margin-top:4px;">Yours</div></div>
+        <p class="vsan" style="color:rgba(251,243,226,0.6); font-size:1.05rem; line-height:1.7; max-width:440px; margin:0 0 clamp(2rem,4vw,3rem);">From concept sketch to handcrafted masterpiece &mdash; your vision, our craft.</p>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:clamp(2rem,4vw,3rem); flex-wrap:wrap;">
+          <div style="text-align:center;"><div class="vser" style="font-size:1.6rem; color:#E7Cfa0;">01</div><div class="vsan" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(251,243,226,0.7); margin-top:4px;">Sketch</div></div>
+          <span style="color:rgba(207,178,143,0.4); margin:0 14px;">&rarr;</span>
+          <div style="text-align:center;"><div class="vser" style="font-size:1.6rem; color:#E7Cfa0;">02</div><div class="vsan" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(251,243,226,0.7); margin-top:4px;">CAD</div></div>
+          <span style="color:rgba(207,178,143,0.4); margin:0 14px;">&rarr;</span>
+          <div style="text-align:center;"><div class="vser" style="font-size:1.6rem; color:#E7Cfa0;">03</div><div class="vsan" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(251,243,226,0.7); margin-top:4px;">Craft</div></div>
+          <span style="color:rgba(207,178,143,0.4); margin:0 14px;">&rarr;</span>
+          <div style="text-align:center;"><div class="vser" style="font-size:1.6rem; color:#E7Cfa0;">04</div><div class="vsan" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(251,243,226,0.7); margin-top:4px;">Yours</div></div>
         </div>
-        <div class="mto-cta" style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
           <a href="make-to-order.html" class="vbtn-line vsan" style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FBF3E2; border:1px solid rgba(207,178,143,0.4); padding:16px 32px;">Explore Atelier</a>
-          <a href="https://wa.me/919187204025" class="vwhisper vser" style="font-style:italic; font-size:1.15rem; color:#E7Cfa0;">Begin Your Commission →</a>
+          <a href="https://wa.me/919187204025?text=Hi%2C%20I%27d%20like%20to%20commission%20a%20piece" class="vwhisper vser" style="font-style:italic; font-size:1.15rem; color:#E7Cfa0;">Begin Your Commission &rarr;</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ OLD GOLD EXCHANGE ═══ -->
+<!-- OLD GOLD EXCHANGE -->
 <section id="old-gold" style="background:#F3E4C4; position:relative; overflow:hidden;">
-  <!-- mobile banner image -->
-  <div class="oge-mobile-banner" style="display:none; width:100%; height:52vw; max-height:280px; overflow:hidden;">
-    <img src="assets/images/gold-bangles.png" alt="Gold jewellery" style="width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block;">
-  </div>
-  <div class="vser" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:clamp(180px,26vw,400px); line-height:1; color:rgba(139,63,44,0.045); user-select:none; pointer-events:none; white-space:nowrap;" aria-hidden="true">परम्परा</div>
-  <div style="max-width:1400px; margin:0 auto; padding:clamp(64px,8vw,110px) clamp(1.5rem,4vw,4rem); position:relative;">
-    <div class="oge-grid" style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(2.5rem,6vw,6rem); align-items:center;">
+  <div class="vser" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:clamp(180px,26vw,400px); line-height:1; color:rgba(139,63,44,0.045); user-select:none; pointer-events:none; white-space:nowrap;">&#2346;&#2352;&#2350;&#039;&#2346;&#2352;&#2366;</div>
+  <div style="max-width:1400px; margin:0 auto; padding:clamp(34px,7vw,110px) clamp(1.5rem,4vw,4rem); position:relative;">
+    <div class="v-grid-split" style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(2.5rem,6vw,6rem); align-items:center;">
 
-      <div data-reveal style="background:#FFF8E6; border:1px solid #E2D2B2; padding:clamp(28px,3.5vw,44px); box-shadow:0 24px 60px rgba(72,45,34,0.1);">
+      <div data-reveal class="v-og-calc" style="background:#FFF8E6; border:1px solid #E2D2B2; padding:clamp(28px,3.5vw,44px); box-shadow:0 20px 50px rgba(72,45,34,0.08);">
         <h3 class="vser" style="font-size:1.7rem; font-weight:400; color:#482D22; margin:0 0 28px;">Exchange Programme</h3>
-        <div style="margin-bottom:22px;">
-          <label class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#896E50; margin-bottom:10px;">Weight of Gold</label>
-          <div style="display:flex; align-items:center; border:1px solid #D9C8AD; background:#fff;">
-            <input type="number" id="gold-weight" value="10" min="0" class="vser" style="flex:1; border:none; outline:none; background:transparent; padding:15px 18px; font-size:1.5rem; color:#482D22;">
-            <span class="vsan" style="padding:0 18px; font-size:13px; letter-spacing:0.1em; color:#896E50;">grams</span>
-          </div>
-        </div>
         <div style="margin-bottom:24px;">
-          <label class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#896E50; margin-bottom:10px;">Purity (in Karat)</label>
-          <div style="position:relative; border:1px solid #D9C8AD; background:#fff;">
-            <select id="metal-type" class="vsan" style="width:100%; border:none; outline:none; background:transparent; padding:15px 18px; font-size:1rem; color:#482D22; appearance:none; -webkit-appearance:none; cursor:pointer;">
-              <option value="24k">24k (99.9% Pure)</option>
-              <option value="22k" selected>22k (91.6% Pure)</option>
-              <option value="18k">18k (75.0% Pure)</option>
-              <option value="14k">14k (58.5% Pure)</option>
-            </select>
-            <span style="position:absolute; right:18px; top:50%; transform:translateY(-50%); pointer-events:none; color:#896E50; font-size:11px;">▼</span>
+          <label class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#896E50; margin-bottom:6px;">Weight of Gold</label>
+          <div style="display:flex; align-items:baseline; border-bottom:1px solid #D9C8AD;">
+            <input type="number" id="calc-weight" value="10" oninput="calcUpdate()" class="vser" style="flex:1; border:none; outline:none; background:transparent; padding:8px 2px; font-size:1.6rem; color:#482D22;">
+            <span class="vsan" style="font-size:13px; letter-spacing:0.1em; color:#896E50;">grams</span>
           </div>
         </div>
-        <p class="vsan" style="font-size:0.85rem; color:#6B5545; margin:0 0 18px;">Current <span id="calc-rate-label" style="color:#8B3F2C;">22k</span> rate &nbsp;<strong id="calc-rate-value" style="color:#482D22;">₹6,600/gram</strong></p>
-        <div style="background:#482D22; padding:26px; text-align:center;">
-          <div id="calc-value" class="vser" style="font-size:2.6rem; font-weight:300; color:#E7Cfa0; line-height:1;">₹ 66,000</div>
-          <div class="vsan" style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(251,243,226,0.55); margin-top:10px;">estimated value</div>
+        <div style="margin-bottom:26px;">
+          <label class="vsan" style="display:block; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#896E50; margin-bottom:6px;">Purity (in Karat)</label>
+          <div style="position:relative; border-bottom:1px solid #D9C8AD;">
+            <select id="calc-karat" onchange="calcUpdate()" class="vser" style="width:100%; border:none; outline:none; background:transparent; padding:8px 2px; font-size:1.25rem; color:#482D22; appearance:none; -webkit-appearance:none; cursor:pointer;">
+              <option value="24k">24k &middot; 99.9% Pure</option>
+              <option value="22k" selected>22k &middot; 91.6% Pure</option>
+              <option value="18k">18k &middot; 75.0% Pure</option>
+              <option value="14k">14k &middot; 58.5% Pure</option>
+            </select>
+            <span style="position:absolute; right:2px; top:50%; transform:translateY(-50%); pointer-events:none; color:#896E50; font-size:10px;">&#9660;</span>
+          </div>
+          <p class="vsan" style="font-size:0.82rem; color:#896E50; margin:10px 0 0;">Current <span id="calc-rate-label">22k</span> rate &middot; <span id="calc-rate" style="color:#482D22;">&#8377;6,600/gram</span></p>
         </div>
-        <p class="vsan" style="font-size:0.74rem; color:#896E50; margin:16px 0 0; font-style:italic;">*Indicative value only. Company prevailing gold rates apply.</p>
+        <div style="border-top:1px solid #E2D2B2; padding-top:24px; text-align:center;">
+          <div class="vsan" style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#896E50; margin-bottom:8px;">estimated value</div>
+          <div id="calc-value" class="vser" style="font-size:3rem; font-weight:300; color:#8B3F2C; line-height:1;">&#8377; 66,000</div>
+          <p class="vsan" style="font-size:0.74rem; color:#896E50; margin:14px 0 0; font-style:italic;">*Indicative only. Prevailing gold rates apply.</p>
+        </div>
       </div>
 
-      <div data-reveal>
-        <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#8B3F2C;">— Old Gold Exchange —</span>
+      <div data-reveal class="v-og-copy">
+        <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#8B3F2C;">&#8212; Old Gold Exchange &#8212;</span>
         <h2 class="vser" style="margin:22px 0; font-size:clamp(2.6rem,5vw,4.2rem); font-weight:300; line-height:1.05; color:#482D22;">Give Heritage<br>a New Life</h2>
-        <p class="vsan" style="font-size:1.1rem; line-height:1.7; color:rgba(72,45,34,0.72); max-width:440px; margin:0 0 clamp(2rem,4vw,3rem);">Your old gold, reborn as something new. Transparent valuation. Certified pricing.</p>
-        <div class="oge-benefits" style="display:flex; gap:clamp(1.5rem,3vw,2.5rem); flex-wrap:wrap; margin-bottom:clamp(2rem,4vw,3rem); align-items:flex-start;">
-          <div><div class="vser" style="font-size:1.5rem; color:#8B3F2C;">01</div><div class="vsan" style="font-size:0.86rem; line-height:1.4; color:#6B5545; margin-top:6px;">Transparent<br>Pricing</div></div>
-          <div class="oge-benefits-divider" style="width:1px; background:#D9C8AD; align-self:stretch;"></div>
-          <div><div class="vser" style="font-size:1.5rem; color:#8B3F2C;">02</div><div class="vsan" style="font-size:0.86rem; line-height:1.4; color:#6B5545; margin-top:6px;">BIS Hallmark<br>Certified</div></div>
-          <div class="oge-benefits-divider" style="width:1px; background:#D9C8AD; align-self:stretch;"></div>
-          <div><div class="vser" style="font-size:1.5rem; color:#8B3F2C;">03</div><div class="vsan" style="font-size:0.86rem; line-height:1.4; color:#6B5545; margin-top:6px;">No Hidden<br>Deductions</div></div>
+        <p class="vsan" style="font-size:1.1rem; line-height:1.7; color:#6B5545; max-width:440px; margin:0 0 clamp(1.6rem,3vw,2.2rem);">Your old gold, reborn as something new. Transparent valuation. Certified pricing.</p>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:clamp(2rem,4vw,2.8rem);">
+          <div class="vsan" style="display:flex; align-items:center; gap:12px; font-size:0.98rem; color:#6B5545;"><span style="color:#B99874;">&#10022;</span> Transparent, itemised pricing</div>
+          <div class="vsan" style="display:flex; align-items:center; gap:12px; font-size:0.98rem; color:#6B5545;"><span style="color:#B99874;">&#10022;</span> BIS hallmark certified valuation</div>
+          <div class="vsan" style="display:flex; align-items:center; gap:12px; font-size:0.98rem; color:#6B5545;"><span style="color:#B99874;">&#10022;</span> No hidden deductions</div>
         </div>
         <div style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
           <a href="old-gold-exchange.html" class="vbtn-fill vsan" style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FFF8E6; background:#8B3F2C; padding:16px 32px;">Learn More</a>
-          <a href="https://wa.me/919187204025" class="vwhisper vser" style="font-style:italic; font-size:1.15rem; color:#8B3F2C;">Book Valuation →</a>
+          <a href="https://wa.me/919187204025?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Old%20Gold%20Exchange" class="vwhisper vser" style="font-style:italic; font-size:1.15rem; color:#8B3F2C;">Book Valuation &rarr;</a>
         </div>
       </div>
 
@@ -469,146 +359,142 @@
   </div>
 </section>
 
-<!-- ═══ VSVP ═══ -->
+<!-- VSVP -->
 <section id="vsvp" style="background:#FFF8E6; position:relative; overflow:hidden;">
-  <div class="vser" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:clamp(160px,24vw,360px); line-height:1; color:rgba(185,152,116,0.05); user-select:none; pointer-events:none; white-space:nowrap;" aria-hidden="true">समृद्धि</div>
-  <div style="max-width:1100px; margin:0 auto; padding:clamp(64px,8vw,110px) clamp(1.5rem,4vw,4rem); position:relative;">
-    <div class="vsvp-grid" data-reveal style="display:grid; grid-template-columns:1.4fr 1fr; gap:clamp(2rem,5vw,5rem); align-items:center;">
-      <div>
-        <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#896E50;">— VSVP —</span>
-        <h2 class="vser" style="margin:20px 0; font-style:italic; font-weight:300; font-size:clamp(2.2rem,4vw,3.4rem); line-height:1.2; color:#8B3F2C;">Veda Swarna Vriddhi Plan.</h2>
-        <p class="vser" style="font-style:italic; font-size:clamp(1.25rem,2vw,1.5rem); color:#B99874; margin:0 0 clamp(1.8rem,3vw,2.4rem); font-weight:300;">Save with us for ten months. The eleventh, on us.</p>
-        <div style="display:flex; align-items:center; gap:clamp(1.5rem,3vw,2.4rem);">
-          <div class="vser vsvp-num" style="font-size:clamp(3.4rem,7vw,5rem); color:#8B3F2C; font-weight:300; line-height:1; letter-spacing:-0.02em;">10 <span style="color:#B99874;">+</span> <span style="color:#B99874;">1</span></div>
-          <div style="border-left:1px solid #D9C8AD; padding-left:clamp(1.5rem,3vw,2.4rem);">
-            <div class="vser" style="font-style:italic; font-size:1.15rem; color:#8B3F2C; line-height:1.2;">Months you save</div>
-            <div class="vsan" style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#B99874; margin-top:6px;">+ One on us</div>
-          </div>
+  <div class="vser" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:clamp(160px,24vw,360px); line-height:1; color:rgba(185,152,116,0.05); user-select:none; pointer-events:none; white-space:nowrap;">&#2360;&#2350;&#7943;&#2342;&#2381;&#2343;&#2367;</div>
+  <div style="max-width:720px; margin:0 auto; padding:clamp(44px,7vw,110px) clamp(1.5rem,4vw,4rem); position:relative; text-align:center;">
+    <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; color:#896E50;">&#8212; VSVP &#8212;</span>
+    <h2 class="vser" style="margin:16px 0 0; font-style:italic; font-weight:300; font-size:clamp(2.2rem,4vw,3.2rem); line-height:1.15; color:#8B3F2C;">Veda Swarna Vriddhi Plan</h2>
+    <div data-reveal style="display:flex; justify-content:center; margin:clamp(1.8rem,4vw,2.6rem) 0 clamp(1.4rem,3vw,1.8rem);">
+      <div style="position:relative; width:clamp(200px,52vw,248px); height:clamp(200px,52vw,248px);">
+        <svg viewBox="0 0 200 200" width="100%" height="100%" style="display:block;">
+          <g transform="rotate(-90 100 100)" fill="none" stroke-width="15">
+            <circle cx="100" cy="100" r="80" stroke="#CFB28F" stroke-dasharray="38.7 7"></circle>
+            <circle cx="100" cy="100" r="80" stroke="#8B3F2C" stroke-dasharray="38.7 463.96"></circle>
+          </g>
+        </svg>
+        <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <div class="vser" style="font-size:clamp(2.6rem,7vw,3.4rem); font-weight:300; line-height:1; color:#482D22; letter-spacing:-0.01em;">10<span style="color:#B99874;">+</span>1</div>
+          <div class="vsan" style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#896E50; margin-top:6px;">Months</div>
         </div>
       </div>
-      <div class="vsvp-cta" style="text-align:right;">
-        <a href="vsvp.html" class="vbtn-fill vsan" style="display:inline-block; font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FFF8E6; background:#8B3F2C; padding:18px 38px;">Start Your Plan &rarr;</a>
-      </div>
     </div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap; margin:0 0 clamp(2rem,4vw,2.6rem);">
+      <span class="vsan" style="display:inline-flex; align-items:center; gap:9px; font-size:0.92rem; color:#6B5545;"><span style="width:11px; height:11px; border-radius:50%; background:#CFB28F; display:inline-block;"></span>10 months you save</span>
+      <span class="vsan" style="display:inline-flex; align-items:center; gap:9px; font-size:0.92rem; color:#6B5545;"><span style="width:11px; height:11px; border-radius:50%; background:#8B3F2C; display:inline-block;"></span>The 11th, on us</span>
+    </div>
+    <a href="vsvp.html" class="vbtn-fill vsan" style="display:inline-block; font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FFF8E6; background:#8B3F2C; padding:17px 40px;">Know More &rarr;</a>
   </div>
 </section>
 
-<!-- ═══ FOUNDER STORY ═══ -->
+<!-- FOUNDER STORY -->
 <section id="founder" style="background:#FFF8E6;">
-  <div class="founder-grid" style="display:grid; grid-template-columns:1fr 1fr;">
-    <div data-reveal style="padding:clamp(56px,8vw,110px) clamp(1.5rem,5vw,5rem); display:flex; flex-direction:column; justify-content:center;">
-      <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; color:#B99874;">— Our Story —</span>
+  <div class="v-grid-split" style="display:grid; grid-template-columns:1fr 1fr;">
+    <div data-reveal style="padding:clamp(34px,7vw,110px) clamp(1.5rem,5vw,5rem); display:flex; flex-direction:column; justify-content:center;">
+      <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; color:#B99874;">&#8212; Our Story &#8212;</span>
       <h2 class="vser" style="margin:24px 0 28px; font-size:clamp(2.2rem,4vw,3.4rem); font-weight:300; line-height:1.15; color:#482D22;">I wanted to build the jeweller I always wished existed.</h2>
-      <p class="vsan" style="font-size:1.05rem; line-height:1.8; color:#6B5545; margin:0 0 28px;">VEDA was born from a simple belief — that every woman deserves jewellery as meaningful as the moment she wears it for.</p>
+      <p class="vsan" style="font-size:1.05rem; line-height:1.8; color:#6B5545; margin:0 0 28px;">VEDA was born from a simple belief &mdash; that every woman deserves jewellery as meaningful as the moment she wears it for.</p>
       <div style="border-left:2px solid #B99874; padding-left:24px; margin:0 0 32px;">
         <p class="vser" style="font-style:italic; font-size:clamp(1.4rem,2.5vw,1.9rem); font-weight:300; color:#8B3F2C; line-height:1.4; margin:0;">This is not jewellery for display. It is jewellery for living.</p>
       </div>
       <a href="about.html" class="vwhisper vsan" style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#482D22; border-bottom:1px solid #B99874; padding-bottom:5px; width:fit-content;">Read the Full Story &rarr;</a>
     </div>
-    <div class="founder-image" data-reveal style="position:relative; min-height:520px; background:#482D22; overflow:hidden;">
+    <div data-reveal class="v-founder-img" style="position:relative; min-height:520px; background:#482D22; overflow:hidden;">
       <img src="assets/images/founder-portrait.png" alt="VEDA Founder" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0;">
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(72,45,34,0.55), transparent 55%);"></div>
-      <div style="position:absolute; left:0; right:0; bottom:0; padding:clamp(24px,4vw,44px); text-align:center;">
-        <div style="border:1px solid rgba(207,178,143,0.4); padding:clamp(18px,3vw,28px); max-width:300px; margin:0 auto; background:rgba(72,45,34,0.3); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);">
-          <span class="vsan" style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#CFB28F; display:block; margin-bottom:10px;">— VEDA —</span>
-          <span class="vser" style="font-style:italic; color:#FBF3E2; font-size:1.05rem; line-height:1.5; display:block;">Crafting stories in gold, heritage, and timeless design.</span>
-        </div>
-      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(72,45,34,0.35), transparent 45%);"></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ VEDIC PHILOSOPHY ═══ -->
-<section style="background:#fff; padding:clamp(72px,8vw,120px) 0;">
+<!-- VEDIC PHILOSOPHY -->
+<section style="background:#fff; padding:clamp(34px,7vw,120px) 0;">
   <div style="max-width:1400px; margin:0 auto; padding:0 clamp(1.5rem,4vw,4rem);">
-    <div data-reveal style="text-align:center; max-width:640px; margin:0 auto clamp(48px,5vw,68px);">
-      <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; color:#B99874;">— The Vedic Path —</span>
+    <div data-reveal style="text-align:center; max-width:640px; margin:0 auto clamp(28px,5vw,68px);">
+      <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; color:#B99874;">&#8212; The Vedic Path &#8212;</span>
       <h2 class="vser" style="margin:16px 0 18px; font-size:clamp(2.2rem,4vw,3rem); font-weight:300; color:#482D22;">Our Guiding Philosophy</h2>
-      <div style="display:flex; justify-content:center;"><svg width="118" height="34" viewBox="0 0 120 36" fill="none"><path d="M12 34 L12 18 Q12 4 60 2 Q108 4 108 18 L108 34" stroke="rgba(185,152,116,0.55)" stroke-width="1"/><line x1="0" y1="34" x2="120" y2="34" stroke="rgba(185,152,116,0.25)" stroke-width="0.8"/></svg></div>
+      <div style="display:flex; justify-content:center;"><img src="assets/icons/peacock-maroon.svg" alt="" style="height:52px; width:auto; opacity:0.9;"></div>
     </div>
-    <div class="phil-grid" data-reveal style="display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(16px,2vw,28px);">
-      <div style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">शुद्धि</div><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar I</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">Shuddhi</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Pure</div></div>
-      <div style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">ऋत</div><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar II</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">Ṛta</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Timeless</div></div>
-      <div style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">तेजस्</div><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar III</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">Tejas</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Radiant</div></div>
-      <div style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">सत्य</div><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar IV</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">Satya</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Truth</div></div>
-      <div style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">ऐश्वर्य</div><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar V</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">Aishwarya</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Grandeur</div></div>
+    <div data-reveal class="v-grid-5" style="display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(16px,2vw,28px);">
+      <div style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">&#2358;&#2369;&#2342;&#2381;&#2343;&#2367;</div><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar I</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">Shuddhi</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Pure</div></div>
+      <div style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">&#7771;&#2340;</div><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar II</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">&#7771;ta</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Timeless</div></div>
+      <div style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">&#2340;&#2375;&#2332;&#2360;&#2381;</div><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar III</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">Tejas</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Radiant</div></div>
+      <div style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">&#2360;&#2340;&#2381;&#2351;</div><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar IV</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">Satya</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Truth</div></div>
+      <div class="v-pillar-wide" style="text-align:center; padding:clamp(24px,3vw,40px) 14px; border:1px solid #EDE0CC;"><div class="v-pillar-glyph vser" style="font-size:2.6rem; color:rgba(185,152,116,0.45); line-height:1; margin-bottom:18px;">&#2310;&#2312;&#2358;&#2381;&#2357;&#2352;&#2381;&#2351;</div><div class="v-pillar-text"><span class="vsan" style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#B99874;">Pillar V</span><h4 class="vser" style="font-size:1.5rem; font-weight:400; color:#482D22; margin:8px 0 6px;">Aishwarya</h4><div class="vsan" style="font-size:0.82rem; letter-spacing:0.05em; color:#896E50;">Grandeur</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CLIENT STORIES ═══ -->
-<section style="background:linear-gradient(165deg,#6E3222,#5A2A1E 60%,#482D22); position:relative; overflow:hidden; padding:clamp(72px,8vw,120px) 0;">
-  <div class="vser" style="position:absolute; left:50%; top:46%; transform:translate(-50%,-50%); font-size:clamp(160px,24vw,340px); line-height:1; color:rgba(207,178,143,0.04); user-select:none; pointer-events:none;" aria-hidden="true">कथा</div>
+<!-- CLIENT STORIES -->
+<section style="background:linear-gradient(165deg,#6E3222,#5A2A1E 60%,#482D22); position:relative; overflow:hidden; padding:clamp(34px,7vw,120px) 0;">
+  <div class="vser" style="position:absolute; left:50%; top:46%; transform:translate(-50%,-50%); font-size:clamp(160px,24vw,340px); line-height:1; color:rgba(207,178,143,0.04); user-select:none; pointer-events:none;">&#2325;&#2341;&#2366;</div>
   <div style="max-width:1400px; margin:0 auto; padding:0 clamp(1.5rem,4vw,4rem); position:relative;">
-    <div data-reveal style="text-align:center; max-width:840px; margin:0 auto clamp(48px,6vw,72px);">
-      <p class="vser" style="font-style:italic; font-weight:300; font-size:clamp(1.8rem,3.6vw,3rem); line-height:1.35; color:#FBF3E2; margin:0 0 24px;">"I had never felt so heard at a jewellery store before."</p>
-      <span class="vsan" style="font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F;">Priya S. — Anniversary Necklace</span>
+    <div data-reveal style="text-align:center; max-width:840px; margin:0 auto clamp(28px,6vw,72px);">
+      <p class="vser" style="font-style:italic; font-weight:300; font-size:clamp(1.8rem,3.6vw,3rem); line-height:1.35; color:#FBF3E2; margin:0 0 24px;">&ldquo;I had never felt so heard at a jewellery store before.&rdquo;</p>
+      <span class="vsan" style="font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F;">Priya S. &mdash; Anniversary Necklace</span>
     </div>
-    <div class="stories-grid" data-reveal style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(24px,3vw,48px);">
-      <div class="story-item" style="border-top:1px solid rgba(207,178,143,0.3); padding-top:28px;">
-        <span class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F;">— Bridal</span>
-        <p class="vser" style="font-style:italic; font-size:1.2rem; line-height:1.6; color:rgba(251,243,226,0.88); margin:18px 0 24px; font-weight:300;">"Nikita and her team understood exactly what I wanted before I could even put it into words. My bridal set feels like it was made for me, because it was."</p>
+    <div data-reveal class="v-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(24px,3vw,48px);">
+      <div style="border-top:1px solid rgba(207,178,143,0.3); padding-top:28px;">
+        <span class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F;">&#8212; Bridal</span>
+        <p class="vser" style="font-style:italic; font-size:1.2rem; line-height:1.6; color:rgba(251,243,226,0.88); margin:18px 0 24px; font-weight:300;">&ldquo;Nikita and her team understood exactly what I wanted before I could even put it into words. My bridal set feels like it was made for me, because it was.&rdquo;</p>
         <div class="vser" style="font-size:1.2rem; color:#E7Cfa0;">Anjali R.</div>
         <div class="vsan" style="font-size:0.8rem; letter-spacing:0.06em; color:rgba(251,243,226,0.5); margin-top:4px;">Custom Bridal Set</div>
       </div>
-      <div class="story-item" style="border-top:1px solid rgba(207,178,143,0.3); padding-top:28px;">
-        <span class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F;">— Make to Order</span>
-        <p class="vser" style="font-style:italic; font-size:1.2rem; line-height:1.6; color:rgba(251,243,226,0.88); margin:18px 0 24px; font-weight:300;">"I brought a photograph of my grandmother's necklace. Three weeks later, I was wearing a piece that honored her and felt entirely my own."</p>
+      <div style="border-top:1px solid rgba(207,178,143,0.3); padding-top:28px;">
+        <span class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F;">&#8212; Make to Order</span>
+        <p class="vser" style="font-style:italic; font-size:1.2rem; line-height:1.6; color:rgba(251,243,226,0.88); margin:18px 0 24px; font-weight:300;">&ldquo;I brought a photograph of my grandmother&rsquo;s necklace. Three weeks later, I was wearing a piece that honored her and felt entirely my own.&rdquo;</p>
         <div class="vser" style="font-size:1.2rem; color:#E7Cfa0;">Meera K.</div>
         <div class="vsan" style="font-size:0.8rem; letter-spacing:0.06em; color:rgba(251,243,226,0.5); margin-top:4px;">Heirloom Recreation</div>
       </div>
-      <div class="story-item" style="border-top:1px solid rgba(207,178,143,0.3); padding-top:28px;">
-        <span class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F;">— Old Gold Exchange</span>
-        <p class="vser" style="font-style:italic; font-size:1.2rem; line-height:1.6; color:rgba(251,243,226,0.88); margin:18px 0 24px; font-weight:300;">"I had been putting off exchanging my mother's old gold for years. The team made it feel like a celebration, not a transaction."</p>
+      <div style="border-top:1px solid rgba(207,178,143,0.3); padding-top:28px;">
+        <span class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F;">&#8212; Old Gold Exchange</span>
+        <p class="vser" style="font-style:italic; font-size:1.2rem; line-height:1.6; color:rgba(251,243,226,0.88); margin:18px 0 24px; font-weight:300;">&ldquo;I had been putting off exchanging my mother&rsquo;s old gold for years. The team made it feel like a celebration, not a transaction.&rdquo;</p>
         <div class="vser" style="font-size:1.2rem; color:#E7Cfa0;">Lakshmi N.</div>
         <div class="vsan" style="font-size:0.8rem; letter-spacing:0.06em; color:rgba(251,243,226,0.5); margin-top:4px;">Diamond Pendant</div>
       </div>
     </div>
+    <div style="display:flex; justify-content:center; margin-top:clamp(2.6rem,5vw,3.6rem);">
+      <a href="#" class="vbtn-line vsan" style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FBF3E2; border:1px solid rgba(207,178,143,0.5); padding:15px 34px;">View More Stories</a>
+    </div>
   </div>
 </section>
 
-<!-- ═══ STORE EXPERIENCE ═══ -->
-<section id="store" style="background:#FFF8E6; padding:clamp(72px,8vw,120px) 0;">
+<!-- STORE EXPERIENCE -->
+<section style="background:#FFF8E6; padding:clamp(34px,7vw,120px) 0;">
   <div style="max-width:1400px; margin:0 auto; padding:0 clamp(1.5rem,4vw,4rem);">
-    <div class="store-grid" data-reveal style="display:grid; grid-template-columns:1fr 0.85fr; gap:clamp(2.5rem,6vw,6rem); align-items:center;">
+    <div data-reveal class="v-grid-split" style="display:grid; grid-template-columns:1fr 0.85fr; gap:clamp(2.5rem,6vw,6rem); align-items:center;">
       <div>
-        <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; color:#B99874;">— Visit Us —</span>
+        <span class="vsan" style="font-size:12px; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; color:#B99874;">&#8212; Visit Us &#8212;</span>
         <h2 class="vser" style="margin:22px 0; font-size:clamp(2.6rem,5vw,4.2rem); font-weight:300; line-height:1.05; color:#482D22;">The VEDA<br>Experience</h2>
-        <p class="vser" style="font-style:italic; font-size:clamp(1.2rem,2vw,1.5rem); color:#6B5545; margin:0 0 clamp(1.8rem,3vw,2.4rem); font-weight:300;">Where jewellery is not sold — it is discovered.</p>
+        <p class="vser" style="font-style:italic; font-size:clamp(1.2rem,2vw,1.5rem); color:#6B5545; margin:0 0 clamp(1.8rem,3vw,2.4rem); font-weight:300;">Where jewellery is not sold &mdash; it is discovered.</p>
         <div style="margin-bottom:clamp(2rem,4vw,2.8rem);">
-          <p class="vsan" style="font-weight:600; color:#482D22; margin:0 0 8px; font-size:1rem;">VEDA Jewel — HSR Layout</p>
+          <p class="vsan" style="font-weight:600; color:#482D22; margin:0 0 8px; font-size:1rem;">VEDA Jewel &mdash; HSR Layout</p>
           <p class="vsan" style="font-size:0.95rem; line-height:1.7; color:#6B5545; margin:0;">Avani Arcade, L-1135, 17th Cross,<br>80th Feet Rd, Sector 7, HSR Layout,<br>Bengaluru, Karnataka 560102</p>
         </div>
-        <div class="store-cta" style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
-          <a href="https://wa.me/919187204025" class="vbtn-fill vsan" style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FFF8E6; background:#8B3F2C; padding:16px 32px;">Book Appointment</a>
+        <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+          <a href="https://wa.me/919187204025?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20VEDA%20Jewel" class="vbtn-fill vsan" style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FFF8E6; background:#8B3F2C; padding:16px 32px;">Book Appointment</a>
           <a href="tel:+919187204025" class="vwhisper vsan" style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#482D22; border-bottom:1px solid #B99874; padding-bottom:5px;">Call Us</a>
         </div>
       </div>
-      <div class="store-image" style="position:relative; aspect-ratio:4/5; max-width:420px; margin:0 auto; width:100%;">
+      <div style="position:relative; aspect-ratio:4/5; max-width:440px; margin:0 auto; width:100%;">
         <div style="position:absolute; inset:-1.5px; background:linear-gradient(160deg,#E7Cfa0,#B99874); clip-path:url(#veda-ogee);"></div>
-        <div style="position:absolute; inset:8px; clip-path:url(#veda-ogee); overflow:hidden;"><img src="assets/images/store-interior.png" alt="VEDA Jewel Store — HSR Layout, Bengaluru" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div style="position:absolute; inset:8px; clip-path:url(#veda-ogee); overflow:hidden;"><img src="assets/images/store-interior.png" alt="VEDA Jewel Store, HSR Layout Bengaluru" style="width:100%; height:100%; object-fit:cover;"></div>
         <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); width:8px; height:8px; border-radius:50%; background:#B99874; box-shadow:0 0 0 5px rgba(185,152,116,0.14);"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- store mobile image strip -->
-<div class="store-mobile-banner" style="display:none; width:100%; height:56vw; max-height:320px; overflow:hidden;">
-  <img src="assets/images/store-interior.png" alt="VEDA Jewel Store" style="width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block;">
-</div>
-
-<!-- ═══ FOOTER ═══ -->
+<!-- FOOTER -->
 <footer style="background:#3A241B; color:rgba(251,243,226,0.7); padding:clamp(56px,7vw,90px) 0 36px;">
   <div style="max-width:1400px; margin:0 auto; padding:0 clamp(1.5rem,4vw,4rem);">
-    <div class="footer-grid" style="display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1.4fr; gap:clamp(2rem,4vw,3.5rem); padding-bottom:clamp(40px,5vw,56px); border-bottom:1px solid rgba(207,178,143,0.18);">
-      <div class="footer-brand">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;"><img src="assets/icons/logo-peacock.png" alt="VEDA" style="height:46px; width:auto; filter:brightness(0) invert(0.75) sepia(0.6) saturate(1.4) hue-rotate(2deg);"><span class="vser" style="font-size:1.7rem; letter-spacing:0.12em; color:#CFB28F;">VEDA</span></div>
+    <div class="v-footer-grid" style="display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1.4fr; gap:clamp(2rem,4vw,3.5rem); padding-bottom:clamp(40px,5vw,56px); border-bottom:1px solid rgba(207,178,143,0.18);">
+      <div class="v-footer-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;"><img src="assets/icons/peacock-gold.svg" alt="VEDA" style="height:50px; width:auto;"><span class="vser" style="font-size:1.7rem; letter-spacing:0.12em; color:#CFB28F;">VEDA</span></div>
         <p class="vser" style="font-style:italic; font-size:1.15rem; color:rgba(251,243,226,0.6); margin:0 0 22px;">Where wisdom becomes adornment.</p>
         <div style="display:flex; gap:16px;">
           <a href="#" aria-label="Instagram" style="color:rgba(207,178,143,0.8);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg></a>
           <a href="#" aria-label="Facebook" style="color:rgba(207,178,143,0.8);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-          <a href="#" aria-label="YouTube" style="color:rgba(207,178,143,0.8);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube" style="color:rgba(207,178,143,0.8);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/></svg></a>
         </div>
       </div>
       <div>
@@ -617,13 +503,13 @@
       </div>
       <div>
         <h5 class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F; margin:0 0 18px;">Services</h5>
-        <div style="display:flex; flex-direction:column; gap:11px; font-size:0.92rem;"><a href="make-to-order.html" class="vlink">Make To Order</a><a href="old-gold-exchange.html" class="vlink">Old Gold Exchange</a><a href="vsvp.html" class="vlink">VSVP Plan</a><a href="#" class="vlink">Personal Styling</a><a href="#" class="vlink">Store Appointment</a></div>
+        <div style="display:flex; flex-direction:column; gap:11px; font-size:0.92rem;"><a href="make-to-order.html" class="vlink">Make To Order</a><a href="old-gold-exchange.html" class="vlink">Old Gold Exchange</a><a href="vsvp.html" class="vlink">VSVP Plan</a><a href="#" class="vlink">Personal Styling</a><a href="https://wa.me/919187204025?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment" class="vlink">Store Appointment</a></div>
       </div>
       <div>
         <h5 class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F; margin:0 0 18px;">The House</h5>
         <div style="display:flex; flex-direction:column; gap:11px; font-size:0.92rem;"><a href="about.html" class="vlink">Our Story</a><a href="#" class="vlink">Craftsmanship</a><a href="#" class="vlink">Philosophy</a><a href="#" class="vlink">Careers</a><a href="#" class="vlink">Press</a></div>
       </div>
-      <div class="footer-newsletter">
+      <div class="v-footer-news">
         <h5 class="vsan" style="font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#CFB28F; margin:0 0 18px;">Stay Connected</h5>
         <p class="vsan" style="font-size:0.9rem; line-height:1.6; color:rgba(251,243,226,0.6); margin:0 0 18px;">Receive invitations to private viewings, collection launches, and exclusive VEDA moments.</p>
         <div style="display:flex; border:1px solid rgba(207,178,143,0.3);">
@@ -633,64 +519,48 @@
       </div>
     </div>
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:28px; font-size:0.82rem; color:rgba(251,243,226,0.5);">
-      <p style="margin:0;">© 2026 VEDA Jewel. All rights reserved.</p>
-      <div class="footer-bottom-links" style="display:flex; gap:28px;"><a href="#" class="vlink">Privacy Policy</a><a href="#" class="vlink">Terms of Service</a><a href="#" class="vlink">Shipping &amp; Returns</a></div>
+      <p style="margin:0;">&copy; 2026 VEDA Jewel. All rights reserved.</p>
+      <div style="display:flex; gap:28px;"><a href="#" class="vlink">Privacy Policy</a><a href="#" class="vlink">Terms of Service</a><a href="#" class="vlink">Shipping &amp; Returns</a></div>
     </div>
   </div>
 </footer>
 
-<!-- ═══ STICKY CTAs ═══ -->
-<div class="vsticky-wrap" style="position:fixed; right:22px; bottom:22px; z-index:120; display:flex; flex-direction:column; gap:14px;">
+<!-- STICKY CTAs -->
+<div style="position:fixed; right:22px; bottom:22px; z-index:120; display:flex; flex-direction:column; gap:14px;">
   <a href="https://wa.me/919187204025" class="vsticky" aria-label="WhatsApp" style="width:54px; height:54px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.2);"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg></a>
-  <a href="https://wa.me/919187204025?text=I%20would%20like%20to%20book%20an%20appointment" class="vsticky" aria-label="Book Appointment" style="width:54px; height:54px; border-radius:50%; background:#8B3F2C; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.2);"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FBF3E2" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></a>
+  <a href="https://wa.me/919187204025?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20VEDA%20Jewel" class="vsticky" aria-label="Book Appointment" style="width:54px; height:54px; border-radius:50%; background:#8B3F2C; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.2);"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FBF3E2" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></a>
 </div>
 
 <script>
-  // Gold calculator
-  const rates = { '24k': 7200, '22k': 6600, '18k': 5400, '14k': 4200 };
-  const fmt = n => Math.round(n).toLocaleString('en-IN');
-
-  function updateCalc() {
-    const weight = parseFloat(document.getElementById('gold-weight').value) || 0;
-    const karat = document.getElementById('metal-type').value;
-    const rate = rates[karat] || 0;
-    document.getElementById('calc-rate-label').textContent = karat;
-    document.getElementById('calc-rate-value').textContent = '₹' + fmt(rate) + '/gram';
-    document.getElementById('calc-value').textContent = '₹ ' + fmt(weight * rate);
+  function toggleMenu() {
+    var m = document.getElementById('v-mobile-menu');
+    var open = m.style.display === 'flex';
+    m.style.display = open ? 'none' : 'flex';
+    if (!open) m.style.flexDirection = 'column';
+  }
+  function closeMenu() {
+    document.getElementById('v-mobile-menu').style.display = 'none';
   }
 
-  document.getElementById('gold-weight').addEventListener('input', updateCalc);
-  document.getElementById('metal-type').addEventListener('change', updateCalc);
+  var calcRates = { '24k': 7200, '22k': 6600, '18k': 5400, '14k': 4200 };
+  function fmtINR(n) { return Math.round(n).toLocaleString('en-IN'); }
+  function calcUpdate() {
+    var w = parseFloat(document.getElementById('calc-weight').value) || 0;
+    var k = document.getElementById('calc-karat').value;
+    var rate = calcRates[k] || 0;
+    document.getElementById('calc-value').textContent = '₹ ' + fmtINR(w * rate);
+    document.getElementById('calc-rate').textContent = '₹' + fmtINR(rate) + '/gram';
+    document.getElementById('calc-rate-label').textContent = k;
+  }
+  calcUpdate();
 
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); revealObserver.unobserve(e.target); }
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
-
-  // Mobile nav
-  const mobileNav = document.getElementById('mobile-nav');
-  const openBtn   = document.getElementById('nav-open');
-  const closeBtn  = document.getElementById('nav-close');
-  const overlay   = document.getElementById('mobile-nav-overlay');
-
-  function openNav() {
-    mobileNav.classList.add('open');
-    mobileNav.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNav() {
-    mobileNav.classList.remove('open');
-    mobileNav.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  openBtn.addEventListener('click', openNav);
-  closeBtn.addEventListener('click', closeNav);
-  overlay.addEventListener('click', closeNav);
-  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+  }, { threshold: 0.12 });
+  document.querySelectorAll('[data-reveal]').forEach(function(el) { revealObserver.observe(el); });
 </script>
+
 </body>
 </html>
