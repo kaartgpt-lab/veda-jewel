@@ -13,6 +13,21 @@
 .heroLine, .secTitle, .whisper > p, .filmCaption, .pull blockquote,
 .chapBody h3, .catLine, blockquote { font-family: 'Cormorant Garamond', Georgia, serif !important; }
 
+/* ── Eyebrow labels: use rust instead of faint gold ── */
+.secEyebrow, .catEyebrow, .heroEyebrow {
+  color: #8B3F2C !important;
+  font-size: 11px !important;
+  letter-spacing: .2em !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+/* ── Pull quote attribution: legible size ── */
+.pullWho { font-size: 13px !important; letter-spacing: .06em !important; }
+
+/* ── Hide the chat mock section entirely ── */
+section.chatMock { display: none !important; }
+
 /* ── Mobile base improvements ── */
 .heroLine  { font-size: 44px !important; line-height: 1.06 !important; letter-spacing: -.025em !important; font-weight: 300 !important; }
 .secTitle  { font-size: 28px !important; line-height: 1.18 !important; font-weight: 300 !important; }
@@ -34,7 +49,6 @@ section.film     { padding: 56px 20px 6px !important; }
 section.pull     { padding: 56px 24px !important; }
 section.archive  { padding: 56px 20px 6px !important; }
 section.stories  { padding: 56px 0 6px !important; }
-section.chatMock { padding: 56px 20px 6px !important; }
 section.begin    { padding: 56px 20px 6px !important; }
 section.faq      { padding: 56px 20px 60px !important; }
 
@@ -45,6 +59,9 @@ section.faq      { padding: 56px 20px 60px !important; }
   html, body { overflow: auto !important; background: #FFF8E6 !important; }
   .veda-wrap  { display: block !important; background: #FFF8E6 !important; min-height: 100vh; }
   .veda       { max-width: 100% !important; height: auto !important; min-height: 100vh; overflow: visible !important; box-shadow: none !important; background: #FFF8E6 !important; }
+
+  /* Hide hamburger on desktop */
+  .hdr .icon { display: none !important; }
 
   /* Fixed full-width header */
   .hdr { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; padding: 16px clamp(40px,6vw,100px) !important; z-index: 50 !important; background: rgba(255,248,230,.95) !important; backdrop-filter: blur(12px) !important; }
@@ -59,7 +76,7 @@ section.faq      { padding: 56px 20px 60px !important; }
 
   /* Content max-width constraint for all sections */
   section.whisper, section.chapters, section.film, section.pull,
-  section.archive, section.stories, section.chatMock, section.begin, section.faq, .ftr {
+  section.archive, section.stories, section.begin, section.faq, .ftr {
     max-width: 1240px !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -89,29 +106,28 @@ section.faq      { padding: 56px 20px 60px !important; }
   .filmWrap  { aspect-ratio: 16/9 !important; max-width: 100% !important; border-radius: 22px !important; }
   .filmCaption { text-align: center !important; margin-top: 20px !important; font-size: 19px !important; }
 
-  /* Pull quote */
+  /* Pull quote: large centred serif */
   section.pull { padding-top: 110px !important; padding-bottom: 110px !important; text-align: center !important; }
   .pull blockquote { font-size: clamp(28px, 4vw, 54px) !important; max-width: 860px !important; margin: 0 auto !important; line-height: 1.28 !important; }
+  .pullWho { font-size: 14px !important; margin-top: 24px !important; display: block !important; }
 
-  /* Archive: 3-col grid */
+  /* Archive: 4-col single row, hide 5th card */
   section.archive { padding-top: 90px !important; }
   .archIntro { max-width: 640px !important; margin: 0 auto 10px !important; text-align: center !important; }
-  .rail { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 26px !important; overflow: visible !important; padding: 20px 0 0 !important; margin-top: 10px !important; }
+  .rail { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 22px !important; overflow: visible !important; padding: 20px 0 0 !important; margin-top: 10px !important; }
   .acard { flex: none !important; width: 100% !important; scroll-snap-align: none !important; }
+  .rail .acard:nth-child(5) { display: none !important; }
 
   /* Stories: 3-col grid */
   section.stories { padding-top: 90px !important; }
   .reviewRail { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 24px !important; overflow: visible !important; padding: 20px 0 0 !important; }
   .rcard { flex: none !important; width: 100% !important; }
 
-  /* Chat mock: constrained */
-  section.chatMock { padding-top: 90px !important; }
-
   /* Begin: 2-col entry doors */
   section.begin { padding-top: 90px !important; }
   .doorRow { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
 
-  /* FAQ: 2-col using grid on parent */
+  /* FAQ: 2-col */
   section.faq { padding-top: 90px !important; padding-bottom: 100px !important; display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 0 60px !important; align-items: start !important; }
   section.faq .secHead { grid-column: 1 / -1 !important; }
   .fitem { break-inside: avoid; }

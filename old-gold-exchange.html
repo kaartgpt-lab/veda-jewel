@@ -3,30 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VEDA &middot; Old Gold Exchange &mdash; Give Your Gold a New Life</title>
+<title>VEDA · Old Gold Exchange — Give Your Gold a New Life</title>
 <meta name="description" content="Exchange your old gold at VEDA Jewel. Transparent valuation, BIS certified testing, no hidden deductions. HSR Layout, Bengaluru.">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
 <style>
 :root{
   --beige:#FFF8E6; --gold:#B99874; --dgold:#896E50;
   --rust:#8B3F2C; --brown:#482D22;
   --line:rgba(72,45,34,.12);
+  --content:1160px;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{background:var(--beige)}
-.veda{
-  max-width:420px;margin:0 auto;background:var(--beige);color:var(--brown);
-  font-family:'Switzer',system-ui,sans-serif;position:relative;
-  min-height:100vh;overflow-x:hidden;padding-bottom:100px;
-  -webkit-font-smoothing:antialiased;
-}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
 
 .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);font-weight:600}
 .eyebrow.center{text-align:center}
-.sec-h2{font-weight:300;font-size:30px;line-height:1.12;letter-spacing:-.01em;color:var(--brown);margin-top:10px}
+.sec-h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:32px;line-height:1.1;letter-spacing:-.01em;color:var(--brown);margin-top:10px}
 .sec-h2.center{text-align:center}
 
 /* reveal */
@@ -34,419 +33,527 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
-/* photo placeholder */
-.veda-photo{width:100%;background:linear-gradient(135deg,#5b4632,#2f2016 60%,#1e130c);
-  border-radius:10px;display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden}
-.veda-photo::after{content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 25%,rgba(185,152,116,.35),transparent 55%)}
-.veda-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:10px}
+/* photo */
+.veda-photo{width:100%;border-radius:10px;overflow:hidden}
+.veda-photo img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* header */
+/* ─── HEADER ─── */
 .topbar{position:sticky;top:0;z-index:40}
-.hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;
-  background:var(--beige);border-bottom:1px solid var(--line)}
-.hdr-mark svg{height:27px;width:auto;display:block}
-.hdr-actions{display:flex;gap:12px;align-items:center}
+.hdr{display:flex;align-items:center;gap:16px;padding:12px 20px;
+  background:rgba(255,248,230,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.hdr-menu{display:flex;align-items:center}
+.hdr-menu svg{color:var(--brown)}
+.hdr-logo{margin-right:auto}
+.hdr-logo svg{height:27px;width:auto;display:block}
+.hdr-nav{display:none;align-items:center;gap:28px;font-size:13px;letter-spacing:.04em;color:var(--brown)}
+.hdr-nav a:hover{color:var(--rust)}
+.hdr-actions{display:flex;gap:10px;align-items:center}
 .hdr-actions svg{color:var(--brown)}
 .icon-btn{display:flex;align-items:center;background:none;border:none;cursor:pointer}
 
-/* rate bar */
+/* ─── RATE BAR ─── */
 .ratebar{display:flex;align-items:center;justify-content:center;gap:6px;
-  font-size:12px;color:var(--brown);padding:9px 16px;background:#EBDCBB;
-  border-bottom:1px solid rgba(72,45,34,.16);box-shadow:0 3px 8px rgba(72,45,34,.06)}
-.ratebar strong{color:var(--brown);font-weight:600}
-.ratebar .dot{width:7px;height:7px;border-radius:50%;background:var(--rust);
-  box-shadow:0 0 0 3px rgba(139,63,44,.18);animation:pulse 2s infinite;flex-shrink:0}
-.rate-upd{color:var(--dgold);font-size:11px;margin-left:4px;opacity:.85}
-@keyframes pulse{50%{opacity:.4}}
+  font-size:12px;color:var(--brown);padding:8px 20px;background:#EBDCBB;
+  border-bottom:1px solid rgba(72,45,34,.16)}
+.ratebar strong{font-weight:600}
+.rate-upd{color:var(--dgold);font-size:11px;margin-left:4px}
 
-/* hero */
-.hero{padding:34px 22px 8px;position:relative;overflow:hidden}
-.hero-peacock{position:absolute;top:16px;right:14px;opacity:.28}
-.hero-peacock svg{height:120px;width:auto}
-.hero-h1{font-weight:300;font-size:44px;line-height:1.04;letter-spacing:-.02em;color:var(--brown);margin-top:14px}
-.hero-sub{font-size:15px;line-height:1.6;color:var(--dgold);margin-top:14px;max-width:300px}
-.hero-img{margin-top:22px;border-radius:10px;overflow:hidden;aspect-ratio:16/9}
+/* ─── HERO ─── */
+.hero{padding:44px 22px 12px;position:relative}
+.hero-inner{position:relative}
+.hero-peacock{position:absolute;top:0;right:0;opacity:.2;pointer-events:none;overflow:hidden}
+.hero-peacock svg{height:110px;width:auto}
+.hero-eyebrow{margin-bottom:14px}
+.hero-h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:52px;line-height:1.0;letter-spacing:-.025em;color:var(--brown)}
+.hero-sub{font-size:15px;line-height:1.6;color:var(--dgold);margin-top:16px;max-width:320px}
+.hero-img{margin-top:28px;border-radius:14px;overflow:hidden;aspect-ratio:4/3}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
 
-.trust-strip{list-style:none;margin-top:18px;padding:0 4px;display:flex;flex-direction:column;gap:11px}
-.trust-strip li{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--brown)}
-.tick{display:flex;align-items:center;justify-content:center;width:20px;height:20px;
-  border-radius:50%;background:var(--rust);color:var(--beige);flex-shrink:0}
+/* ─── TRUST BULLETS ─── */
+.trust-strip{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:12px}
+.trust-strip li{display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--brown)}
+.trust-line{width:16px;height:1px;background:var(--rust);flex-shrink:0}
 
-/* calculator */
-.calc{padding:34px 18px 12px}
-.calc-h{margin-bottom:20px}
-.calc-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 18px;box-shadow:0 8px 30px rgba(72,45,34,.06)}
-.fld-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dgold);font-weight:600;display:block;margin-bottom:12px}
-.slider-row{display:flex;align-items:center;gap:16px;margin-bottom:26px}
-.slider{-webkit-appearance:none;appearance:none;flex:1;height:3px;border-radius:3px;background:var(--line);outline:none}
-.slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--rust);cursor:pointer;border:3px solid var(--beige);box-shadow:0 2px 6px rgba(72,45,34,.25)}
-.slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--rust);cursor:pointer;border:3px solid var(--beige)}
-.grams-out{font-weight:300;font-size:26px;color:var(--brown);min-width:58px;text-align:right}
-.grams-out span{font-weight:500}
+/* ─── CALCULATOR ─── */
+.calc{padding:56px 22px 12px}
+.calc-h{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:34px;text-align:center;color:var(--brown);line-height:1.15;margin-bottom:24px;letter-spacing:-.01em}
+.calc-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 22px;box-shadow:0 8px 40px rgba(72,45,34,.07)}
+.fld-label{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dgold);font-weight:600;display:block;margin-bottom:12px}
+.slider-row{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.slider{-webkit-appearance:none;appearance:none;flex:1;height:2px;border-radius:2px;background:var(--line);outline:none}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--rust);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(139,63,44,.3)}
+.slider::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--rust);cursor:pointer;border:3px solid #fff}
+.grams-out{font-weight:300;font-size:28px;color:var(--brown);min-width:60px;text-align:right;font-family:'Cormorant Garamond',Georgia,serif}
+.grams-out span{font-weight:400}
 
-.purity-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px}
-.purity-pill{border:1px solid var(--line);border-radius:10px;padding:12px 10px;text-align:left;transition:.2s;background:#fff;cursor:pointer}
-.purity-pill.on{border-color:var(--rust);background:rgba(139,63,44,.05)}
+.purity-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:26px}
+.purity-pill{border:1px solid var(--line);border-radius:12px;padding:13px 12px;text-align:left;transition:all .2s;background:#fff;cursor:pointer}
+.purity-pill.on{border-color:var(--rust);background:rgba(139,63,44,.04)}
 .pp-label{display:block;font-weight:600;font-size:15px;color:var(--brown)}
 .pp-sub{display:block;font-size:11px;color:var(--dgold);margin-top:2px}
 
-.mode-toggle{display:flex;background:rgba(185,152,116,.14);border-radius:10px;padding:4px;margin-bottom:22px}
-.mode-toggle button{flex:1;padding:9px;border-radius:7px;font-size:13px;font-weight:500;color:var(--dgold);transition:.2s}
-.mode-toggle button.on{background:#fff;color:var(--rust);box-shadow:0 1px 4px rgba(72,45,34,.1)}
+.mode-toggle{display:flex;background:rgba(185,152,116,.12);border-radius:12px;padding:4px;margin-bottom:24px}
+.mode-toggle button{flex:1;padding:10px;border-radius:9px;font-size:13px;font-weight:500;color:var(--dgold);transition:.2s}
+.mode-toggle button.on{background:#fff;color:var(--rust);box-shadow:0 1px 6px rgba(72,45,34,.1)}
 
-.result{text-align:center;padding:20px 0 6px;border-top:1px solid var(--line)}
-.result-cap{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dgold);font-weight:600}
-.result-num{font-weight:300;font-size:46px;color:var(--rust);line-height:1;margin-top:8px;letter-spacing:-.01em}
-.result-num.sm{font-size:26px}
-.result-math{font-size:12px;color:var(--dgold);margin-top:10px}
-.result-hint{font-size:12.5px;color:var(--dgold);font-weight:500;margin-top:8px}
-.result-foot{font-size:11px;color:var(--dgold);opacity:.9;text-align:center;margin-top:12px;line-height:1.5}
+.result{text-align:center;padding:24px 0 8px;border-top:1px solid var(--line);margin-top:4px}
+.result-cap{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dgold);font-weight:600}
+.result-num{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:68px;color:var(--rust);line-height:1;margin-top:10px;letter-spacing:-.02em}
+.result-num.sm{font-size:34px;margin-top:14px}
+.result-math{font-size:12px;color:var(--dgold);margin-top:10px;opacity:.85}
+.result-hint{font-size:13px;color:var(--rust);font-weight:500;margin-top:10px;background:rgba(139,63,44,.06);padding:8px 14px;border-radius:8px;display:inline-block}
+.result-foot{font-size:11px;color:var(--dgold);opacity:.8;text-align:center;margin-top:14px;line-height:1.55}
 
-.btn-wa{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--rust);color:#FFFDF7;font-weight:600;font-size:15px;padding:15px;border-radius:12px;transition:.2s;width:100%;margin-top:20px;border:none;cursor:pointer;text-decoration:none}
-.btn-wa:active{transform:scale(.99)}
+.btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--rust);color:#FFFDF7;font-weight:600;font-size:15px;padding:16px;border-radius:13px;transition:background .2s,transform .2s;width:100%;margin-top:22px;border:none;cursor:pointer;text-decoration:none;letter-spacing:.01em}
+.btn-wa:hover{background:#6E3222;transform:translateY(-1px)}
 .btn-wa svg{color:#FFFDF7;flex-shrink:0}
 
-/* how it works */
-.how{padding:48px 18px 12px;overflow:hidden}
-.how-carousel{margin-top:24px;overflow:hidden;border-radius:10px}
+/* ─── HOW IT WORKS ─── */
+.how{padding:64px 22px 12px;overflow:hidden}
+.how-carousel{margin-top:28px;overflow:hidden;border-radius:12px}
 .how-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
-.how-slide{flex:0 0 100%;padding-right:2px}
-.how-slide-img{aspect-ratio:16/11;border-radius:10px;overflow:hidden}
+.how-slide{flex:0 0 100%}
+.how-slide-img{aspect-ratio:16/11;border-radius:12px;overflow:hidden}
 .how-slide-img img{width:100%;height:100%;object-fit:cover;display:block}
-.step-body{padding:16px 4px 0}
-.step-n{font-weight:300;font-size:40px;color:var(--brown);opacity:.28;line-height:1;display:block}
-.step-t{font-weight:500;font-size:20px;color:var(--brown);margin-top:4px}
-.step-d{font-size:14px;line-height:1.55;color:var(--dgold);margin-top:8px;min-height:66px}
-.how-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
-.how-dot{width:8px;height:8px;border-radius:50%;background:rgba(72,45,34,.3);transition:.3s;padding:0;border:none;cursor:pointer}
+.step-body{padding:18px 2px 0}
+.step-n{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:48px;color:var(--brown);opacity:.2;line-height:1;display:block}
+.step-t{font-weight:600;font-size:19px;color:var(--brown);margin-top:6px}
+.step-d{font-size:14px;line-height:1.58;color:var(--dgold);margin-top:8px}
+.how-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.how-dot{width:8px;height:8px;border-radius:50%;background:rgba(72,45,34,.25);transition:.3s;padding:0;border:none;cursor:pointer}
 .how-dot.on{background:var(--rust);width:22px;border-radius:4px}
-.bring{margin-top:34px;background:rgba(185,152,116,.12);border-radius:14px;padding:20px}
-.bring-h{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:14px}
-.bring ul{list-style:none;display:flex;flex-direction:column;gap:11px}
-.bring li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--brown)}
-.bring li svg{color:var(--rust);flex-shrink:0}
+.bring{margin-top:36px;background:rgba(185,152,116,.1);border-radius:16px;padding:22px}
+.bring-h{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:16px}
+.bring ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.bring li{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--brown)}
+.bring li::before{content:"";width:14px;height:1px;background:var(--rust);flex-shrink:0}
 
-/* stories */
-.stories{padding:48px 0 12px}
-.stories .eyebrow,.stories .sec-h2{padding:0 18px}
-.story-rail{display:flex;gap:14px;overflow-x:auto;padding:26px 18px 8px;scroll-snap-type:x mandatory}
+/* ─── STORIES ─── */
+.stories{padding:64px 0 12px}
+.stories .eyebrow,.stories .sec-h2{padding:0 22px}
+.story-rail{display:flex;gap:16px;overflow-x:auto;padding:28px 22px 10px;scroll-snap-type:x mandatory}
 .story-rail::-webkit-scrollbar{display:none}
-.story-card{flex:0 0 220px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 18px;text-align:center}
-.story-avatar{width:64px;height:64px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#5b4632,#2f2016);overflow:hidden}
-.story-line{font-size:14px;line-height:1.55;color:var(--brown);margin-top:16px;font-style:italic}
-.story-name{font-size:12px;letter-spacing:.06em;color:var(--rust);font-weight:600;margin-top:14px}
+.story-card{flex:0 0 230px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 20px;text-align:center}
+.story-avatar{width:52px;height:52px;border-radius:50%;margin:0 auto;background:var(--rust);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:#FFFDF7;letter-spacing:.02em}
+.story-line{font-size:14px;line-height:1.58;color:var(--brown);margin-top:16px;font-style:italic;font-family:'Cormorant Garamond',Georgia,serif}
+.story-name{font-size:11px;letter-spacing:.08em;color:var(--rust);font-weight:600;margin-top:14px;text-transform:uppercase}
 
-/* after text */
-.after{padding:48px 18px 12px;background:rgba(185,152,116,.1);margin-top:20px}
-.after-steps{margin-top:26px;display:flex;flex-direction:column;gap:18px}
-.after-step{display:flex;align-items:flex-start;gap:14px}
-.after-ic{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:var(--beige);color:var(--rust);flex-shrink:0}
+/* ─── AFTER TEXT ─── */
+.after{padding:64px 22px 12px;background:rgba(185,152,116,.08);margin-top:28px}
+.after-steps{margin-top:28px;display:flex;flex-direction:column;gap:22px}
+.after-step{display:flex;align-items:flex-start;gap:16px}
+.after-ic{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(139,63,44,.25);color:var(--rust);flex-shrink:0;margin-top:2px}
 .after-t{font-weight:600;font-size:15px;color:var(--brown)}
-.after-d{font-size:13px;color:var(--dgold);margin-top:2px;line-height:1.5}
+.after-d{font-size:13px;color:var(--dgold);margin-top:3px;line-height:1.5}
 
-/* faq */
-.faq{padding:48px 18px 12px}
-.faq-list{margin-top:24px;display:flex;flex-direction:column;gap:10px}
-.faq-card{background:rgba(185,152,116,.1);border-radius:12px;overflow:hidden}
-.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;text-align:left;font-weight:500;font-size:14.5px;color:var(--brown);line-height:1.35;cursor:pointer;background:none;border:none}
-.chev{color:var(--rust);flex-shrink:0;transition:transform .3s}
+/* ─── FAQ ─── */
+.faq{padding:64px 22px 12px}
+.faq-list{margin-top:28px;display:flex;flex-direction:column;gap:8px}
+.faq-card{border-bottom:1px solid var(--line);overflow:hidden}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;text-align:left;font-weight:500;font-size:14.5px;color:var(--brown);line-height:1.35;cursor:pointer;background:none;border:none}
+.chev{color:var(--dgold);flex-shrink:0;transition:transform .3s}
 .faq-card.open .chev{transform:rotate(180deg)}
 .faq-a-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease}
 .faq-card.open .faq-a-wrap{grid-template-rows:1fr}
 .faq-a-inner{min-height:0;overflow:hidden}
-.faq-a-inner p{padding:0 18px 18px;font-size:13.5px;line-height:1.6;color:var(--dgold)}
+.faq-a-inner p{padding:0 0 18px;font-size:13.5px;line-height:1.65;color:var(--dgold)}
 
-/* image band */
-.band{padding:44px 18px 8px}
-.band-img{aspect-ratio:21/12;border-radius:10px;overflow:hidden}
+/* ─── IMAGE BAND ─── */
+.band{padding:48px 22px 8px}
+.band-img{border-radius:14px;overflow:hidden;aspect-ratio:21/10}
 .band-img img{width:100%;height:100%;object-fit:cover;display:block}
-.band-cap{text-align:center;font-weight:300;font-size:20px;color:var(--brown);margin-top:16px;font-style:italic}
+.band-cap{text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:22px;color:var(--brown);margin-top:18px;font-style:italic}
 
-/* footer */
-.ftr{margin-top:36px}
-.ftr-nav{padding:12px 18px 24px}
+/* ─── FOOTER ─── */
+.ftr{margin-top:44px}
+.ftr-nav{padding:14px 22px 28px}
 .ftr-sec{border-bottom:1px solid var(--line)}
-.ftr-sec>button{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 2px;font-weight:500;font-size:15px;color:var(--brown);background:none;border:none;cursor:pointer}
+.ftr-sec>button{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 0;font-weight:500;font-size:14px;color:var(--brown);background:none;border:none;cursor:pointer}
 .ftr-sec.open .chev{transform:rotate(180deg)}
 .ftr-items-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
 .ftr-sec.open .ftr-items-wrap{grid-template-rows:1fr}
 .ftr-items-inner{min-height:0;overflow:hidden;display:flex;flex-direction:column}
-.ftr-items-inner a{padding:8px 2px;font-size:14px;color:var(--dgold)}
-.ftr-follow{padding-top:20px}
-.ftr-follow p{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:600}
+.ftr-items-inner a{padding:8px 0;font-size:13.5px;color:var(--dgold)}
+.ftr-follow{padding-top:22px}
+.ftr-follow p{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:600}
 .ftr-social{display:flex;gap:18px;margin-top:12px}
-.ftr-social a{font-size:14px;color:var(--dgold)}
-.ftr-rust{background:var(--rust);color:var(--beige);padding:34px 22px 92px}
-.fr-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,248,230,.7);font-weight:600}
-.fr-addr{font-weight:300;font-size:24px;margin-top:10px}
-.fr-hours{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,248,230,.85);margin-top:8px}
-.fr-btns{display:flex;gap:10px;margin-top:20px}
-.fr-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:12px;border-radius:10px;font-size:13px;font-weight:600}
+.ftr-social a{font-size:13.5px;color:var(--dgold)}
+.ftr-rust{background:var(--rust);color:var(--beige);padding:36px 22px 100px}
+.fr-eyebrow{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,248,230,.65);font-weight:600}
+.fr-addr{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:28px;margin-top:10px;line-height:1.15}
+.fr-hours{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,248,230,.8);margin-top:10px}
+.fr-btns{display:flex;gap:10px;margin-top:22px}
+.fr-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:13px;border-radius:11px;font-size:13px;font-weight:600}
 .fr-btn.solid{background:var(--beige);color:var(--rust)}
-.fr-btn.ghost{border:1px solid rgba(255,248,230,.4);color:var(--beige)}
-.fr-quick{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:24px;font-size:13px;color:rgba(255,248,230,.85)}
-.fr-quick span{opacity:.5}
-.fr-fine{font-size:11px;color:rgba(255,248,230,.6);margin-top:16px;line-height:1.5}
+.fr-btn.ghost{border:1px solid rgba(255,248,230,.35);color:var(--beige)}
+.fr-quick{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:26px;font-size:13px;color:rgba(255,248,230,.8)}
+.fr-quick span{opacity:.4}
+.fr-fine{font-size:11px;color:rgba(255,248,230,.5);margin-top:18px;line-height:1.5}
 
-/* sticky */
-.sticky{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:420px;padding:12px 16px;background:linear-gradient(to top,var(--beige) 72%,transparent);z-index:50}
-.sticky .btn-wa{margin-top:0;box-shadow:0 6px 20px rgba(139,63,44,.3)}
+/* ─── STICKY ─── */
+.sticky{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;padding:12px 18px 14px;background:linear-gradient(to top,var(--beige) 75%,transparent);z-index:50}
+.sticky .btn-wa{margin-top:0;box-shadow:0 4px 20px rgba(139,63,44,.28)}
+
+/* ═══════════════════════════════
+   DESKTOP LAYOUT (min-width: 768px)
+═══════════════════════════════ */
+@media (min-width: 768px) {
+
+  /* Wrapper: full-width */
+  body { overflow-x: hidden; }
+
+  /* Header: show nav, hide hamburger */
+  .hdr { padding: 14px clamp(32px,5vw,80px); }
+  .hdr-menu { display: none; }
+  .hdr-logo { margin-right: 0; }
+  .hdr-nav { display: flex; margin: 0 auto; }
+
+  /* Rate bar: wider */
+  .ratebar { padding: 9px 32px; }
+
+  /* ── Hero: 2-col split ── */
+  .hero { padding: 72px clamp(32px,5vw,80px) 0; max-width: var(--content); margin: 0 auto; }
+  .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hero-h1 { font-size: 72px; }
+  .hero-sub { font-size: 16px; max-width: 380px; }
+  .hero-peacock { top: -10px; right: -20px; }
+  .hero-peacock svg { height: 140px; }
+  .hero-img { margin-top: 0; aspect-ratio: 4/5; border-radius: 18px; height: 100%; }
+  .trust-strip { margin-top: 30px; gap: 14px; }
+  .trust-strip li { font-size: 14px; }
+
+  /* ── Calculator: constrained ── */
+  .calc { padding: 80px clamp(32px,5vw,80px) 12px; max-width: var(--content); margin: 0 auto; }
+  .calc-h { font-size: 44px; margin-bottom: 32px; }
+  .calc-card { max-width: 680px; margin: 0 auto; padding: 32px 36px; }
+  .purity-row { grid-template-columns: repeat(4, 1fr); }
+  .result-num { font-size: 88px; }
+  .result-num.sm { font-size: 48px; }
+
+  /* ── How It Works: 4-col grid on desktop ── */
+  .how { padding: 80px clamp(32px,5vw,80px) 12px; max-width: var(--content); margin: 0 auto; overflow: visible; }
+  .sec-h2 { font-size: 40px; }
+
+  /* Hide carousel, show grid */
+  .how-carousel { overflow: visible; border-radius: 0; }
+  .how-track { display: grid !important; grid-template-columns: repeat(4,1fr); gap: 28px; transform: none !important; transition: none !important; }
+  .how-slide { flex: none; width: 100%; }
+  .how-dots { display: none; }
+  .step-n { font-size: 56px; }
+
+  .bring { display: grid; grid-template-columns: auto 1fr; gap: 0 48px; align-items: start; margin-top: 48px; padding: 28px 32px; }
+  .bring-h { grid-column: 1; white-space: nowrap; margin-bottom: 0; padding-top: 2px; }
+  .bring ul { grid-column: 2; gap: 10px; }
+
+  /* ── Stories: 3-col ── */
+  .stories { padding: 80px clamp(32px,5vw,80px) 12px; max-width: var(--content); margin: 0 auto; }
+  .stories .eyebrow, .stories .sec-h2 { padding: 0; }
+  .story-rail { overflow: visible; padding: 32px 0 8px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .story-card { flex: none; width: 100%; }
+  .story-avatar { width: 56px; height: 56px; font-size: 22px; }
+
+  /* ── After text: constrained ── */
+  .after { padding: 80px clamp(32px,5vw,80px); max-width: 100%; margin-top: 36px; }
+  .after-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; margin-top: 36px; }
+  .after-step { flex-direction: column; gap: 16px; }
+  .after-ic { margin-top: 0; }
+  .after-d { margin-top: 6px; }
+  .after > .btn-wa { max-width: 380px; margin: 36px auto 0; }
+
+  /* ── FAQ: 2-col ── */
+  .faq { padding: 80px clamp(32px,5vw,80px); max-width: var(--content); margin: 0 auto; }
+  .faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; }
+
+  /* ── Band ── */
+  .band { padding: 64px clamp(32px,5vw,80px); max-width: var(--content); margin: 0 auto; }
+  .band-cap { font-size: 26px; }
+
+  /* ── Footer: flat grid ── */
+  .ftr-nav { padding: 60px clamp(32px,5vw,80px) 40px; max-width: var(--content); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; align-items: start; }
+  .ftr-follow { padding-top: 0; }
+  /* Hide accordion triggers on desktop */
+  .ftr-sec { border: none; }
+  .ftr-sec > button { pointer-events: none; padding: 0 0 14px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); font-weight: 600; }
+  .ftr-sec > button svg { display: none; }
+  .ftr-items-wrap { display: block !important; grid-template-rows: unset !important; }
+  .ftr-items-inner { display: flex; flex-direction: column; gap: 2px; }
+  .ftr-items-inner a { padding: 5px 0; font-size: 13.5px; }
+  .ftr-rust { padding: 40px clamp(32px,5vw,80px) 60px; }
+  .ftr-rust-inner { max-width: var(--content); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: start; }
+
+  /* ── Sticky: center on desktop ── */
+  .sticky { max-width: 480px; left: 50%; transform: translateX(-50%); }
+}
+
+@media (min-width: 1100px) {
+  .hero-h1 { font-size: 88px; }
+  .result-num { font-size: 100px; }
+}
 </style>
 </head>
 <body>
-<div class="veda">
 
-  <!-- HEADER -->
-  <div class="topbar">
-    <header class="hdr">
+<!-- HEADER -->
+<div class="topbar">
+  <header class="hdr">
+    <div class="hdr-menu">
       <button class="icon-btn" aria-label="Menu">
         <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
-      <a href="index.html" aria-label="VEDA Home">
-        <svg viewBox="0 0 137.43 46.89" style="height:27px;width:auto;display:block">
-          <defs><style>.wm{fill:#8b402c}</style></defs>
-          <path class="wm" d="M12.32,22.32c.8.63,2.13,2.13,3.35,4.1,4.12,6.66,8.77,4.82,9.87,2.94,2.61-4.45-7.28-10.19-13.22-7.04h0Z"/>
-          <path class="wm" d="M12.56,23.19c-.21-.22-.41-.39-.64-.54-7.46,4.28-3.09,19.16-11.91,21.38,8.65,1.13,11.66-.49,12.8-4.73.7-2.58,2.65-10.82,2.54-11.94-.09-.87-2.08-3.45-2.78-4.18"/>
-          <path class="wm" d="M21.1,15.47c-1.01.36-1.36,1.06-1.46,1.42-.16.61-.33,1.23-.49,1.84.38-.5.58-.65,1.01-.74.44-.08,1.02-.12,1.3-.52.14-.21.15-.38.4-.52.21-.11.48-.14.72-.11,2.03.28,2.51,3.56,2.15,5.04-.19.79-.9,1.71-.9,1.71.15.17,1.91,1.06,2.51,3.55.86-1.58,1.28-2.77,1.33-4.31.16-4.84-3.34-8.51-6.57-7.36h0Z"/>
-          <path class="wm" d="M32.73,36.29H6.98c-.16,0-.29-.13-.29-.29V13.28c-.06-1.17.59-2.54,1.53-3.38.65-.55,1.4-.85,2.15-.81.03-1.04.52-2.05,1.37-2.83.75-.72,1.76-1.14,2.51-1.17.36-.91,1.4-1.14,2.38-1.4,1.46-.36,2.96-.72,3.06-2.96v-.42c0-.16.13-.29.29-.29s.29.13.29.29v.46c.1,2.21,1.43,2.57,2.86,2.93.94.26,1.95.52,2.28,1.4.75,0,1.76.46,2.51,1.17.85.78,1.33,1.79,1.37,2.83.72-.03,1.46.23,2.15.81.98.85,1.59,2.18,1.53,3.38v22.72c0,.06,0,.16-.1.2-.07.06-.13.1-.2.1h.06ZM7.24,35.7h25.16V13.28c.03-1.01-.49-2.18-1.33-2.93-.62-.52-1.33-.75-1.99-.62-.1,0-.2,0-.26-.06-.06-.06-.1-.13-.1-.23.1-1.33-.72-2.28-1.17-2.7-.81-.75-1.76-1.07-2.28-1.01-.16,0-.29-.06-.33-.23-.2-.72-.85-.91-1.95-1.2-1.14-.29-2.47-.62-3.03-2.05-.62,1.4-2.02,1.76-3.19,2.05-1.01.23-1.85.46-2.05,1.2-.03.13-.16.23-.33.23-.52-.06-1.46.26-2.28,1.01-.49.42-1.24,1.37-1.17,2.7,0,.1,0,.2-.1.23-.07.06-.16.1-.26.06-.65-.13-1.37.1-1.98.62-.85.72-1.4,1.92-1.33,2.93v22.42h-.03Z"/>
-          <path class="wm" d="M32.73,39.22H6.98c-.16,0-.29-.13-.29-.29v-2.93c0-.16.13-.29.29-.29h25.74c.16,0,.29.13.29.29v2.93c0,.16-.13.29-.29.29M7.24,38.63h25.16v-2.34H7.24v2.34Z"/>
-          <path class="wm" d="M32.73,45.53H6.98c-.16,0-.29-.13-.29-.29v-6.28c0-.16.13-.29.29-.29h25.74c.16,0,.29.13.29.29v6.28c0,.16-.13.29-.29.29M7.24,44.94h25.16v-5.73H7.24v5.73Z"/>
-          <path class="wm" d="M61.97,7.92c-.31,2.24-.95,4.77-3.2,10.44l-3.8,9.61-8-20.47h-3.58l10.35,26.12h.79l5.8-14.68c1.51-3.8,4.33-10.71,4.36-10.78l.27-.65h-2.93l-.06.41h0Z"/>
-          <path class="wm" d="M85.48,30.59c-.25.04-6.13,1.01-10.1,1.01h-1.73v-11.02h1.5c4.24,0,6.32.27,7.17.43h.63s0-2.38,0-2.38h-.63c-.88.17-2.83.37-7.17.37h-1.5v-10h1.7c3.02,0,6.18.32,9.4.94h.78s-.67-2.5-.67-2.5h-14.48v25.68h14.93l.93-2.55h-.76s0,0,0,0Z"/>
-          <path class="wm" d="M100.85,7.48h-8.8v25.68h8.48c1.55,0,3.1-.17,4.59-.59,1.33-.37,2.61-.94,3.75-1.72,1.14-.78,2.03-1.68,2.79-2.76.76-1.08,1.36-2.38,1.73-3.69.42-1.49.63-3.08.56-4.62-.07-1.54-.25-3.17-.78-4.7-.44-1.27-1.09-2.46-1.96-3.48s-1.9-1.84-3.07-2.47c-1.27-.69-2.66-1.13-4.08-1.38-1.06-.19-2.14-.26-3.21-.26M95.34,8.97h5.21c5.92,0,9.89,4.52,9.89,11.24v.48h.02c-.15,6.98-3.62,10.97-9.56,10.97-2.69,0-4.52-.07-5.56-.23V8.97Z"/>
-          <path class="wm" d="M127.1,7.02h-.79l-5.8,14.68-.6,1.51c-1.29,3.27-2.52,6.35-3.82,9.28l-.3.67h2.95l.06-.41c.29-1.94.78-4.01,2.2-7.78h9.68l3.19,8.16h3.55l-10.33-26.12h0ZM121.62,23.42l.42-1.11,3.78-9.64,4.24,10.75h-8.44Z"/>
-        </svg>
-      </a>
-      <div class="hdr-actions">
-        <button class="icon-btn" aria-label="Search"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button>
-        <button class="icon-btn" aria-label="Wishlist"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M12 21C12 21 3 13.5 3 8.5 3 5.42 5.42 3 8.5 3c1.74 0 3.41.81 3.5 2 .09-1.19 1.76-2 3.5-2C18.58 3 21 5.42 21 8.5c0 5-9 12.5-9 12.5Z"/></svg></button>
-        <button class="icon-btn" aria-label="Bag"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M6 2L3 6v14c0 .5.2 1 .6 1.4.36.4.87.6 1.4.6h14c.5 0 1-.2 1.4-.6.4-.4.6-.9.6-1.4V6L18 2H6Z"/><path d="M3 6h18"/><path d="M16 10c0 2.2-1.8 4-4 4-2.2 0-4-1.8-4-4"/></svg></button>
-        <button class="icon-btn" aria-label="Profile"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
-      </div>
-    </header>
-
-    <!-- Rate bar -->
-    <div class="ratebar">
-      <span class="dot"></span>
-      Today&apos;s 22K rate&nbsp;&nbsp;<strong id="rate-display">&#8377;7,500/g</strong>
-      <span class="rate-upd">updated just now</span>
     </div>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero reveal">
-    <div class="hero-peacock">
-      <svg viewBox="0 0 62.07 85.59" style="height:120px;width:auto">
-        <path fill="#8b402c" d="M23.15,41.95c1.5,1.19,4,4,6.29,7.71,7.75,12.51,16.49,9.05,18.56,5.52,4.91-8.36-13.68-19.16-24.86-13.24h0Z"/>
-        <path fill="#8b402c" d="M23.6,43.6c-.4-.42-.78-.73-1.21-1.01-14.02,8.04-5.81,36.01-22.39,40.19,16.27,2.12,21.91-.92,24.06-8.89,1.31-4.85,4.98-20.33,4.77-22.45-.17-1.63-3.92-6.49-5.22-7.85"/>
-        <path fill="#8b402c" d="M39.66,29.08c-1.89.68-2.56,2-2.74,2.67-.31,1.15-.61,2.31-.91,3.46.72-.95,1.08-1.23,1.9-1.38.83-.15,1.91-.22,2.44-.99.27-.39.28-.72.76-.98.4-.21.89-.27,1.35-.21,3.82.53,4.71,6.69,4.04,9.47-.36,1.49-1.7,3.22-1.7,3.22.27.32,3.6,2,4.72,6.68,1.62-2.97,2.41-5.21,2.51-8.11.3-9.09-6.27-16.01-12.35-13.83h0Z"/>
-        <path fill="#8b402c" d="M61.52,68.21H13.13c-.31,0-.55-.24-.55-.55V24.96c-.12-2.2,1.1-4.77,2.88-6.36,1.22-1.04,2.63-1.59,4.04-1.53.06-1.96.98-3.85,2.57-5.32,1.41-1.35,3.3-2.14,4.71-2.2.67-1.71,2.63-2.14,4.47-2.63,2.75-.67,5.57-1.35,5.75-5.57v-.8c0-.31.24-.55.55-.55s.55.24.55.55v.86c.18,4.16,2.69,4.83,5.38,5.51,1.77.49,3.67.98,4.28,2.63,1.41,0,3.3.86,4.71,2.2,1.59,1.47,2.51,3.36,2.57,5.32,1.35-.06,2.75.43,4.04,1.53,1.84,1.59,3,4.1,2.88,6.36v42.7c0,.12,0,.31-.18.37-.12.12-.24.18-.37.18h.12ZM13.62,67.11h47.29V24.96c.06-1.9-.92-4.1-2.51-5.51-1.16-.98-2.51-1.41-3.73-1.16-.18,0-.37,0-.49-.12-.12-.12-.18-.24-.18-.43.18-2.51-1.35-4.28-2.2-5.08-1.53-1.41-3.3-2.02-4.28-1.9-.31,0-.55-.12-.61-.43-.37-1.35-1.59-1.71-3.67-2.26-2.14-.55-4.65-1.16-5.69-3.85-1.16,2.63-3.79,3.3-6,3.85-1.9.43-3.49.86-3.85,2.26-.06.24-.31.43-.61.43-.98-.12-2.75.49-4.28,1.9-.92.79-2.33,2.57-2.2,5.08,0,.18,0,.37-.18.43-.12.12-.31.18-.49.12-1.22-.24-2.57.18-3.73,1.16-1.59,1.35-2.63,3.61-2.51,5.51v42.15h-.06Z"/>
-        <path fill="#8b402c" d="M61.52,73.72H13.13c-.31,0-.55-.24-.55-.55v-5.51c0-.31.25-.55.55-.55h48.39c.31,0,.55.25.55.55v5.51c0,.31-.24.55-.55.55M13.62,72.62h47.29v-4.4H13.62v4.4Z"/>
-        <path fill="#8b402c" d="M61.52,85.59H13.13c-.31,0-.55-.24-.55-.55v-11.81c0-.31.25-.55.55-.55h48.39c.31,0,.55.24.55.55v11.81c0,.31-.24.55-.55.55M13.62,84.49h47.29v-10.77H13.62v10.77Z"/>
+    <a href="index.html" class="hdr-logo" aria-label="VEDA Home">
+      <svg viewBox="0 0 137.43 46.89" style="height:27px;width:auto;display:block">
+        <defs><style>.wm{fill:#8b402c}</style></defs>
+        <path class="wm" d="M12.32,22.32c.8.63,2.13,2.13,3.35,4.1,4.12,6.66,8.77,4.82,9.87,2.94,2.61-4.45-7.28-10.19-13.22-7.04h0Z"/>
+        <path class="wm" d="M12.56,23.19c-.21-.22-.41-.39-.64-.54-7.46,4.28-3.09,19.16-11.91,21.38,8.65,1.13,11.66-.49,12.8-4.73.7-2.58,2.65-10.82,2.54-11.94-.09-.87-2.08-3.45-2.78-4.18"/>
+        <path class="wm" d="M21.1,15.47c-1.01.36-1.36,1.06-1.46,1.42-.16.61-.33,1.23-.49,1.84.38-.5.58-.65,1.01-.74.44-.08,1.02-.12,1.3-.52.14-.21.15-.38.4-.52.21-.11.48-.14.72-.11,2.03.28,2.51,3.56,2.15,5.04-.19.79-.9,1.71-.9,1.71.15.17,1.91,1.06,2.51,3.55.86-1.58,1.28-2.77,1.33-4.31.16-4.84-3.34-8.51-6.57-7.36h0Z"/>
+        <path class="wm" d="M32.73,36.29H6.98c-.16,0-.29-.13-.29-.29V13.28c-.06-1.17.59-2.54,1.53-3.38.65-.55,1.4-.85,2.15-.81.03-1.04.52-2.05,1.37-2.83.75-.72,1.76-1.14,2.51-1.17.36-.91,1.4-1.14,2.38-1.4,1.46-.36,2.96-.72,3.06-2.96v-.42c0-.16.13-.29.29-.29s.29.13.29.29v.46c.1,2.21,1.43,2.57,2.86,2.93.94.26,1.95.52,2.28,1.4.75,0,1.76.46,2.51,1.17.85.78,1.33,1.79,1.37,2.83.72-.03,1.46.23,2.15.81.98.85,1.59,2.18,1.53,3.38v22.72c0,.06,0,.16-.1.2-.07.06-.13.1-.2.1h.06ZM7.24,35.7h25.16V13.28c.03-1.01-.49-2.18-1.33-2.93-.62-.52-1.33-.75-1.99-.62-.1,0-.2,0-.26-.06-.06-.06-.1-.13-.1-.23.1-1.33-.72-2.28-1.17-2.7-.81-.75-1.76-1.07-2.28-1.01-.16,0-.29-.06-.33-.23-.2-.72-.85-.91-1.95-1.2-1.14-.29-2.47-.62-3.03-2.05-.62,1.4-2.02,1.76-3.19,2.05-1.01.23-1.85.46-2.05,1.2-.03.13-.16.23-.33.23-.52-.06-1.46.26-2.28,1.01-.49.42-1.24,1.37-1.17,2.7,0,.1,0,.2-.1.23-.07.06-.16.1-.26.06-.65-.13-1.37.1-1.98.62-.85.72-1.4,1.92-1.33,2.93v22.42h-.03Z"/>
+        <path class="wm" d="M32.73,39.22H6.98c-.16,0-.29-.13-.29-.29v-2.93c0-.16.13-.29.29-.29h25.74c.16,0,.29.13.29.29v2.93c0,.16-.13.29-.29.29M7.24,38.63h25.16v-2.34H7.24v2.34Z"/>
+        <path class="wm" d="M32.73,45.53H6.98c-.16,0-.29-.13-.29-.29v-6.28c0-.16.13-.29.29-.29h25.74c.16,0,.29.13.29.29v6.28c0,.16-.13.29-.29.29M7.24,44.94h25.16v-5.73H7.24v5.73Z"/>
+        <path class="wm" d="M61.97,7.92c-.31,2.24-.95,4.77-3.2,10.44l-3.8,9.61-8-20.47h-3.58l10.35,26.12h.79l5.8-14.68c1.51-3.8,4.33-10.71,4.36-10.78l.27-.65h-2.93l-.06.41h0Z"/>
+        <path class="wm" d="M85.48,30.59c-.25.04-6.13,1.01-10.1,1.01h-1.73v-11.02h1.5c4.24,0,6.32.27,7.17.43h.63s0-2.38,0-2.38h-.63c-.88.17-2.83.37-7.17.37h-1.5v-10h1.7c3.02,0,6.18.32,9.4.94h.78s-.67-2.5-.67-2.5h-14.48v25.68h14.93l.93-2.55h-.76s0,0,0,0Z"/>
+        <path class="wm" d="M100.85,7.48h-8.8v25.68h8.48c1.55,0,3.1-.17,4.59-.59,1.33-.37,2.61-.94,3.75-1.72,1.14-.78,2.03-1.68,2.79-2.76.76-1.08,1.36-2.38,1.73-3.69.42-1.49.63-3.08.56-4.62-.07-1.54-.25-3.17-.78-4.7-.44-1.27-1.09-2.46-1.96-3.48s-1.9-1.84-3.07-2.47c-1.27-.69-2.66-1.13-4.08-1.38-1.06-.19-2.14-.26-3.21-.26M95.34,8.97h5.21c5.92,0,9.89,4.52,9.89,11.24v.48h.02c-.15,6.98-3.62,10.97-9.56,10.97-2.69,0-4.52-.07-5.56-.23V8.97Z"/>
+        <path class="wm" d="M127.1,7.02h-.79l-5.8,14.68-.6,1.51c-1.29,3.27-2.52,6.35-3.82,9.28l-.3.67h2.95l.06-.41c.29-1.94.78-4.01,2.2-7.78h9.68l3.19,8.16h3.55l-10.33-26.12h0ZM121.62,23.42l.42-1.11,3.78-9.64,4.24,10.75h-8.44Z"/>
       </svg>
+    </a>
+    <nav class="hdr-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="make-to-order.html">Make To Order</a>
+      <a href="old-gold-exchange.html" style="color:var(--rust)">Old Gold</a>
+      <a href="vsvp.html">VSVP</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="hdr-actions">
+      <button class="icon-btn" aria-label="Search"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button>
+      <button class="icon-btn" aria-label="Wishlist"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M12 21C12 21 3 13.5 3 8.5 3 5.42 5.42 3 8.5 3c1.74 0 3.41.81 3.5 2 .09-1.19 1.76-2 3.5-2C18.58 3 21 5.42 21 8.5c0 5-9 12.5-9 12.5Z"/></svg></button>
+      <button class="icon-btn" aria-label="Bag"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M6 2L3 6v14c0 .5.2 1 .6 1.4.36.4.87.6 1.4.6h14c.5 0 1-.2 1.4-.6.4-.4.6-.9.6-1.4V6L18 2H6Z"/><path d="M3 6h18"/><path d="M16 10c0 2.2-1.8 4-4 4-2.2 0-4-1.8-4-4"/></svg></button>
     </div>
-    <p class="eyebrow">Old Gold Exchange</p>
-    <h1 class="hero-h1">Give your gold<br>a new life</h1>
-    <p class="hero-sub">Old or unworn gold, valued openly at today&apos;s rate. See what yours is worth.</p>
+  </header>
+  <div class="ratebar">
+    Today&apos;s 22K rate &nbsp;<strong id="rate-display">&#8377;7,500/g</strong>
+    <span class="rate-upd">— indicative rate</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero reveal">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-peacock">
+        <svg viewBox="0 0 62.07 85.59" style="height:110px;width:auto">
+          <path fill="#8b402c" d="M23.15,41.95c1.5,1.19,4,4,6.29,7.71,7.75,12.51,16.49,9.05,18.56,5.52,4.91-8.36-13.68-19.16-24.86-13.24h0Z"/>
+          <path fill="#8b402c" d="M23.6,43.6c-.4-.42-.78-.73-1.21-1.01-14.02,8.04-5.81,36.01-22.39,40.19,16.27,2.12,21.91-.92,24.06-8.89,1.31-4.85,4.98-20.33,4.77-22.45-.17-1.63-3.92-6.49-5.22-7.85"/>
+          <path fill="#8b402c" d="M39.66,29.08c-1.89.68-2.56,2-2.74,2.67-.31,1.15-.61,2.31-.91,3.46.72-.95,1.08-1.23,1.9-1.38.83-.15,1.91-.22,2.44-.99.27-.39.28-.72.76-.98.4-.21.89-.27,1.35-.21,3.82.53,4.71,6.69,4.04,9.47-.36,1.49-1.7,3.22-1.7,3.22.27.32,3.6,2,4.72,6.68,1.62-2.97,2.41-5.21,2.51-8.11.3-9.09-6.27-16.01-12.35-13.83h0Z"/>
+          <path fill="#8b402c" d="M61.52,68.21H13.13c-.31,0-.55-.24-.55-.55V24.96c-.12-2.2,1.1-4.77,2.88-6.36,1.22-1.04,2.63-1.59,4.04-1.53.06-1.96.98-3.85,2.57-5.32,1.41-1.35,3.3-2.14,4.71-2.2.67-1.71,2.63-2.14,4.47-2.63,2.75-.67,5.57-1.35,5.75-5.57v-.8c0-.31.24-.55.55-.55s.55.24.55.55v.86c.18,4.16,2.69,4.83,5.38,5.51,1.77.49,3.67.98,4.28,2.63,1.41,0,3.3.86,4.71,2.2,1.59,1.47,2.51,3.36,2.57,5.32,1.35-.06,2.75.43,4.04,1.53,1.84,1.59,3,4.1,2.88,6.36v42.7c0,.12,0,.31-.18.37-.12.12-.24.18-.37.18h.12ZM13.62,67.11h47.29V24.96c.06-1.9-.92-4.1-2.51-5.51-1.16-.98-2.51-1.41-3.73-1.16-.18,0-.37,0-.49-.12-.12-.12-.18-.24-.18-.43.18-2.51-1.35-4.28-2.2-5.08-1.53-1.41-3.3-2.02-4.28-1.9-.31,0-.55-.12-.61-.43-.37-1.35-1.59-1.71-3.67-2.26-2.14-.55-4.65-1.16-5.69-3.85-1.16,2.63-3.79,3.3-6,3.85-1.9.43-3.49.86-3.85,2.26-.06.24-.31.43-.61.43-.98-.12-2.75.49-4.28,1.9-.92.79-2.33,2.57-2.2,5.08,0,.18,0,.37-.18.43-.12.12-.31.18-.49.12-1.22-.24-2.57.18-3.73,1.16-1.59,1.35-2.63,3.61-2.51,5.51v42.15h-.06Z"/>
+          <path fill="#8b402c" d="M61.52,73.72H13.13c-.31,0-.55-.24-.55-.55v-5.51c0-.31.25-.55.55-.55h48.39c.31,0,.55.25.55.55v5.51c0,.31-.24.55-.55.55M13.62,72.62h47.29v-4.4H13.62v4.4Z"/>
+          <path fill="#8b402c" d="M61.52,85.59H13.13c-.31,0-.55-.24-.55-.55v-11.81c0-.31.25-.55.55-.55h48.39c.31,0,.55.24.55.55v11.81c0,.31-.24.55-.55.55M13.62,84.49h47.29v-10.77H13.62v10.77Z"/>
+        </svg>
+      </div>
+      <p class="eyebrow hero-eyebrow">Old Gold Exchange</p>
+      <h1 class="hero-h1">Give your gold<br>a new life</h1>
+      <p class="hero-sub">Old or unworn gold, valued openly at today&apos;s rate. See what yours is worth.</p>
+      <ul class="trust-strip">
+        <li><span class="trust-line"></span>Transparent, itemised valuation</li>
+        <li><span class="trust-line"></span>BIS certified, tested in front of you</li>
+        <li><span class="trust-line"></span>No hidden deductions</li>
+      </ul>
+    </div>
     <div class="hero-img">
       <img src="assets/images/gold-bangles.png" alt="Old gold jewellery">
     </div>
-  </section>
-
-  <!-- CALCULATOR -->
-  <section class="calc reveal">
-    <h2 class="sec-h2 center calc-h">What is your gold<br>worth today?</h2>
-    <div class="calc-card">
-
-      <label class="fld-label">Weight of gold</label>
-      <div class="slider-row">
-        <input type="range" min="1" max="100" value="10" id="calc-slider" class="slider">
-        <div class="grams-out"><span id="gram-val">10</span>g</div>
-      </div>
-
-      <label class="fld-label">Purity</label>
-      <div class="purity-row" id="purity-row">
-        <button class="purity-pill on" data-idx="0" data-factor="1.0">
-          <span class="pp-label">22K</span><span class="pp-sub">91.6% pure</span>
-        </button>
-        <button class="purity-pill" data-idx="1" data-factor="0.818">
-          <span class="pp-label">18K</span><span class="pp-sub">75.0% pure</span>
-        </button>
-        <button class="purity-pill" data-idx="2" data-factor="1.090">
-          <span class="pp-label">24K</span><span class="pp-sub">99.9% pure</span>
-        </button>
-        <button class="purity-pill" data-idx="3" data-factor="null">
-          <span class="pp-label">Not sure</span><span class="pp-sub">we will test it</span>
-        </button>
-      </div>
-
-      <div class="mode-toggle" id="mode-toggle">
-        <button class="on" id="btn-exchange" onclick="setMode('exchange')">Exchange value</button>
-        <button id="btn-cash" onclick="setMode('cash')">Cash value</button>
-      </div>
-
-      <div class="result" id="result-area">
-        <p class="result-cap" id="result-cap">Estimated exchange value</p>
-        <p class="result-num" id="result-num">&#8377;75,000</p>
-        <p class="result-math" id="result-math">10g &middot; 22K &middot; &#8377;7,500/g</p>
-        <p class="result-hint" id="result-hint">Exchange is worth &#8377;4,500 more than cash on this piece.</p>
-      </div>
-
-      <a class="btn-wa" id="wa-link" href="#">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
-        Text this on WhatsApp
-      </a>
-      <p class="result-foot">Indicative only. Final value confirmed at the counter, with you watching.</p>
-    </div>
-
-    <ul class="trust-strip">
-      <li><span class="tick"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>Transparent, itemised valuation</li>
-      <li><span class="tick"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>BIS certified, tested in front of you</li>
-      <li><span class="tick"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>No hidden deductions</li>
-    </ul>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how reveal">
-    <p class="eyebrow center">How it works</p>
-    <h2 class="sec-h2 center">Nothing happens<br>out of your sight</h2>
-    <div class="how-carousel">
-      <div class="how-track" id="how-track">
-        <div class="how-slide">
-          <div class="how-slide-img"><img src="assets/images/artisan-crafting.png" alt="Step 01"></div>
-          <div class="step-body"><span class="step-n">01</span><h3 class="step-t">Bring it in</h3><p class="step-d">Any gold. Broken, old, unhallmarked, a single earring. Bill or no bill.</p></div>
-        </div>
-        <div class="how-slide">
-          <div class="how-slide-img"><img src="assets/images/gold-bangles.png" alt="Step 02"></div>
-          <div class="step-body"><span class="step-n">02</span><h3 class="step-t">Tested in front of you</h3><p class="step-d">A karatmeter reads the exact purity without cutting or melting your piece. You watch every reading.</p></div>
-        </div>
-        <div class="how-slide">
-          <div class="how-slide-img"><img src="assets/images/gold-earrings.png" alt="Step 03"></div>
-          <div class="step-body"><span class="step-n">03</span><h3 class="step-t">Weighed openly</h3><p class="step-d">Net gold weight on the scale, in the open, no back room.</p></div>
-        </div>
-        <div class="how-slide">
-          <div class="how-slide-img"><img src="assets/images/bridal-set.png" alt="Step 04"></div>
-          <div class="step-body"><span class="step-n">04</span><h3 class="step-t">Your value, your call</h3><p class="step-d">Take it as exchange or cash. Nothing is final until you say yes. Walk away anytime.</p></div>
-        </div>
-      </div>
-    </div>
-    <div class="how-dots" id="how-dots">
-      <button class="how-dot on" onclick="jumpSlide(0)"></button>
-      <button class="how-dot" onclick="jumpSlide(1)"></button>
-      <button class="how-dot" onclick="jumpSlide(2)"></button>
-      <button class="how-dot" onclick="jumpSlide(3)"></button>
-    </div>
-    <div class="bring">
-      <p class="bring-h">What to bring</p>
-      <ul>
-        <li><svg width="14" height="14" fill="none" stroke="#8B3F2C" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Your gold, in any condition</li>
-        <li><svg width="14" height="14" fill="none" stroke="#8B3F2C" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> PAN card (needed above a set value)</li>
-        <li><svg width="14" height="14" fill="none" stroke="#8B3F2C" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Original bill, only if you still have it</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- STORIES -->
-  <section class="stories reveal">
-    <p class="eyebrow center">From our counter</p>
-    <h2 class="sec-h2 center">People who<br>did this before you</h2>
-    <div class="story-rail">
-      <div class="story-card">
-        <div class="story-avatar"></div>
-        <p class="story-line">&ldquo;Turned my mother&apos;s worn bangles into value I could see being counted.&rdquo;</p>
-        <p class="story-name">Lakshmi R.</p>
-      </div>
-      <div class="story-card">
-        <div class="story-avatar"></div>
-        <p class="story-line">&ldquo;They tested it in front of me and let me leave to think. No pressure at all.&rdquo;</p>
-        <p class="story-name">Anitha K.</p>
-      </div>
-      <div class="story-card">
-        <div class="story-avatar"></div>
-        <p class="story-line">&ldquo;The estimate on the site was exactly what I got at the store.&rdquo;</p>
-        <p class="story-name">Priya S.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- AFTER TEXT -->
-  <section class="after reveal">
-    <p class="eyebrow center">What happens next</p>
-    <h2 class="sec-h2 center">One text.<br>That is the whole step.</h2>
-    <div class="after-steps">
-      <div class="after-step">
-        <span class="after-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
-        <div><p class="after-t">You text us</p><p class="after-d">Send your estimate or just a question.</p></div>
-      </div>
-      <div class="after-step">
-        <span class="after-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9M12 8v4l3 3"/><path d="M3 3l18 18" opacity=".3"/></svg></span>
-        <div><p class="after-t">We value it with you</p><p class="after-d">Purity tested, weight shown, all in the open.</p></div>
-      </div>
-      <div class="after-step">
-        <span class="after-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M2 12h2M20 12h2M12 2v2M12 20v2"/></svg></span>
-        <div><p class="after-t">You decide, no rush</p><p class="after-d">Take the value or take your gold home. Your call.</p></div>
-      </div>
-    </div>
-    <a class="btn-wa" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20would%20like%20to%20know%20what%20my%20old%20gold%20is%20worth.">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
-      Start on WhatsApp
-    </a>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq reveal">
-    <p class="eyebrow center">Questions</p>
-    <h2 class="sec-h2 center">Good to know</h2>
-    <div class="faq-list" id="faq-list"></div>
-  </section>
-
-  <!-- IMAGE BAND -->
-  <section class="band reveal">
-    <div class="band-img"><img src="assets/images/artisan-crafting.png" alt="Old gold, weighed"></div>
-    <p class="band-cap">Every gram, in the open.</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="ftr">
-    <div class="ftr-nav" id="ftr-nav"></div>
-    <div class="ftr-rust">
-      <p class="fr-eyebrow">Visit us</p>
-      <p class="fr-addr">HSR Layout, Bengaluru</p>
-      <p class="fr-hours">
-        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        Mon to Sat, 11am to 8pm
-      </p>
-      <div class="fr-btns">
-        <a class="fr-btn solid" href="https://maps.google.com/?q=VEDA+Jewel+HSR+Layout+Bengaluru">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          Find our store
-        </a>
-        <a class="fr-btn ghost" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20have%20a%20question.">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
-          WhatsApp us
-        </a>
-      </div>
-      <div class="fr-quick">
-        <a href="#">Gold Rate Today</a><span>&middot;</span>
-        <a href="old-gold-exchange.html">Old Gold Exchange</a><span>&middot;</span>
-        <a href="make-to-order.html">Made to Order</a>
-      </div>
-      <p class="fr-fine">VEDA Jewel &copy; 2026</p>
-    </div>
-  </footer>
-
-  <!-- STICKY CTA -->
-  <div class="sticky">
-    <a class="btn-wa" id="sticky-wa" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20would%20like%20to%20know%20what%20my%20old%20gold%20is%20worth.">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
-      Value my gold on WhatsApp
-    </a>
   </div>
+</section>
 
-</div><!-- /.veda -->
+<!-- CALCULATOR -->
+<section class="calc reveal">
+  <h2 class="calc-h">What is your gold<br>worth today?</h2>
+  <div class="calc-card">
+    <label class="fld-label">Weight of gold</label>
+    <div class="slider-row">
+      <input type="range" min="1" max="100" value="10" id="calc-slider" class="slider">
+      <div class="grams-out"><span id="gram-val">10</span>g</div>
+    </div>
+
+    <label class="fld-label">Purity</label>
+    <div class="purity-row" id="purity-row">
+      <button class="purity-pill on" data-idx="0" data-factor="1.0">
+        <span class="pp-label">22K</span><span class="pp-sub">91.6% pure</span>
+      </button>
+      <button class="purity-pill" data-idx="1" data-factor="0.818">
+        <span class="pp-label">18K</span><span class="pp-sub">75.0% pure</span>
+      </button>
+      <button class="purity-pill" data-idx="2" data-factor="1.090">
+        <span class="pp-label">24K</span><span class="pp-sub">99.9% pure</span>
+      </button>
+      <button class="purity-pill" data-idx="3" data-factor="null">
+        <span class="pp-label">Not sure</span><span class="pp-sub">we will test it</span>
+      </button>
+    </div>
+
+    <div class="mode-toggle" id="mode-toggle">
+      <button class="on" id="btn-exchange" onclick="setMode('exchange')">Exchange value</button>
+      <button id="btn-cash" onclick="setMode('cash')">Cash value</button>
+    </div>
+
+    <div class="result" id="result-area">
+      <p class="result-cap" id="result-cap">Estimated exchange value</p>
+      <p class="result-num" id="result-num">&#8377;75,000</p>
+      <p class="result-math" id="result-math">10g &middot; 22K &middot; &#8377;7,500/g</p>
+      <p class="result-hint" id="result-hint">Exchange is worth &#8377;4,500 more than cash on this piece.</p>
+    </div>
+
+    <a class="btn-wa" id="wa-link" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
+      Text this on WhatsApp
+    </a>
+    <p class="result-foot">Indicative only. Final value confirmed at the counter, with you watching.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how reveal">
+  <p class="eyebrow center">How it works</p>
+  <h2 class="sec-h2 center">Nothing happens<br>out of your sight</h2>
+  <div class="how-carousel">
+    <div class="how-track" id="how-track">
+      <div class="how-slide">
+        <div class="how-slide-img"><img src="assets/images/artisan-crafting.png" alt="Step 01"></div>
+        <div class="step-body"><span class="step-n">01</span><h3 class="step-t">Bring it in</h3><p class="step-d">Any gold. Broken, old, unhallmarked, a single earring. Bill or no bill.</p></div>
+      </div>
+      <div class="how-slide">
+        <div class="how-slide-img"><img src="assets/images/gold-bangles.png" alt="Step 02"></div>
+        <div class="step-body"><span class="step-n">02</span><h3 class="step-t">Tested in front of you</h3><p class="step-d">A karatmeter reads the exact purity without cutting or melting your piece. You watch every reading.</p></div>
+      </div>
+      <div class="how-slide">
+        <div class="how-slide-img"><img src="assets/images/gold-earrings.png" alt="Step 03"></div>
+        <div class="step-body"><span class="step-n">03</span><h3 class="step-t">Weighed openly</h3><p class="step-d">Net gold weight on the scale, in the open, no back room.</p></div>
+      </div>
+      <div class="how-slide">
+        <div class="how-slide-img"><img src="assets/images/bridal-set.png" alt="Step 04"></div>
+        <div class="step-body"><span class="step-n">04</span><h3 class="step-t">Your value, your call</h3><p class="step-d">Take it as exchange or cash. Nothing is final until you say yes. Walk away anytime.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="how-dots" id="how-dots">
+    <button class="how-dot on" onclick="jumpSlide(0)"></button>
+    <button class="how-dot" onclick="jumpSlide(1)"></button>
+    <button class="how-dot" onclick="jumpSlide(2)"></button>
+    <button class="how-dot" onclick="jumpSlide(3)"></button>
+  </div>
+  <div class="bring">
+    <p class="bring-h">What to bring</p>
+    <ul>
+      <li>Your gold, in any condition</li>
+      <li>PAN card (needed above a set value)</li>
+      <li>Original bill, only if you still have it</li>
+    </ul>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="stories reveal">
+  <p class="eyebrow center">From our counter</p>
+  <h2 class="sec-h2 center">People who<br>did this before you</h2>
+  <div class="story-rail">
+    <div class="story-card">
+      <div class="story-avatar">L</div>
+      <p class="story-line">&ldquo;Turned my mother&apos;s worn bangles into value I could see being counted.&rdquo;</p>
+      <p class="story-name">Lakshmi, Bengaluru</p>
+    </div>
+    <div class="story-card">
+      <div class="story-avatar">A</div>
+      <p class="story-line">&ldquo;They tested it in front of me and let me leave to think. No pressure at all.&rdquo;</p>
+      <p class="story-name">Anitha, HSR Layout</p>
+    </div>
+    <div class="story-card">
+      <div class="story-avatar">P</div>
+      <p class="story-line">&ldquo;The estimate on the site was exactly what I got at the store. Rare honesty.&rdquo;</p>
+      <p class="story-name">Priya, Koramangala</p>
+    </div>
+  </div>
+</section>
+
+<!-- AFTER TEXT -->
+<section class="after reveal">
+  <p class="eyebrow center">What happens next</p>
+  <h2 class="sec-h2 center">One text.<br>That is the whole step.</h2>
+  <div class="after-steps">
+    <div class="after-step">
+      <span class="after-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
+      <div><p class="after-t">You text us</p><p class="after-d">Send your estimate or just a question. A real person replies.</p></div>
+    </div>
+    <div class="after-step">
+      <span class="after-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 22V12M12 12L8 16M12 12l4 4"/><circle cx="12" cy="8" r="4"/></svg></span>
+      <div><p class="after-t">We value it with you</p><p class="after-d">Purity tested, weight shown, rate applied — all in the open.</p></div>
+    </div>
+    <div class="after-step">
+      <span class="after-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span>
+      <div><p class="after-t">You decide, no rush</p><p class="after-d">Take the value as exchange or cash. Walk away if you want. Your call, always.</p></div>
+    </div>
+  </div>
+  <a class="btn-wa" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20would%20like%20to%20know%20what%20my%20old%20gold%20is%20worth.">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
+    Start on WhatsApp
+  </a>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal">
+  <p class="eyebrow center">Questions</p>
+  <h2 class="sec-h2 center">Good to know</h2>
+  <div class="faq-list" id="faq-list"></div>
+</section>
+
+<!-- IMAGE BAND -->
+<section class="band reveal">
+  <div class="band-img"><img src="assets/images/artisan-crafting.png" alt="Old gold, weighed"></div>
+  <p class="band-cap">Every gram, in the open.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-nav" id="ftr-nav"></div>
+  <div class="ftr-rust">
+    <div class="ftr-rust-inner">
+      <div>
+        <p class="fr-eyebrow">Visit us</p>
+        <p class="fr-addr">HSR Layout,<br>Bengaluru</p>
+        <p class="fr-hours">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Mon to Sat, 11am to 8pm
+        </p>
+        <div class="fr-btns">
+          <a class="fr-btn solid" href="https://maps.google.com/?q=VEDA+Jewel+HSR+Layout+Bengaluru">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Find our store
+          </a>
+          <a class="fr-btn ghost" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20have%20a%20question.">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
+            WhatsApp us
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="fr-quick" style="flex-direction:column;align-items:flex-start;gap:10px;font-size:14px">
+          <a href="index.html" style="color:rgba(255,248,230,.8)">Home</a>
+          <a href="make-to-order.html" style="color:rgba(255,248,230,.8)">Made to Order</a>
+          <a href="old-gold-exchange.html" style="color:rgba(255,248,230,.8)">Old Gold Exchange</a>
+          <a href="vsvp.html" style="color:rgba(255,248,230,.8)">VSVP Plan</a>
+          <a href="about.html" style="color:rgba(255,248,230,.8)">About VEDA</a>
+        </div>
+        <p class="fr-fine" style="margin-top:32px">VEDA Jewel &copy; 2026</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky">
+  <a class="btn-wa" id="sticky-wa" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20would%20like%20to%20know%20what%20my%20old%20gold%20is%20worth.">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
+    Value my gold on WhatsApp
+  </a>
+</div>
 
 <script>
 var WA = "919187204025";
@@ -460,7 +567,6 @@ var notSure = false;
 function inr(n) { return "₹" + Math.round(n).toLocaleString("en-IN"); }
 function waUrl(msg) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); }
 
-// Calculator
 document.getElementById("calc-slider").addEventListener("input", function() {
   grams = +this.value;
   document.getElementById("gram-val").textContent = grams;
@@ -474,7 +580,6 @@ document.querySelectorAll(".purity-pill").forEach(function(btn) {
     var f = this.dataset.factor;
     notSure = f === "null";
     purityFactor = notSure ? 0 : parseFloat(f);
-    var karat = this.querySelector(".pp-label").textContent;
     document.getElementById("mode-toggle").style.display = notSure ? "none" : "flex";
     updateCalc();
   });
@@ -496,11 +601,9 @@ function updateCalc() {
     document.getElementById("result-cap").textContent = "Not sure of purity";
     document.getElementById("result-num").textContent = "We test it, free";
     document.getElementById("result-num").className = "result-num sm";
-    document.getElementById("result-math").textContent = "A quick non damaging test tells you the exact karat before anything is decided.";
+    document.getElementById("result-math").textContent = "A quick non-damaging test tells you the exact karat before anything is decided.";
     document.getElementById("result-hint").style.display = "none";
-    var msg = "Hi VEDA, I have about " + grams + "g of gold but I am not sure of its purity. Can you help me value it?";
-    document.getElementById("wa-link").href = waUrl(msg);
-    document.getElementById("sticky-wa").href = waUrl("Hi VEDA, I would like to know what my old gold is worth.");
+    document.getElementById("wa-link").href = waUrl("Hi VEDA, I have about " + grams + "g of gold but I am not sure of its purity. Can you help me value it?");
   } else {
     document.getElementById("result-cap").textContent = "Estimated " + mode + " value";
     document.getElementById("result-num").textContent = inr(value);
@@ -513,16 +616,13 @@ function updateCalc() {
     } else {
       hint.style.display = "none";
     }
-    var msg2 = "Hi VEDA, I have about " + grams + "g of " + purityLabel + " gold. I saw an estimate of " + inr(value) + " for " + mode + ". I would like to know more.";
-    document.getElementById("wa-link").href = waUrl(msg2);
+    document.getElementById("wa-link").href = waUrl("Hi VEDA, I have about " + grams + "g of " + purityLabel + " gold. I saw an estimate of " + inr(value) + " for " + mode + ". I would like to know more.");
   }
 }
 updateCalc();
 
-// Carousel
-var slideIdx = 0;
-var rounds = 0;
-var timer;
+// Carousel (mobile only — grid takes over on desktop)
+var slideIdx = 0, rounds = 0, timer;
 function setSlide(i) {
   slideIdx = i;
   document.getElementById("how-track").style.transform = "translateX(-" + (i * 100) + "%)";
@@ -554,7 +654,7 @@ var faqList = document.getElementById("faq-list");
 faqs.forEach(function(f, i) {
   var card = document.createElement("div");
   card.className = "faq-card";
-  card.innerHTML = '<button class="faq-q"><span>' + f[0] + '</span><svg class="chev" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a-wrap"><div class="faq-a-inner"><p>' + f[1] + '</p></div></div>';
+  card.innerHTML = '<button class="faq-q"><span>' + f[0] + '</span><svg class="chev" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a-wrap"><div class="faq-a-inner"><p>' + f[1] + '</p></div></div>';
   card.querySelector("button").addEventListener("click", function() {
     var was = openFaq === i;
     document.querySelectorAll(".faq-card").forEach(function(c) { c.classList.remove("open"); });
@@ -564,13 +664,12 @@ faqs.forEach(function(f, i) {
   faqList.appendChild(card);
 });
 
-// Footer nav
+// Footer nav (mobile accordion only)
 var footNav = [
   { t: "Our Story", items: [["About VEDA","about.html"],["Craftsmanship","#"],["Philosophy","#"]] },
-  { t: "Collections", items: [["Necklaces","#"],["Earrings","#"],["Bangles","#"],["Made to Order","make-to-order.html"]] },
-  { t: "Visit Us", items: [["HSR Layout store","#"],["Find our store","https://maps.google.com/?q=VEDA+Jewel+HSR+Layout+Bengaluru"]] },
-  { t: "Support", items: [["Contact","#"],["WhatsApp us","https://wa.me/919187204025"],["Care guide","#"]] },
-  { t: "Legal", items: [["Terms","#"],["Privacy","#"],["Hallmarking","#"]] }
+  { t: "Collections", items: [["Necklaces","#"],["Earrings","#"],["Made to Order","make-to-order.html"]] },
+  { t: "Visit Us", items: [["HSR Layout store","#"],["Find on maps","https://maps.google.com/?q=VEDA+Jewel+HSR+Layout+Bengaluru"]] },
+  { t: "Support", items: [["Contact","#"],["WhatsApp","https://wa.me/919187204025"]] }
 ];
 var openFtr = -1;
 var ftrNav = document.getElementById("ftr-nav");
@@ -587,15 +686,11 @@ footNav.forEach(function(s, i) {
   });
   ftrNav.appendChild(sec);
 });
-var follow = document.createElement("div");
-follow.className = "ftr-follow";
-follow.innerHTML = '<p>Follow us</p><div class="ftr-social"><a href="#">Instagram</a><a href="#">Facebook</a></div>';
-ftrNav.appendChild(follow);
 
 // Scroll reveal
 var ro = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add("in"); ro.unobserve(e.target); } });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 document.querySelectorAll(".reveal").forEach(function(el) { ro.observe(el); });
 </script>
 </body>
