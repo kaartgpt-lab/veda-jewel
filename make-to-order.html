@@ -16,14 +16,16 @@ html, body { background: #FFF8E6 !important; }
 .heroLine, .secTitle, .whisper > p, .filmCaption, .pull blockquote,
 .chapBody h3, .catLine, blockquote { font-family: 'Cormorant Garamond', Georgia, serif !important; }
 
-/* ── Eyebrow labels on light sections: rust ── */
+/* ── Eyebrow labels on light sections: gold with em-dash decorators (homepage-consistent) ── */
 .secEyebrow, .catEyebrow {
-  color: #8B3F2C !important;
-  font-size: 11px !important;
-  letter-spacing: .2em !important;
+  color: #B99874 !important;
+  font-size: 12px !important;
+  letter-spacing: .26em !important;
   font-weight: 600 !important;
   opacity: 1 !important;
 }
+.secEyebrow::before, .catEyebrow::before { content: '\2014\00a0'; }
+.secEyebrow::after,  .catEyebrow::after  { content: '\00a0\2014'; }
 
 /* ── Hero eyebrow: ivory over dark image ── */
 .heroEyebrow {
@@ -33,7 +35,7 @@ html, body { background: #FFF8E6 !important; }
   font-weight: 600 !important;
 }
 
-/* ── Hero gradient: deeper shade for text legibility ── */
+/* ── Hero gradient: deep cinematic shade ── */
 .heroShade {
   background: linear-gradient(
     to top,
@@ -44,50 +46,82 @@ html, body { background: #FFF8E6 !important; }
   ) !important;
 }
 
-/* ── Hero headline: slightly more weight over image ── */
+/* ── Hero headline: more weight over image ── */
 .heroLine { font-weight: 400 !important; }
 
-/* ── Hero carousel dots: more presence ── */
+/* ── Hero carousel dots ── */
 .hDot {
-  width: 7px !important;
-  height: 7px !important;
-  background: rgba(255,248,230,0.42) !important;
-  border-radius: 50% !important;
+  width: 14px !important;
+  height: 3px !important;
+  background: rgba(207,178,143,0.32) !important;
+  border-radius: 2px !important;
 }
 .hDot.on {
-  width: 26px !important;
-  height: 7px !important;
-  background: rgba(255,248,230,0.95) !important;
-  border-radius: 4px !important;
+  width: 28px !important;
+  height: 3px !important;
+  background: #CFB28F !important;
+  border-radius: 2px !important;
 }
 
-/* ── Hero injected CTA button ── */
+/* ── Hero injected CTA — homepage secondary button style ── */
 .hero-wa-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 26px;
-  padding: 13px 26px;
-  background: rgba(255,248,230,0.12);
-  border: 1.5px solid rgba(255,248,230,0.45);
-  color: #FFF8E6 !important;
-  text-decoration: none;
-  font-family: Switzer, -apple-system, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: .055em;
-  border-radius: 3px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: background .22s, border-color .22s;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-top: 28px !important;
+  padding: 16px 32px !important;
+  background: transparent !important;
+  border: 1px solid rgba(207,178,143,0.5) !important;
+  color: #FBF3E2 !important;
+  text-decoration: none !important;
+  font-family: Switzer, -apple-system, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  border-radius: 0 !important;
+  transition: background .3s, border-color .3s !important;
 }
 .hero-wa-cta:hover {
-  background: rgba(255,248,230,0.22) !important;
-  border-color: rgba(255,248,230,0.7) !important;
+  background: rgba(207,178,143,0.12) !important;
+  border-color: rgba(207,178,143,0.8) !important;
 }
 
-/* ── Pull quote attribution: legible size ── */
-.pullWho { font-size: 13px !important; letter-spacing: .06em !important; }
+/* ── Archive cards: white with cream border (matches homepage cards) ── */
+.acard {
+  background: #fff !important;
+  border: 1px solid #EDE0CC !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+.aimg { border-radius: 0 !important; }
+.aname { color: #482D22 !important; font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 1.15rem !important; font-style: italic !important; }
+.anote { color: #6B5545 !important; font-size: 0.85rem !important; }
+.aenq  { color: #8B3F2C !important; font-size: 12px !important; font-weight: 600 !important; letter-spacing: .1em !important; text-transform: uppercase !important; }
+
+/* ── Review cards: white with cream border, no radius (matches homepage) ── */
+.rcard {
+  background: #fff !important;
+  border: 1px solid #EDE0CC !important;
+  border-radius: 0 !important;
+}
+.rwho { color: #482D22 !important; font-weight: 600 !important; }
+.stars { color: #B99874 !important; }
+
+/* ── Process step cards ── */
+.slide {
+  background: #fff !important;
+  border: 1px solid #EDE0CC !important;
+  border-radius: 0 !important;
+}
+
+/* ── Section titles and body text ── */
+.secTitle { color: #482D22 !important; }
+.whisper > p { color: rgba(72,45,34,0.88) !important; }
+.chapBody h3 { color: #482D22 !important; }
+
+/* ── Pull quote attribution ── */
+.pullWho { font-size: 13px !important; letter-spacing: .06em !important; color: rgba(255,248,230,0.65) !important; }
 
 /* ── Hide the chat mock section entirely ── */
 section.chatMock { display: none !important; }
@@ -119,7 +153,6 @@ section.faq      { padding: 56px 20px 60px !important; }
 /* ── DESKTOP LAYOUT ── */
 @media (min-width: 768px) {
 
-  /* Open the scroll container */
   .veda-wrap  { display: block !important; background: #FFF8E6 !important; min-height: 100vh; }
   .veda       { max-width: 100% !important; height: auto !important; min-height: 100vh; overflow: visible !important; box-shadow: none !important; background: #FFF8E6 !important; }
 
@@ -137,7 +170,7 @@ section.faq      { padding: 56px 20px 60px !important; }
   .heroText { padding: 0 clamp(60px,8vw,120px) !important; bottom: clamp(60px,8vh,100px) !important; max-width: 1000px !important; }
   .heroDots { padding-left: clamp(60px,8vw,120px) !important; bottom: 24px !important; }
 
-  /* Content max-width constraint for all sections */
+  /* Content max-width */
   section.whisper, section.chapters, section.film, section.pull,
   section.archive, section.stories, section.begin, section.faq, .ftr {
     max-width: 1240px !important;
@@ -147,7 +180,7 @@ section.faq      { padding: 56px 20px 60px !important; }
     padding-right: clamp(40px,6vw,100px) !important;
   }
 
-  /* Whisper: centered italic intro */
+  /* Whisper */
   section.whisper { padding-top: 100px !important; padding-bottom: 24px !important; }
   .whisper > p { font-size: 26px !important; max-width: 780px !important; margin: 0 auto !important; text-align: center !important; }
 
@@ -159,34 +192,34 @@ section.faq      { padding: 56px 20px 60px !important; }
     grid-template-columns: repeat(3, 1fr) !important;
     overflow: visible !important;
     padding: 0 !important;
-    gap: 28px !important;
+    gap: 24px !important;
     flex-direction: unset !important;
   }
   .secTitle { font-size: clamp(30px, 3.2vw, 46px) !important; }
 
   /* Film */
   section.film { padding-top: 90px !important; }
-  .filmWrap  { aspect-ratio: 16/9 !important; max-width: 100% !important; border-radius: 22px !important; }
+  .filmWrap  { aspect-ratio: 16/9 !important; max-width: 100% !important; border-radius: 0 !important; }
   .filmCaption { text-align: center !important; margin-top: 20px !important; font-size: 19px !important; }
 
-  /* Pull quote: large centred serif */
+  /* Pull quote */
   section.pull { padding-top: 110px !important; padding-bottom: 110px !important; text-align: center !important; }
   .pull blockquote { font-size: clamp(28px, 4vw, 54px) !important; max-width: 860px !important; margin: 0 auto !important; line-height: 1.28 !important; }
   .pullWho { font-size: 14px !important; margin-top: 24px !important; display: block !important; }
 
-  /* Archive: 4-col single row, hide 5th card */
+  /* Archive: 4-col single row */
   section.archive { padding-top: 90px !important; }
   .archIntro { max-width: 640px !important; margin: 0 auto 10px !important; text-align: center !important; }
-  .rail { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 22px !important; overflow: visible !important; padding: 20px 0 0 !important; margin-top: 10px !important; }
+  .rail { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; overflow: visible !important; padding: 20px 0 0 !important; margin-top: 10px !important; }
   .acard { flex: none !important; width: 100% !important; scroll-snap-align: none !important; }
   .rail .acard:nth-child(5) { display: none !important; }
 
   /* Stories: 3-col grid */
   section.stories { padding-top: 90px !important; }
-  .reviewRail { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 24px !important; overflow: visible !important; padding: 20px 0 0 !important; }
+  .reviewRail { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 20px !important; overflow: visible !important; padding: 20px 0 0 !important; }
   .rcard { flex: none !important; width: 100% !important; }
 
-  /* Begin: 2-col entry doors */
+  /* Begin: 2-col */
   section.begin { padding-top: 90px !important; }
   .doorRow { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
 
