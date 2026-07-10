@@ -291,7 +291,86 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 }
 /* oge footer responsive */
 @media (max-width:980px){.oge-ftr-grid{grid-template-columns:1fr 1fr 1fr!important}.oge-ftr-brand{grid-column:1/-1!important}.oge-ftr-news{grid-column:1/-1!important}}
-@media (max-width:680px){.oge-ftr-grid{grid-template-columns:1fr 1fr!important;gap:28px 20px!important}}</style>
+@media (max-width:680px){.oge-ftr-grid{grid-template-columns:1fr 1fr!important;gap:28px 20px!important}}
+/* ══ OGE AUDIT PASS ══ */
+
+/* Eyebrow: gold + em-dash decorators (not hero eyebrow) */
+.eyebrow:not(.hero-eyebrow) { color: #B99874; }
+.eyebrow:not(.hero-eyebrow)::before { content: '— '; }
+.eyebrow:not(.hero-eyebrow)::after { content: ' —'; }
+.hero-eyebrow { color: var(--rust); letter-spacing: .22em; }
+
+/* Hero CTA: outlined anchor */
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 28px; padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(139,63,44,.35);
+  color: var(--brown);
+  text-decoration: none;
+  font-family: Switzer,-apple-system,sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase;
+  transition: background .25s, border-color .25s;
+}
+.hero-cta:hover { background: rgba(139,63,44,.05); border-color: var(--rust); }
+.hero-cta svg { color: var(--rust); flex-shrink: 0; }
+
+/* Step number: small gold label, not giant ghost */
+.step-n {
+  font-size: 10px !important; font-weight: 700 !important;
+  color: #B99874 !important; opacity: 1 !important;
+  letter-spacing: .16em !important;
+  font-family: Switzer,-apple-system,sans-serif !important;
+  margin-bottom: 10px !important; margin-top: 4px !important;
+  line-height: 1 !important; display: block !important;
+}
+.step-t { margin-top: 0 !important; }
+
+/* Purity pill: gold selected state */
+.purity-pill { transition: border-color .2s, background .2s; }
+.purity-pill.on { border-color: #B99874 !important; background: rgba(185,152,116,.1) !important; }
+.purity-pill.on .pp-label { color: #896E50 !important; }
+
+/* Result hint: left-border callout */
+.result-hint {
+  background: transparent !important;
+  border-left: 2px solid #B99874 !important;
+  padding: 7px 12px !important;
+  text-align: left !important;
+  display: block !important;
+  font-size: 12.5px !important;
+  color: var(--dgold) !important;
+  font-weight: 400 !important;
+  border-radius: 0 !important;
+}
+
+/* Testimonial avatar: gold ring outline */
+.story-avatar {
+  background: transparent !important;
+  border: 1.5px solid #B99874 !important;
+  color: #896E50 !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+}
+/* Testimonial card: warm tinted */
+.story-card {
+  background: rgba(185,152,116,.06) !important;
+  border-color: rgba(185,152,116,.22) !important;
+}
+.story-line { font-size: 15px !important; line-height: 1.65 !important; }
+
+/* Bring panel: outlined instead of filled */
+.bring { background: transparent !important; border: 1px solid rgba(139,63,44,.14) !important; }
+
+/* After CTA: auto-width centered */
+.after > .btn-wa { max-width: 300px !important; }
+
+@media (min-width: 768px) {
+  /* Hero image: slightly taller on desktop */
+  .hero-img { aspect-ratio: 3/4 !important; }
+  /* Step body padding */
+  .step-body { padding: 18px 4px 4px !important; }
+}</style>
 </head>
 <body>
 
@@ -305,9 +384,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
     </div>
     <a href="index.html" class="hdr-logo" aria-label="VEDA Home">
       <svg viewBox="0 0 137.43 46.89" style="height:27px;width:auto;display:block">
-        <defs><style>.wm{fill:#8b402c}/* oge footer responsive */
-@media (max-width:980px){.oge-ftr-grid{grid-template-columns:1fr 1fr 1fr!important}.oge-ftr-brand{grid-column:1/-1!important}.oge-ftr-news{grid-column:1/-1!important}}
-@media (max-width:680px){.oge-ftr-grid{grid-template-columns:1fr 1fr!important;gap:28px 20px!important}}</style></defs>
+        <defs><style>.wm{fill:#8b402c}</style></defs>
         <path class="wm" d="M12.32,22.32c.8.63,2.13,2.13,3.35,4.1,4.12,6.66,8.77,4.82,9.87,2.94,2.61-4.45-7.28-10.19-13.22-7.04h0Z"/>
         <path class="wm" d="M12.56,23.19c-.21-.22-.41-.39-.64-.54-7.46,4.28-3.09,19.16-11.91,21.38,8.65,1.13,11.66-.49,12.8-4.73.7-2.58,2.65-10.82,2.54-11.94-.09-.87-2.08-3.45-2.78-4.18"/>
         <path class="wm" d="M21.1,15.47c-1.01.36-1.36,1.06-1.46,1.42-.16.61-.33,1.23-.49,1.84.38-.5.58-.65,1.01-.74.44-.08,1.02-.12,1.3-.52.14-.21.15-.38.4-.52.21-.11.48-.14.72-.11,2.03.28,2.51,3.56,2.15,5.04-.19.79-.9,1.71-.9,1.71.15.17,1.91,1.06,2.51,3.55.86-1.58,1.28-2.77,1.33-4.31.16-4.84-3.34-8.51-6.57-7.36h0Z"/>
@@ -361,6 +438,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
         <li><span class="trust-line"></span>BIS certified, tested in front of you</li>
         <li><span class="trust-line"></span>No hidden deductions</li>
       </ul>
+      <a class="hero-cta" href="https://wa.me/919187204025?text=Hi%20VEDA%2C%20I%20would%20like%20to%20know%20what%20my%20old%20gold%20is%20worth." target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.593-5.924-1.628l-.424-.252-4.398 1.154 1.173-4.285-.277-.44A9.78 9.78 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg> Value my gold</a>
     </div>
     <div class="hero-img">
       <img src="assets/images/gold-bangles.png" alt="Old gold jewellery">
