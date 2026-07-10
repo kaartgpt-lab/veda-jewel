@@ -9,14 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style id="veda-overrides">
-/* ── Global body background (overrides bundle's dark #3a2318) ── */
+/* ── Global body background ── */
 html, body { background: #FFF8E6 !important; }
 
-/* ── Serif display font for all emotional headings ── */
+/* ── Serif display font ── */
 .heroLine, .secTitle, .whisper > p, .filmCaption, .pull blockquote,
 .chapBody h3, .catLine, blockquote { font-family: 'Cormorant Garamond', Georgia, serif !important; }
 
-/* ── Eyebrow labels on light sections: gold with em-dash decorators (homepage-consistent) ── */
+/* ── Eyebrow labels: gold with em-dash decorators ── */
 .secEyebrow, .catEyebrow {
   color: #B99874 !important;
   font-size: 12px !important;
@@ -35,7 +35,7 @@ html, body { background: #FFF8E6 !important; }
   font-weight: 600 !important;
 }
 
-/* ── Hero gradient: deep cinematic shade ── */
+/* ── Hero gradient ── */
 .heroShade {
   background: linear-gradient(
     to top,
@@ -46,10 +46,10 @@ html, body { background: #FFF8E6 !important; }
   ) !important;
 }
 
-/* ── Hero headline: more weight over image ── */
+/* ── Hero headline weight ── */
 .heroLine { font-weight: 400 !important; }
 
-/* ── Hero carousel dots ── */
+/* ── Carousel dots: thin pills matching homepage ── */
 .hDot {
   width: 14px !important;
   height: 3px !important;
@@ -63,7 +63,7 @@ html, body { background: #FFF8E6 !important; }
   border-radius: 2px !important;
 }
 
-/* ── Hero injected CTA — homepage secondary button style ── */
+/* ── Hero injected CTA: homepage secondary button style ── */
 .hero-wa-cta {
   display: inline-flex !important;
   align-items: center !important;
@@ -87,7 +87,34 @@ html, body { background: #FFF8E6 !important; }
   border-color: rgba(207,178,143,0.8) !important;
 }
 
-/* ── Archive cards: white with cream border (matches homepage cards) ── */
+/* ── Sticky bar: dark brown with gold button ── */
+.sticky {
+  background: #482D22 !important;
+  border-top: none !important;
+  padding: 12px 20px 14px !important;
+  box-shadow: 0 -2px 20px rgba(72,45,34,0.18) !important;
+}
+.sbtn.wa {
+  background: linear-gradient(180deg, #E7CFA0, #CFB28F) !important;
+  color: #3A241B !important;
+  border-radius: 0 !important;
+  padding: 15px 16px !important;
+  font-family: Switzer, -apple-system, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  justify-content: center !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.sbtn.wa svg { color: #3A241B !important; fill: #3A241B !important; }
+
+/* ── Archive cards: white with cream border ── */
 .acard {
   background: #fff !important;
   border: 1px solid #EDE0CC !important;
@@ -99,7 +126,7 @@ html, body { background: #FFF8E6 !important; }
 .anote { color: #6B5545 !important; font-size: 0.85rem !important; }
 .aenq  { color: #8B3F2C !important; font-size: 12px !important; font-weight: 600 !important; letter-spacing: .1em !important; text-transform: uppercase !important; }
 
-/* ── Review cards: white with cream border, no radius (matches homepage) ── */
+/* ── Review cards: white with cream border ── */
 .rcard {
   background: #fff !important;
   border: 1px solid #EDE0CC !important;
@@ -123,10 +150,10 @@ html, body { background: #FFF8E6 !important; }
 /* ── Pull quote attribution ── */
 .pullWho { font-size: 13px !important; letter-spacing: .06em !important; color: rgba(255,248,230,0.65) !important; }
 
-/* ── Hide the chat mock section entirely ── */
+/* ── Hide chat mock ── */
 section.chatMock { display: none !important; }
 
-/* ── Mobile base improvements ── */
+/* ── Mobile base ── */
 .heroLine  { font-size: 44px !important; line-height: 1.06 !important; letter-spacing: -.025em !important; }
 .secTitle  { font-size: 28px !important; line-height: 1.18 !important; font-weight: 300 !important; }
 .whisper > p { font-size: 18px !important; line-height: 1.72 !important; font-style: italic !important; }
@@ -135,10 +162,27 @@ section.chatMock { display: none !important; }
 .heroText { text-align: left !important; padding: 0 26px !important; }
 .heroDots { justify-content: flex-start !important; padding-left: 26px !important; }
 
-/* Mobile vertical steps */
-.stepRail { display: flex !important; flex-direction: column !important; overflow-x: visible !important; scroll-snap-type: none !important; gap: 16px !important; padding: 4px 20px !important; }
-.slide     { flex: none !important; width: 100% !important; scroll-snap-align: none !important; }
-.stepDots  { display: none !important; }
+/* ── Mobile process steps: horizontal snap scroll ── */
+.stepRail {
+  display: flex !important;
+  flex-direction: row !important;
+  overflow-x: auto !important;
+  scroll-snap-type: x mandatory !important;
+  -webkit-overflow-scrolling: touch !important;
+  gap: 14px !important;
+  padding: 4px 20px 20px !important;
+  scrollbar-width: none !important;
+  flex-wrap: nowrap !important;
+}
+.stepRail::-webkit-scrollbar { display: none !important; }
+.slide {
+  flex: 0 0 82vw !important;
+  width: 82vw !important;
+  max-width: 300px !important;
+  scroll-snap-align: start !important;
+  min-width: 0 !important;
+}
+.stepDots { display: none !important; }
 
 /* Mobile spacing */
 section.whisper  { padding: 56px 24px 16px !important; }
@@ -156,21 +200,17 @@ section.faq      { padding: 56px 20px 60px !important; }
   .veda-wrap  { display: block !important; background: #FFF8E6 !important; min-height: 100vh; }
   .veda       { max-width: 100% !important; height: auto !important; min-height: 100vh; overflow: visible !important; box-shadow: none !important; background: #FFF8E6 !important; }
 
-  /* Hide hamburger on desktop */
   .hdr .icon { display: none !important; }
 
-  /* Fixed full-width header */
   .hdr { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; padding: 16px clamp(40px,6vw,100px) !important; z-index: 50 !important; background: rgba(255,248,230,.95) !important; backdrop-filter: blur(12px) !important; }
   .wordmark { height: 30px !important; }
 
-  /* Hero: cinematic */
   .hero { aspect-ratio: 21/8 !important; width: 100% !important; }
   .heroLine { font-size: clamp(56px, 6.5vw, 96px) !important; max-width: 860px !important; }
   .heroSub  { font-size: 18px !important; max-width: 500px !important; margin-top: 14px !important; }
   .heroText { padding: 0 clamp(60px,8vw,120px) !important; bottom: clamp(60px,8vh,100px) !important; max-width: 1000px !important; }
   .heroDots { padding-left: clamp(60px,8vw,120px) !important; bottom: 24px !important; }
 
-  /* Content max-width */
   section.whisper, section.chapters, section.film, section.pull,
   section.archive, section.stories, section.begin, section.faq, .ftr {
     max-width: 1240px !important;
@@ -180,11 +220,9 @@ section.faq      { padding: 56px 20px 60px !important; }
     padding-right: clamp(40px,6vw,100px) !important;
   }
 
-  /* Whisper */
   section.whisper { padding-top: 100px !important; padding-bottom: 24px !important; }
   .whisper > p { font-size: 26px !important; max-width: 780px !important; margin: 0 auto !important; text-align: center !important; }
 
-  /* Process steps: 3-col grid */
   section.chapters { padding-top: 90px !important; }
   .chapHead { text-align: center !important; max-width: 640px !important; margin: 0 auto 44px !important; padding: 0 !important; }
   .stepRail {
@@ -195,46 +233,44 @@ section.faq      { padding: 56px 20px 60px !important; }
     gap: 24px !important;
     flex-direction: unset !important;
   }
+  .slide {
+    flex: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    scroll-snap-align: none !important;
+  }
   .secTitle { font-size: clamp(30px, 3.2vw, 46px) !important; }
 
-  /* Film */
   section.film { padding-top: 90px !important; }
   .filmWrap  { aspect-ratio: 16/9 !important; max-width: 100% !important; border-radius: 0 !important; }
   .filmCaption { text-align: center !important; margin-top: 20px !important; font-size: 19px !important; }
 
-  /* Pull quote */
   section.pull { padding-top: 110px !important; padding-bottom: 110px !important; text-align: center !important; }
   .pull blockquote { font-size: clamp(28px, 4vw, 54px) !important; max-width: 860px !important; margin: 0 auto !important; line-height: 1.28 !important; }
   .pullWho { font-size: 14px !important; margin-top: 24px !important; display: block !important; }
 
-  /* Archive: 4-col single row */
   section.archive { padding-top: 90px !important; }
   .archIntro { max-width: 640px !important; margin: 0 auto 10px !important; text-align: center !important; }
   .rail { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; overflow: visible !important; padding: 20px 0 0 !important; margin-top: 10px !important; }
   .acard { flex: none !important; width: 100% !important; scroll-snap-align: none !important; }
   .rail .acard:nth-child(5) { display: none !important; }
 
-  /* Stories: 3-col grid */
   section.stories { padding-top: 90px !important; }
   .reviewRail { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 20px !important; overflow: visible !important; padding: 20px 0 0 !important; }
   .rcard { flex: none !important; width: 100% !important; }
 
-  /* Begin: 2-col */
   section.begin { padding-top: 90px !important; }
   .doorRow { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
 
-  /* FAQ: 2-col */
   section.faq { padding-top: 90px !important; padding-bottom: 100px !important; display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 0 60px !important; align-items: start !important; }
   section.faq .secHead { grid-column: 1 / -1 !important; }
   .fitem { break-inside: avoid; }
 
-  /* Footer */
   .ftr { padding-top: 60px !important; }
   .ftr-inner { display: grid !important; grid-template-columns: 2fr 1fr 1fr 1fr !important; gap: 40px !important; }
 
-  /* Sticky: full-width */
-  .sticky { left: 0 !important; right: 0 !important; width: 100% !important; max-width: 100% !important; transform: none !important; }
-  .sticky .sbtn.wa { max-width: 520px !important; margin: 0 auto !important; display: flex !important; }
+  .sticky { left: 0 !important; right: 0 !important; width: 100% !important; max-width: 100% !important; transform: none !important; padding: 14px 40px 16px !important; }
+  .sticky .sbtn.wa { max-width: 480px !important; margin: 0 auto !important; display: flex !important; }
 }
 
 @media (min-width: 1100px) {
